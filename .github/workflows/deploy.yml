@@ -59,7 +59,7 @@ jobs:
       # (bb demo:public-lab output, published as a release asset) before this
       # point; until then /lab deep-links 404 in production.
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: out
 
