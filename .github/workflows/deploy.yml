@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy site (AWS)
 
 on:
   push:
@@ -7,16 +7,20 @@ on:
 
 permissions:
   contents: read
-  pages: write
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: aws-deploy
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_SITE_BUCKET: ${{ vars.AWS_SITE_BUCKET }}
+      AWS_SITE_DISTRIBUTION_ID: ${{ vars.AWS_SITE_DISTRIBUTION_ID }}
+      AWS_SITE_DEPLOY_ROLE_ARN: ${{ vars.AWS_SITE_DEPLOY_ROLE_ARN }}
+      AWS_REGION: ${{ vars.AWS_REGION }}
     steps:
       - uses: actions/checkout@v4
 
@@ -55,20 +59,46 @@ jobs:
       - name: Build static export
         run: pnpm build
 
-      # TODO(#lab): compose out/lab/ from the prf repo's Clerk notebook build
-      # (bb demo:public-lab output, published as a release asset) before this
-      # point; until then /lab deep-links 404 in production.
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
+      - name: Check deploy configuration
+        run: |
+          missing=0
+          for v in AWS_SITE_BUCKET AWS_SITE_DISTRIBUTION_ID AWS_SITE_DEPLOY_ROLE_ARN AWS_REGION; do
+            if [ -z "${!v}" ]; then
+              echo "::error::Repository variable $v is not set."
+              missing=1
+            fi
+          done
+          exit $missing
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_SITE_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      # Content-hashed assets and timestamped run screenshots never change
+      # once uploaded: cache them forever.
+      - name: Sync immutable assets
+        run: |
+          aws s3 sync out/ "s3://$AWS_SITE_BUCKET/" \
+            --delete \
+            --cache-control "public,max-age=31536000,immutable" \
+            --exclude "*" \
+            --include "_next/static/*" \
+            --include "shots/runs/*"
+
+      # Everything else (HTML, gallery pages, JSON) should pick up new
+      # deploys quickly.
+      - name: Sync site
+        run: |
+          aws s3 sync out/ "s3://$AWS_SITE_BUCKET/" \
+            --delete \
+            --cache-control "public,max-age=300" \
+            --exclude "_next/static/*" \
+            --exclude "shots/runs/*"
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "$AWS_SITE_DISTRIBUTION_ID" \
+            --paths "/*"

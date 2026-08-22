@@ -130,23 +130,35 @@ rest of the site works.
 ## Publication flow
 
 The site exports fully statically (`output: 'export'`, trailing slashes,
-unoptimized images), so any static host works — GitHub Pages first, S3 +
-CloudFront later for heavy run archives.
+unoptimized images). It is hosted on **AWS S3 + CloudFront**, provisioned by
+Terraform in the `infra` repo (`assurance-lab-terraform/prf_site.tf`): a
+private bucket behind an Origin Access Control, served on the default
+`*.cloudfront.net` domain until a custom domain is added.
 
-For GitHub Pages:
+Workflows:
 
-- `public/.nojekyll` is exported so Pages serves `_next/` untouched.
 - `.github/workflows/ci.yml` runs on every PR: typecheck, demo-artifact
   verification (`pnpm verify:demos`), and a full static export build.
 - `.github/workflows/deploy.yml` runs on push to `main`: same checks, then
-  publishes via `actions/deploy-pages` — there is no `gh-pages` branch; the
-  deployed artifact is composed from `out/`.
-- The deploy workflow fetches the screenshot bundle from the repository
-  variable `PRF_SHOTS_URL` (a prf-repo release asset: gzipped tarball whose
-  top-level entry is `shots/`, extracted into `public/shots/` before the
-  build). Until it is set, deploys succeed without the gallery and `/shots`
-  links 404.
-- If publishing under a subpath (`<user>.github.io/<repo>/`), absolute paths
-  in the app need `basePath` handling or a user/org site / custom domain.
-- Not yet automated in CI: composing `out/lab/` (the Clerk notebook build)
-  after `pnpm build`.
+  syncs `out/` to S3 via GitHub OIDC (no long-lived keys) and invalidates
+  CloudFront. Content-hashed assets and timestamped run screenshots are
+  uploaded with immutable cache headers; HTML gets a short TTL.
+
+Required repository variables (values come from the infra Terraform outputs):
+
+| Variable | Meaning |
+|----------|---------|
+| `AWS_SITE_BUCKET` | target bucket (`terraform output site_bucket_name`) |
+| `AWS_SITE_DISTRIBUTION_ID` | distribution to invalidate |
+| `AWS_SITE_DEPLOY_ROLE_ARN` | OIDC deploy role (`site_deploy_role_arn`) |
+| `AWS_REGION` | bucket region |
+| `PRF_SHOTS_URL` | optional prf-repo release asset with the shots gallery (gzipped tarball rooted at `shots/`, extracted into `public/shots/` pre-build); while unset, deploys succeed without the gallery |
+
+The trailing-slash export is resolved by a viewer-request CloudFront Function
+(`infra/assurance-lab-terraform/functions/prf_site_index.js`) — S3 does not do
+directory-index resolution behind OAC. Manual deploys from a laptop:
+`pnpm build` in this repo, then
+`assurance-lab-terraform/scripts/publish_site.sh out`.
+
+Not yet automated in CI: composing `out/lab/` (the Clerk notebook build)
+after `pnpm build`.
