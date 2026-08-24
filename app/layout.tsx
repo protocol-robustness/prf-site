@@ -21,7 +21,9 @@ export const metadata: Metadata = {
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Demos', href: '/demos' },
-  { label: 'Screenshots', href: '/shots/index.html' },
+  // Same-origin paths: resolve on whatever domain hosts the distribution.
+  { label: 'Notebooks', href: '/lab/notebooks/index' },
+  { label: 'Clean room', href: '/cleanroom/notebooks/not_admitted' },
 ]
 
 export default function RootLayout({
