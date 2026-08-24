@@ -25,12 +25,12 @@ export default function TechnicalProofCTA({ demo }: { demo: PublicDemo }) {
   return (
     <section className={styles.section} aria-label="Inspect the executable notebook">
       <div className={styles.copy}>
-        <div className={styles.heading}>Backed, not improvised</div>
+        <div className={styles.heading}>Don’t trust the visualization. Inspect the evidence.</div>
         <p>
-          The verdicts on this page are not hardcoded. They are produced by an
-          executable PRF scenario: the same verifier and engine run on the
-          evidence, and a deterministic assertion fails the build if the
-          demonstration ever stops telling the truth.
+          The results on this page are not hardcoded. They are projected from an
+          executable PRF result, with the canonical inputs, evidence and
+          reproducibility command preserved for inspection. A deterministic
+          assertion fails the build if the demonstration stops matching that result.
         </p>
         <ul className={styles.points}>
           <li>Original result preserved</li>

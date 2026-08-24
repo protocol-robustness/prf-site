@@ -30,7 +30,7 @@ export default function EvidencePanel({ demo }: { demo: PublicDemo }) {
       </div>
 
       <div className={styles.block}>
-        <div className={styles.blockLabel}>Checks run against the changed record</div>
+        <div className={styles.blockLabel}>Verifier checks supplied by the artifact</div>
         <table className={styles.table}>
           <thead>
             <tr>

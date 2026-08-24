@@ -1,18 +1,17 @@
 import type { Metadata } from 'next'
 import DemoShell from '@/components/demo/DemoShell'
-import { PoolCard, AllocationTable, ConservationCard } from '@/components/demo/AllocationCards'
+import { DistributionCard, PolicyCard, RequestsCard, VerificationCard, VerificationSummary } from '@/components/demo/AllocationCards'
 import EvidencePanel from '@/components/demo/EvidencePanel'
 import TechnicalProofCTA from '@/components/demo/TechnicalProofCTA'
-import { WhyCard } from '@/components/demo/StateCards'
 import { assertPublicDemo } from '@/lib/validate-public-demo'
 import type { LiquidityShortfallDemo } from '@/lib/public-demo'
 import raw from '@/generated/demos/liquidity-shortfall.json'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
-  title: 'Liquidity Shortfall',
+  title: 'Provably Fair Pro-Rata',
   description:
-    'What happens when $100 of legitimate requests compete for $70 of liquidity? The real allocation engine makes the treatment visible.',
+    'See how PRF independently reconstructs and verifies a pro-rata allocation when $100 of valid requests compete for $70 of available liquidity.',
 }
 
 // Fail closed at build time: this throws if the generated artifact is missing
@@ -23,37 +22,18 @@ const demo = raw as LiquidityShortfallDemo
 export default function LiquidityShortfallPage() {
   return (
     <div className={styles.page}>
-      <span className={styles.kicker}>Demo</span>
-      <h1 className={styles.title}>Liquidity Shortfall</h1>
-      <p className={styles.question}>{demo.demo.question}</p>
+      <span className={styles.kicker}>Flagship demonstration</span>
+      <h1 className={styles.title}>Provably Fair Pro-Rata</h1>
+      <p className={styles.question}>$100 requested. $70 available. Who gets what — and can anyone independently prove the allocation was correct?</p>
 
+      <VerificationSummary demo={demo} />
       <DemoShell
         steps={[
-          {
-            id: 'scenario',
-            label: 'Pool',
-            node: <PoolCard demo={demo} />,
-          },
-          {
-            id: 'baseline',
-            label: 'Allocation',
-            node: <AllocationTable demo={demo} />,
-          },
-          {
-            id: 'outcome',
-            label: 'Conservation',
-            node: <ConservationCard demo={demo} />,
-          },
-          {
-            id: 'why',
-            label: 'Why',
-            node: <WhyCard demo={demo} />,
-          },
-          {
-            id: 'evidence',
-            label: 'Evidence',
-            node: <EvidencePanel demo={demo} />,
-          },
+          { id: 'requests', label: 'Requests', node: <RequestsCard demo={demo} /> },
+          { id: 'policy', label: 'Policy', node: <PolicyCard demo={demo} /> },
+          { id: 'distribution', label: 'Distribution', node: <DistributionCard demo={demo} /> },
+          { id: 'verification', label: 'Verification', node: <VerificationCard demo={demo} /> },
+          { id: 'evidence', label: 'Evidence', node: <EvidencePanel demo={demo} /> },
         ]}
       />
 

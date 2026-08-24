@@ -1,88 +1,92 @@
 import type { LiquidityShortfallDemo } from '../../lib/public-demo'
 import styles from './allocation.module.css'
 
-export function PoolCard({ demo }: { demo: LiquidityShortfallDemo }) {
-  const pool = demo.scenario.pool
-  return (
-    <section className={styles.card} aria-label="Pool">
-      <div className={styles.cardLabel}>Pool</div>
-      <div className={styles.poolRow}>
-        <div>
-          <div className={styles.poolTitle}>
-            Available liquidity: {pool.available.toLocaleString('en-US')}{' '}
-            {pool.unit}
-          </div>
-          <div className={styles.poolMeta}>
-            Requests: {pool.requested.toLocaleString('en-US')} {pool.unit}
-          </div>
-        </div>
-        <span className={styles.shortfallBadge}>
-          Shortfall {pool.requested - pool.available}
-        </span>
-      </div>
-    </section>
-  )
+function displayName(id: string) {
+  return id === 'cara' ? 'Carol' : id.charAt(0).toUpperCase() + id.slice(1)
 }
 
-export function AllocationTable({ demo }: { demo: LiquidityShortfallDemo }) {
+export function RequestsCard({ demo }: { demo: LiquidityShortfallDemo }) {
+  const { pool, requests } = demo.scenario
+  const shortfall = pool.requested - pool.available
+
   return (
-    <section className={styles.card} aria-label="Allocation">
-      <div className={styles.cardLabel}>Allocation — pro-rata by request size</div>
+    <section className={styles.card} aria-label="Requests">
+      <div className={styles.cardLabel}>Exact inputs</div>
       <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>Request</th>
-            <th>Requested</th>
-            <th>Allocated</th>
-            <th>Shortfall</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Request</th><th>Amount</th></tr></thead>
         <tbody>
-          {demo.scenario.requests.map((r) => (
-            <tr key={r.id}>
-              <td className={styles.requestId}>{r.id}</td>
-              <td>{r.requested.toLocaleString('en-US')}</td>
-              <td className={styles.allocated}>{r.allocated.toLocaleString('en-US')}</td>
-              <td className={styles.shortfall}>{r.shortfall.toLocaleString('en-US')}</td>
-            </tr>
-          ))}
+          {requests.map((request) => <tr key={request.id}><td className={styles.requestId}>{displayName(request.id)}</td><td>{request.requested.toLocaleString('en-US')} {pool.unit}</td></tr>)}
         </tbody>
       </table>
-      <div className={styles.totals}>
-        <span>
-          Allocated: <strong>{demo.allocation['total-allocated']}</strong>
-        </span>
-        <span>
-          Unallocated residual:{' '}
-          <strong>{demo.allocation['unallocated-residual']}</strong>
-        </span>
+      <div className={styles.facts}>
+        <span>Total requested <strong>{pool.requested.toLocaleString('en-US')} {pool.unit}</strong></span>
+        <span>Available <strong>{pool.available.toLocaleString('en-US')} {pool.unit}</strong></span>
       </div>
+      <p className={styles.note}>Valid requests exceed available liquidity by <strong>{shortfall.toLocaleString('en-US')} {pool.unit}</strong>.</p>
     </section>
   )
 }
 
-export function ConservationCard({ demo }: { demo: LiquidityShortfallDemo }) {
-  const c = demo.conservation
+export function PolicyCard({ demo }: { demo: LiquidityShortfallDemo }) {
+  const { available, requested, unit } = demo.scenario.pool
+  const factor = (available / requested) * 100
+
   return (
-    <section className={styles.card} aria-label="Conservation">
-      <div className={styles.cardLabel}>Conservation</div>
-      <div className={styles.conservationRow}>
-        <span>
-          requested <strong>{c.requested}</strong> = allocated{' '}
-          <strong>{c.allocated}</strong> + shortfall <strong>{c.shortfall}</strong>
-        </span>
-        <span
-          className={c.holds ? styles.holdsChip : styles.violatedChip}
-          role="status"
-        >
-          <span aria-hidden="true">{c.holds ? '✓' : '✕'}</span>{' '}
-          {c.holds ? 'HOLDS' : 'VIOLATED'}
-        </span>
+    <section className={styles.card} aria-label="Allocation policy">
+      <div className={styles.cardLabel}>Governing rule</div>
+      <h2 className={styles.policyTitle}>Pro-rata allocation</h2>
+      <p className={styles.note}>Every valid request receives the same proportion of its requested amount.</p>
+      <div className={styles.formula}>
+        <span>available / requested</span><strong>{available} / {requested} = {factor}%</strong>
       </div>
-      <p className={styles.note}>
-        No liquidity disappears and no request is silently rewritten. What could
-        not be filled stays visible as shortfall.
-      </p>
+      <p className={styles.note}>The {factor}% factor is the rule used to derive each expected share.</p>
+      <span className={styles.unit}>{unit}</span>
+    </section>
+  )
+}
+
+export function DistributionCard({ demo }: { demo: LiquidityShortfallDemo }) {
+  const { pool, requests } = demo.scenario
+  return (
+    <section className={styles.card} aria-label="Realized distribution">
+      <div className={styles.cardLabel}>Realized distribution</div>
+      <table className={styles.table}>
+        <thead><tr><th>Claimant</th><th>Requested</th><th>Received</th></tr></thead>
+        <tbody>
+          {requests.map((request) => <tr key={request.id}><td className={styles.requestId}>{displayName(request.id)}</td><td>{request.requested.toLocaleString('en-US')}</td><td className={styles.allocated}>{request.allocated.toLocaleString('en-US')}</td></tr>)}
+        </tbody>
+      </table>
+      <div className={styles.distributionTotal}>Total distributed <strong>{demo.allocation['total-allocated'].toLocaleString('en-US')} {pool.unit}</strong></div>
+    </section>
+  )
+}
+
+export function VerificationSummary({ demo }: { demo: LiquidityShortfallDemo }) {
+  const { conservation, commitments, scenario } = demo
+  return (
+    <section className={styles.summary} aria-label="Verification summary">
+      <div><strong>Evidence checks {conservation.holds && commitments['pool-fully-allocated'] ? 'passed' : 'did not pass'} {conservation.holds && commitments['pool-fully-allocated'] ? '✓' : '✕'}</strong><span>Artifact-derived verification summary</span></div>
+      <ul>
+        <li>Requested {conservation.requested} = distributed {conservation.allocated} + shortfall {conservation.shortfall}</li>
+        <li>Distributed {conservation.allocated} = available {scenario.pool.available}</li>
+        <li>Realized claimant allocations are bound in the artifact</li>
+      </ul>
+    </section>
+  )
+}
+
+export function VerificationCard({ demo }: { demo: LiquidityShortfallDemo }) {
+  const { conservation, scenario, evidence } = demo
+  return (
+    <section className={styles.card} aria-label="Verification">
+      <div className={styles.cardLabel}>Independent reconstruction</div>
+      <div className={styles.flow}>requests + available liquidity + allocation policy <b>↓</b> expected distribution <b>↓</b> compare with realized distribution <b>↓</b> evidence checks</div>
+      <div className={styles.equations}>
+        <code>requested {conservation.requested} = allocated {conservation.allocated} + shortfall {conservation.shortfall}</code>
+        <code>allocated {conservation.allocated} = available {scenario.pool.available}</code>
+      </div>
+      <p className={styles.note}>Conservation establishes that aggregate value closes exactly. The committed artifact also records each realized claimant allocation. This public artifact exposes aggregate conservation and pool-exhaustion checks; it does not expose a separate per-claimant policy-reconstruction verdict.</p>
+      <p className={styles.note}>Verifier checks supplied by the artifact: {evidence.checks.map((check) => check.id).join(', ')}.</p>
     </section>
   )
 }

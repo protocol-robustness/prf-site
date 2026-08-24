@@ -10,6 +10,10 @@ export type StepId =
   | 'change'
   | 'outcome'
   | 'why'
+  | 'requests'
+  | 'policy'
+  | 'distribution'
+  | 'verification'
   | 'evidence'
 
 export interface Step {
