@@ -1,0 +1,106 @@
+{
+  "schema": "prf-demo-manifest.v1",
+  "manifest_version": 1,
+  "demo": {
+    "id": "can-you-challenge-a-research-finding",
+    "title": "Can You Challenge a Research Finding?",
+    "page": "/demos/can-you-challenge-a-research-finding"
+  },
+  "source_repository": "prf-main",
+  "subject_revision": {
+    "git_revision": null,
+    "revision_status": "local working copy; source revision not pinned",
+    "comparison_root": "sha256:8222e508ae052fdf8917335a6249d3b722f30096d65df6dcbed6600c34452fff",
+    "candidate_root": "sha256:6fe791765a30e0b99c8fef59fc59afdc96dd99ca2becf26040b36f6d0bdb6d32"
+  },
+  "subject": {
+    "question": "Can a bounded, reproducible shortfall case challenge a policy-equivalence claim?",
+    "scope": "Path A is a valid same-input policy comparison using a test-only identifier variant of the calibration economics; a 12-unit per-row difference is recomputed, while novelty is not established. Path B is the target lifecycle and has no retained qualifying fixture."
+  },
+  "inputs": [
+    {
+      "path": "evidence/research/shortfall-challenge/test-id-variant-unallocated.v1.edn",
+      "role": "ID-only variant of published calibration request",
+      "sha256": "0bed3531caf2612646c946c989de31470ef2f2119925aad0db755dacfc9ad37e",
+      "source_path": "examples/researcher-challenges/shortfall-stress/unallocated.edn",
+      "source_sha256": "d97ce26cbcca3b261d3f270adf5609ba871c6814118cee34e4e84ca4637c8be1"
+    },
+    {
+      "path": "evidence/research/shortfall-challenge/test-id-variant-redistribute.v1.edn",
+      "role": "ID-only variant of published calibration request",
+      "sha256": "c2269abb44d69b5b606c6c9e545128489ae70c30a57688906b3fe00887654de5",
+      "source_path": "examples/researcher-challenges/shortfall-stress/redistribute.edn",
+      "source_sha256": "d54836a2b33a6d4ffcdda780c1bfbb954f6daf5df464c3562df2a201a6c295fd"
+    }
+  ],
+  "retained_evidence": [
+    {
+      "path": "evidence/research/shortfall-challenge/policy-counterexample.v1.json",
+      "role": "local comparison and candidate validation outcome",
+      "sha256": "70eb2f84398f1d793d3470bd4e1a200c9c219a5089cd78373998dff8b6d2c669"
+    },
+    {
+      "path": "evidence/research/shortfall-challenge/challenge-001-scope-candidate.v1.edn",
+      "role": "unactivated challenge scope candidate",
+      "sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08",
+      "source_path": "examples/researcher-challenges/shortfall-stress/challenge-001-scope-candidate.v1.edn",
+      "source_sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08"
+    },
+    {
+      "path": "evidence/research/shortfall-challenge/replay-instructions.md",
+      "role": "exact local replay command and qualification boundary",
+      "sha256": "eed31c8e632653423a9d828b9fa301e8e0673221c4c9e70dd66030d134386f3e"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "src/resolver_sim/research/shortfall_pilot.clj",
+      "role": "shortfall comparison and candidate scope validation",
+      "sha256": "8d85bd0db134c833eacec257c63f3db4e03cbba583b7b80f796bc47dccce6103"
+    },
+    {
+      "path": "src/resolver_sim/pro_rata/allocation.clj",
+      "role": "authoritative allocator",
+      "sha256": "6f2911218ee3829c62276a80f8ccbc9b290872c3fca8ec1884f7ba77dedfddac"
+    }
+  ],
+  "verification": [
+    {
+      "working_directory": "PRF repository root",
+      "command": "clojure -M:test -e \"(require clojure.test resolver-sim.research.shortfall-pilot-test); run real-arithmetic-and-closed-inputs test\"",
+      "purpose": "Check exact arithmetic, request/result roots and invariant checks."
+    },
+    {
+      "working_directory": "PRF repository root",
+      "command": "See evidence/research/shortfall-challenge/replay-instructions.md; run the focused Clojure test command from the PRF repository root.",
+      "purpose": "Freshly recompute both allocator results and exercise the candidate gate, preserving its current policy-root mismatch as a failing qualification result."
+    }
+  ],
+  "expected_outputs": {
+    "allocated_under_unallocated": [
+      10,
+      33,
+      33
+    ],
+    "allocated_under_redistribute_cap_excess": [
+      10,
+      45,
+      45
+    ],
+    "maximum_absolute_row_difference": 12,
+    "result_hashes_valid": true,
+    "invariant_violations": [],
+    "candidate_gate": "blocked: challenge-001-policy-root-mismatch",
+    "reviewer_acceptance": "none",
+    "reward_eligibility": "none",
+    "payment": "none"
+  },
+  "limitations": [
+    "The finite result challenges the proposition for this input only; it is not a general proof or a finding about a live protocol.",
+    "The comparison requests share available capital, rows, requests, caps, rounding and tie-break settings; only redistribution policy differs.",
+    "The candidate pins different policy roots from those recomputed by the current allocator, and its source revision is not pinned, so candidate validation does not pass.",
+    "Both computed allocator results pass their invariant checks.",
+    "Challenge 001 is not frozen, published or open; no reviewer acceptance or reward is represented.",
+    "The test inputs retain the calibration economics and change only the allocation identifier; identifier changes alone do not establish novelty or qualify for reward."
+  ]
+}

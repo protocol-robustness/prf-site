@@ -1,0 +1,104 @@
+{
+  "schema": "prf-demo-manifest.v1",
+  "manifest_version": 1,
+  "demo": {
+    "id": "partial-fill-accounting",
+    "page": "/demos/partial-fill-accounting",
+    "title": "From Partial Fill to Accounting: Where Do the 30 Units Go?"
+  },
+  "source_repository": "prf-main",
+  "subject_revision": {
+    "git_revision": null,
+    "revision_status": "Derived from the retained Partial Fill evidence bundle; source artifact hashes are recorded."
+  },
+  "subject": {
+    "question": "How are requested, allocated, unmet, funded, paid and remaining amounts distinguished in the controlled partial fill?",
+    "scope": "Derived from the retained Partial Fill local Foundry EVM qualification; no public-chain execution."
+  },
+  "inputs": [
+    {
+      "path": "evidence/partial-fill/qualification.json",
+      "role": "qualified local execution result",
+      "sha256": "03845e830dabac025d484686f5e1624a458a2ea854e135cea6a84cd13b2f4f62"
+    },
+    {
+      "path": "evidence/partial-fill/source.json",
+      "role": "committed requests and unmet-request policy",
+      "sha256": "e50795d89c190a62985c3a93529106fe009cb226bfb2e05d34eadfe81645dd51"
+    },
+    {
+      "path": "evidence/partial-fill/token-transfers.json",
+      "role": "observed local funding and beneficiary transfer events",
+      "sha256": "a4738b3a9d8d4ad7f2ea624aa4453033a5a44ebca2e042fb6b26f4d731b91dcb"
+    },
+    {
+      "path": "evidence/partial-fill/manifest.json",
+      "role": "versioned Partial Fill evidence index",
+      "sha256": "4c8d0e777b58bfeb1a284aec8ef386e95a8ce20d72743ee2d335676aaeab2b14"
+    }
+  ],
+  "expected_outputs": {
+    "request_outcome": "100 = 70 allocated + 30 unmet request",
+    "funded_liability": "70 activated = 70 paid + 0 remaining",
+    "custody": "80 deposited = 10 protected + 70 paid + 0 allocator",
+    "intermediate_state_count": 7,
+    "protected_capital_policy_root": "0xf00f30bf804737a8810322c3fb4f9c079537566877bb6a07d51f3b7ad73fcbf7",
+    "protected_capital_owner": "Carol attribution is declared by fixture policy only; beneficial rights are not independently proven or enforced by V2.",
+    "protected_capital_release": "not executed; final reserve settlement not observed; frozen V2 has no terminal release entry point",
+    "accounting_journal": {
+      "status": "derived scoped event projection; not complete economic accounting or double-entry",
+      "path": "/evidence/partial-fill/accounting-journal.json",
+      "record_count": 7,
+      "projection_sha256": "0640e2e2e1d85c19275c3b2a641c94fca87b640cf89a16ec04dadebcfe4649e6",
+      "primary_evidence": "/evidence/partial-fill/accounting-states.json"
+    },
+    "unresolved_restricted_custody": {
+      "amount": 10,
+      "location": "reserve custody",
+      "proposed_beneficiary": "Carol",
+      "attribution": "fixture-declared only",
+      "beneficial_rights_independently_proven": false,
+      "contract_enforced": false,
+      "release_observed": false
+    }
+  },
+  "limitations": [
+    "Initiator-specified source; local test token and local Foundry EVM observations, not public-chain receipts or cryptographic state proofs.",
+    "Unmet request only; no deferred entitlement, funded liability, recognized loss, cancellation right or future obligation is created by this fixture.",
+    "The fixture does not establish external liability completeness, fairness, solvency, or a recognized 30-unit loss.",
+    "The 10-unit protected floor’s beneficial owner, economic purpose and release/refund authority are not qualified.",
+    "Intermediate snapshots are local EVM call-boundary observations, not separate mined transactions or public-chain states."
+  ],
+  "retained_evidence": [
+    {
+      "path": "evidence/partial-fill/accounting-reconciliation.json",
+      "role": "derived accounting reconciliation and qualification boundary",
+      "sha256": "684b610df112402a8db1f8c83e48d088df89c492a4369db9e76454fdf758761c"
+    },
+    {
+      "path": "evidence/partial-fill/accounting-states.json",
+      "role": "actual local EVM accounting snapshots at protocol call boundaries",
+      "sha256": "ada5b81e28b98e1ba59365e340b14e3ac5d649fa5f0c56594a200828d2128fd1"
+    },
+    {
+      "path": "evidence/partial-fill/protected-capital-policy.json",
+      "role": "declared restricted sponsor-capital policy; not contract-enforced",
+      "sha256": "b740431cdd04b14b6e6177306fae834953bfba0a3d701f695a1cdab6ee93975a"
+    },
+    {
+      "path": "evidence/partial-fill/funding-attribution.json",
+      "role": "observed local sponsor mint and reserve deposit events",
+      "sha256": "067a21533135689dd09c8051111a10bdfbe6b71444e1f42368301b2dbb0660d7"
+    },
+    {
+      "path": "evidence/partial-fill/accounting-journal.json",
+      "role": "derived seven-observation event projection; unresolved custody disclosed",
+      "sha256": "a87428b39f4ff73858a28cfcc98d2566f434832717eb1aa3401505327d5724e3"
+    },
+    {
+      "path": "evidence/partial-fill/protected-capital-release.md",
+      "role": "bounded V3 terminal settlement proposal; not implemented",
+      "sha256": "b1708d7750fed77dff2eb070c644e4f1ba43efdb76b62517a2032eb32c935d72"
+    }
+  ]
+}

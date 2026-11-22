@@ -10,6 +10,14 @@ export interface PublicDemoEvidence {
   'request-hash'?: string
   lines: [string, string][]
   checks: PublicDemoCheck[]
+  'claimant-verdicts'?: {
+    claimant: string
+    'expected-allocated': number
+    'observed-allocated': number
+    'request-hash': string
+    'allocation-hash': string
+    verdict: 'pass' | 'fail'
+  }[]
 }
 
 export interface PublicDemoSource {

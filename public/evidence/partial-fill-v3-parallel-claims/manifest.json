@@ -1,0 +1,26 @@
+{
+  "schema": "prf-evm.partial-fill-v3-parallel-claims-manifest.v1",
+  "sourceRevision": "1070b0c0fbb790579be9958d56385c896a0131f3",
+  "sourceTest": {
+    "path": "test/PartialFillV3Controlled.t.sol",
+    "sha256": "e722d7e00cf60c413e2662788232fa3a76ec382d465cde4391678b952643ae7c"
+  },
+  "files": [
+    {
+      "path": "qualification.log",
+      "sha256": "cecd797deaa847ad2dcd341d148b4f34b51d52cc59d158da9aab4fe60f600b37"
+    },
+    {
+      "path": "qualification-result.json",
+      "sha256": "feab95ee84b2ace1622183f188e2cb6fd30ea2be247a3bc303c3b769de5dfdeb"
+    },
+    {
+      "path": "accounting-journal.json",
+      "sha256": "91878965b311f7da92573049907ab7be996d8ceb47a41780326cc73ac30c02e6"
+    },
+    {
+      "path": "full-stage2-qualification.log",
+      "sha256": "9423df7aa57d8a0a07e54dbf16c37c62ca69e61c76d07d6b2646b27f2d357d71"
+    }
+  ]
+}

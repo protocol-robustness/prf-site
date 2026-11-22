@@ -64,15 +64,16 @@ export function OutcomeCard({ demo }: { demo: NarrativeDemo }) {
   )
 }
 
-export function WhyCard({ demo }: { demo: Pick<PublicDemo, 'why'> }) {
+export function WhyCard({ demo }: { demo: PublicDemo }) {
+  const explanation = demo.demo.id === 'reordered-evidence'
+    ? 'Record order is part of the commitment. Each record is bound to its position, so after the swap the position-bound hashes no longer match.'
+    : 'The recorded state has advanced, so the check against the earlier committed state no longer passes.'
   return (
     <section className={styles.card} aria-label="Why">
       <div className={styles.cardLabel}>Why</div>
-      <p className={styles.why}>{demo.why}</p>
+      <p className={styles.why}>{demo.why.replace('signatures they were committed with', 'position-bound hashes')}</p>
       <p className={styles.cardNote}>
-        PRF does not rewrite the result as invalid from the start. It runs the
-        same check on what is now recorded — and that check fails, because the
-        record no longer matches its committed signature.
+        {explanation}
       </p>
     </section>
   )

@@ -121,6 +121,27 @@ function assertLiquidityShortfall(x: Record<string, unknown>): void {
   if (cAlloc !== totalAllocated) fail('conservation.allocated != total-allocated')
   if (cReq !== cAlloc + cShort) fail('conservation: requested != allocated + shortfall')
   bool(conservation.holds, 'conservation.holds')
+  const evidence = obj(x.evidence, 'evidence')
+  if (!Array.isArray(evidence['claimant-verdicts'])) fail('evidence.claimant-verdicts')
+  const verdicts = evidence['claimant-verdicts'] as unknown[]
+  if (verdicts.length !== scenario.requests.length) fail('evidence.claimant-verdicts length')
+  const byId = new Map((scenario.requests as Record<string, unknown>[]).map((r) => [r.id, r]))
+  const seen = new Set<string>()
+  for (const [i, raw] of verdicts.entries()) {
+    const v = obj(raw, `evidence.claimant-verdicts[${i}]`)
+    const id = str(v.claimant, `evidence.claimant-verdicts[${i}].claimant`)
+    const row = byId.get(id)
+    if (!row || seen.has(id)) fail(`evidence.claimant-verdicts[${i}].claimant`)
+    seen.add(id)
+    const expected = num(v['expected-allocated'], `evidence.claimant-verdicts[${i}].expected-allocated`)
+    const observed = num(v['observed-allocated'], `evidence.claimant-verdicts[${i}].observed-allocated`)
+    const requestHash = str(v['request-hash'], `evidence.claimant-verdicts[${i}].request-hash`)
+    const allocationHash = str(v['allocation-hash'], `evidence.claimant-verdicts[${i}].allocation-hash`)
+    if (requestHash !== evidence['request-hash']) fail(`evidence.claimant-verdicts[${i}].request-hash binding`)
+    if (allocationHash !== evidence['committed-hash']) fail(`evidence.claimant-verdicts[${i}].allocation-hash binding`)
+    if (expected !== row.allocated || observed !== row.allocated) fail(`evidence.claimant-verdicts[${i}] values must match published row`)
+    if (v.verdict !== 'pass' || expected !== observed) fail(`evidence.claimant-verdicts[${i}].verdict`)
+  }
 }
 
 function assertReorderedEvidence(x: Record<string, unknown>): void {

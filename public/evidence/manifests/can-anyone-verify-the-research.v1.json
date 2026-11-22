@@ -1,0 +1,97 @@
+{
+  "demo": {
+    "id": "can-anyone-verify-the-research",
+    "page": "/demos/can-anyone-verify-the-research",
+    "title": "Can Anyone Verify the Research?"
+  },
+  "expected_outputs": {
+    "challenge_001_status": "technical candidate only; not activated",
+    "comparison_status": "reproduced",
+    "execution_roots_differ": true,
+    "formula_values": [
+      10,
+      13,
+      14,
+      25
+    ],
+    "implementation_artifact_roots_differ": true,
+    "incentive_obligation": "none",
+    "interaction_value": 8,
+    "reviewer_acceptance_record": "none"
+  },
+  "inputs": [
+    {
+      "path": "evidence/research/interaction-reproduction.edn",
+      "role": "retained-local-reproduction-fixture",
+      "sha256": "7313d253931b40c0991eb74452f579d172eaf99820bbc39bef9f927ac542381c",
+      "source_path": "/home/user/Code/.workspaces/agent-c-3/resources/research/interaction-reproduction.edn",
+      "source_sha256": "7313d253931b40c0991eb74452f579d172eaf99820bbc39bef9f927ac542381c"
+    },
+    {
+      "path": "evidence/research/challenge-001-scope-candidate.v1.edn",
+      "role": "unactivated-challenge-scope-candidate",
+      "sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08",
+      "source_path": "/home/user/Code/.workspaces/agent-c-3/examples/researcher-challenges/shortfall-stress/challenge-001-scope-candidate.v1.edn",
+      "source_sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08"
+    }
+  ],
+  "limitations": [
+    "The reproduction is artifact-level independence of one reducer, not independent regeneration of upstream observations or a complete research pipeline.",
+    "No serialized run receipt is retained; the executable qualification test and rooted fixture define the reproduction check.",
+    "Challenge 001 is not frozen, published, or open for submissions.",
+    "No public multi-host research operation, accepted contribution, reward obligation, or payment is established."
+  ],
+  "manifest_version": 1,
+  "retained_evidence": [
+    {
+      "path": "evidence/research/real-engine-reproduction.md",
+      "role": "reproduction-scope-and-limitations",
+      "sha256": "c3b68a781950f024c66584d83be25b1938433cff3b4894971a0683c9852ea769",
+      "source_path": "/home/user/Code/.workspaces/agent-c-3/docs/research/REAL_ENGINE_REPRODUCTION.md",
+      "source_sha256": "c3b68a781950f024c66584d83be25b1938433cff3b4894971a0683c9852ea769"
+    },
+    {
+      "path": "evidence/research/researcher-network-pilot-v0.md",
+      "role": "pilot-readiness-and-activation-gates",
+      "sha256": "43076b6a3118e2500973d38e14c2b0f0a39478cbe2db5790470a17e682e9f4af",
+      "source_path": "/home/user/Code/.workspaces/agent-c-3/docs/research/RESEARCHER_NETWORK_PILOT_V0.md",
+      "source_sha256": "43076b6a3118e2500973d38e14c2b0f0a39478cbe2db5790470a17e682e9f4af"
+    }
+  ],
+  "schema": "prf-demo-manifest.v1",
+  "source_files": [
+    {
+      "path": "src/resolver_sim/research/interaction_reproduction.clj",
+      "role": "source-file-identity",
+      "sha256": "6c5c89f74b304e69127091f2f54fcd3bf5c35b4dca63f532fd7ba0399ad97b65"
+    },
+    {
+      "path": "src/resolver_sim/research/interaction_contrast.clj",
+      "role": "source-file-identity",
+      "sha256": "a902e9cfc90422c3cd11c228919f994ed7989a69c1f9c2105eba9f9b72c0e888"
+    },
+    {
+      "path": "test/resolver_sim/research/independent_interaction_reproduction_test.clj",
+      "role": "source-file-identity",
+      "sha256": "ef27bebfd78156b2a8cdbea8c8db3c9e7713ad630bcd4b83c96db1f509f3fbbb"
+    }
+  ],
+  "source_repository": "prf-main",
+  "subject": {
+    "question": "Can a rooted research computation be reproduced by a distinct implementation, and what authority is still needed before a challenge is accepted?",
+    "scope": "Local artifact-level reproduction qualification plus a proposed, inactive shortfall challenge workflow."
+  },
+  "subject_revision": {
+    "challenge_candidate_root": "sha256:6fe791765a30e0b99c8fef59fc59afdc96dd99ca2becf26040b36f6d0bdb6d32",
+    "git_revision": null,
+    "reproduction_input_root": "sha256:45da11b7c90daaf34ae5b41c225840b610a0c5e542d9887fc9b187de68e19b1f",
+    "revision_status": "no repository revision captured; fixture and source-file hashes identify the available evidence"
+  },
+  "verification": [
+    {
+      "command": "clojure -M:test -e \"(require 'clojure.test 'resolver-sim.research.independent-interaction-reproduction-test) (clojure.test/test-vars [#'resolver-sim.research.independent-interaction-reproduction-test/separately-written-engine-reproduces-with-distinct-execution-identity])\"",
+      "purpose": "Exercise the separately written reducer, compare its result, and assert distinct implementation/execution identities.",
+      "working_directory": "PRF repository root"
+    }
+  ]
+}

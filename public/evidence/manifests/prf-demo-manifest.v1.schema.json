@@ -1,0 +1,177 @@
+{
+  "$defs": {
+    "artifact": {
+      "additionalProperties": true,
+      "description": "source_path, when present, is relative to the manifest source_repository.",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "source_identity_status": {
+          "type": "string"
+        },
+        "source_path": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "role"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "prf-demo-manifest.v1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "demo": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "page": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "page"
+      ],
+      "type": "object"
+    },
+    "expected_outputs": {},
+    "inputs": {
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "retained_evidence": {
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "prf-demo-manifest.v1"
+    },
+    "source_files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_repository": {
+      "enum": [
+        "prf-main",
+        "prf-evm"
+      ]
+    },
+    "subject": {
+      "additionalProperties": true,
+      "properties": {
+        "question": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "question",
+        "scope"
+      ],
+      "type": "object"
+    },
+    "subject_revision": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "verification": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "exact_retained_run_reproduction": {
+            "type": "boolean"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "working_directory": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "working_directory",
+          "command",
+          "purpose"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "manifest_version",
+    "demo",
+    "subject_revision",
+    "subject",
+    "inputs",
+    "retained_evidence",
+    "verification",
+    "expected_outputs",
+    "limitations",
+    "source_repository"
+  ],
+  "title": "PRF Public Demo Manifest v1",
+  "type": "object"
+}

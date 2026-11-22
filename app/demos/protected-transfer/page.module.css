@@ -1,0 +1,19 @@
+.page { max-width: 1160px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+.back { display: inline-block; margin-bottom: 2rem; color: var(--fg-muted); }
+.hero { max-width: 900px; }
+.kicker { color: var(--primary); font-size: .74rem; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.hero h1 { margin: .8rem 0 1rem; font-size: clamp(2.4rem, 6vw, 4.3rem); line-height: 1.04; letter-spacing: -.04em; }
+.lede { max-width: 800px; color: var(--fg); font-size: clamp(1.2rem, 3vw, 1.55rem); line-height: 1.5; }
+.hero > p:not(.lede) { color: var(--fg-secondary); line-height: 1.65; }
+.notice { padding: 1rem 1.2rem; border-left: 3px solid var(--changed); background: var(--changed-dim); font-size: .92rem; }
+.links { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; margin: 1.2rem 0; }
+.links a { color: var(--primary); }
+.summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; max-width: 900px; margin: 2rem 0; }
+.summary > div { display: grid; gap: .25rem; padding: 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+.summary span, .summary small { color: var(--fg-muted); font-size: .8rem; }
+.summary strong { font-size: 1.8rem; font-variant-numeric: tabular-nums; }
+.boundary { max-width: 900px; margin: 3rem 0; padding: 1.5rem; border: 1px solid var(--border); border-radius: 8px; }
+.boundary h2 { margin: .5rem 0; font-size: 1.4rem; }
+.boundary li, .boundary p { color: var(--fg-secondary); line-height: 1.65; }
+.page a:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+@media (max-width: 700px) { .page { padding: 1.3rem 1rem 3rem; } .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

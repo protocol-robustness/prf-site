@@ -1,0 +1,1049 @@
+{
+  "schema": "eae.site-shortfall-forensic-dossier.v1",
+  "reportKind": "derived-presentation-projection",
+  "canonicalAuthority": "This report does not define PRF canonical evidence identities or replace the retained PRF/prf-evm validators.",
+  "subject": {
+    "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+    "preparedOperationRoot": "0xc5897bf4d7d707dd04143c307cab6a62c790273e4d1592297c94cdd32261f799",
+    "chainId": 31337,
+    "environment": "local Foundry fixture only",
+    "sourceRepository": "prf-evm",
+    "sourceRevision": "10f592994975bb6f51e12b6f94bd190c06bbbd27",
+    "manifestBaseGitCommit": "46a6910a8849b45e63a69c11f1741e837df5f64e",
+    "manifestBaseAndPublicationRevisionMatch": false,
+    "manifestSha256": "753ce78c324bc6793366ecc5c868952baedec6bc2727fe096e9be93e03010564",
+    "validatedProjectionSha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+    "proofFixtureSha256": "f9116bad735e090f2d893ce2b79aac642ce18a991b842497dce3b07774dffc9d",
+    "programId": "source-bound-entitlement-controlled-sp1-program.v1",
+    "vkey": "0x00691e1cff8e4252731c8fe2bc326e8725ed5f9b92a298cc30a2c5fc40962dd1",
+    "elfSha256": "0x705efd1c5b997ae1f2c19eddcf6bb66a147e94b6b3b036393d6dab041c00542d",
+    "proofSystem": "groth16",
+    "publicValuesSchema": "prf/source-bound-entitlement-public-values.v1",
+    "publicValuesLength": 288
+  },
+  "verificationDimensions": [
+    {
+      "dimension": "Origin",
+      "result": "controlled source and test fixtures; observations emitted by a local Foundry test"
+    },
+    {
+      "dimension": "Integrity",
+      "result": "manifest, projection, proof, funding observation and ten deployed identity pairs cross-check against retained pins and logs"
+    },
+    {
+      "dimension": "Semantic validation",
+      "result": "Clojure/Rust projections agree; the retained prf-evm validator reconstructs allocation, state and accounting"
+    },
+    {
+      "dimension": "Cryptographic verification",
+      "result": "SP1 Groth16 and local EVM verifier/admission passed in the retained test; opening this report does not rerun them"
+    },
+    {
+      "dimension": "Authentication",
+      "result": "internal publication pins only; no public chain or externally authenticated authority"
+    },
+    {
+      "dimension": "Coverage",
+      "result": "one bounded 3-entitlement controlled operation; external obligation completeness and ownership are outside scope"
+    }
+  ],
+  "claimBindings": [
+    {
+      "claim": "Pro-rata allocation 50/30/20 → 35/21/14",
+      "state": "supported-within-fixture",
+      "evidence": [
+        "source-witness.json",
+        "clojure-replay.json",
+        "rust-replay.json",
+        "validation-result.json"
+      ],
+      "method": "cross-language projection comparison and retained source-bound validator",
+      "limit": "not evidence of external request truth/completeness; no rounding tie or cap redistribution"
+    },
+    {
+      "claim": "Proof → admission → prepared operation → funding",
+      "state": "supported-locally",
+      "evidence": [
+        "proof fixture",
+        "prf-v3-live-context-manifest.json",
+        "execution.log",
+        "validation-result.json"
+      ],
+      "method": "retained SP1/Groth16 verification, registry admission, operation/root cross-links, and local protected funding test",
+      "limit": "local fixture authority and local test execution; no mined receipts or external chain authentication"
+    },
+    {
+      "claim": "Funded custody equals payouts plus remaining liability",
+      "state": "reconstructed",
+      "evidence": [
+        "accounting-states.json",
+        "transfers.json",
+        "accounting-journal.json"
+      ],
+      "method": "independently recomputed balance deltas and liability equation across eight call-boundary states",
+      "limit": "transfer/state observations are local Foundry records, not block-authenticated state"
+    },
+    {
+      "claim": "Observed deployed runtime identities match the retained operation log",
+      "state": "cross-checked",
+      "evidence": [
+        "manifest.json",
+        "validation-result.json",
+        "execution.log"
+      ],
+      "method": "ten address/runtime pairs compared with the single pinned local identity record",
+      "limit": "does not prove current code, deployment transaction provenance or source-to-runtime bytecode equivalence"
+    }
+  ],
+  "evidenceRelationships": [
+    {
+      "from": "source-witness.json",
+      "to": "clojure-replay.json + rust-replay.json",
+      "relationship": "validated-by-independent-replays",
+      "result": "equal"
+    },
+    {
+      "from": "proof fixture",
+      "to": "admissionReceipt",
+      "relationship": "executed-by-local-verifier-and-admission",
+      "result": "passed-in-retained-local-test"
+    },
+    {
+      "from": "preparedOperationRoot + reserveStateCommitment",
+      "to": "protected funding transfer",
+      "relationship": "bound-and-checked-in-retained-test",
+      "result": "passed-locally"
+    },
+    {
+      "from": "execution.log identity record",
+      "to": "ten deployedContractIdentities",
+      "relationship": "cross-checked-by-publication-validator",
+      "result": "equal"
+    },
+    {
+      "from": "transfer records",
+      "to": "balance snapshots and liabilities",
+      "relationship": "independently-reconstructed-from-retained-observations",
+      "result": "equal-at-eight-call-boundaries"
+    },
+    {
+      "from": "deployment source files",
+      "to": "local deployed runtime",
+      "relationship": "declared-source-and-observed-runtime; bytecode derivation unavailable",
+      "result": "partial"
+    }
+  ],
+  "authorityAndProofBinding": {
+    "verifier": {
+      "address": "0x2e234DAe75C793f67A35089C9d99245E1C58470b",
+      "codeHash": "0xd50f7978fa1b090c48efcacce364a5ff91f4514e5d8886f9533257ba2cf79b4f",
+      "vkey": "0x00691e1cff8e4252731c8fe2bc326e8725ed5f9b92a298cc30a2c5fc40962dd1",
+      "adapter": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a",
+      "registry": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+      "admission": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c"
+    },
+    "operation": {
+      "id": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+      "preparedOperationRoot": "0xc5897bf4d7d707dd04143c307cab6a62c790273e4d1592297c94cdd32261f799",
+      "reserveStateCommitment": "0xa40e4db35601330b194a1e4b03965f0804f613eab979f1b850b313e09f1dfd0c",
+      "configurationRoot": "0x987d694b9bae2d894d5c5ee79d08479856cc12fef1b643c9694a97d19e144b2c",
+      "verifierRegistryRoot": "0x197bc48fcd58320a9e8735294d80e349e1540c9eff80219dd907b590628cbaca"
+    },
+    "preparedAssets": {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "reserve": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+      "allocator": "0x03A6a84cD762D9707A21605b548aaaB891562aAb"
+    },
+    "localPrincipals": {
+      "configurationAuthorityAdapter": {
+        "address": "0xc7183455a4C133Ae270771860664b6B7ec320bB1",
+        "codeHash": "0x860dff16b09673520d50c5e81811052d12671b4c71230aac6e81a3d0eb999e4d"
+      },
+      "chainGenesis": {
+        "address": "0xa0Cb889707d426A7A386870A03bc70d1b0697598",
+        "codeHash": "0x433b9817aba6a4f1eafdad5996fabda4a7a83e45f7a9df98eea5c06e7d33fd4d"
+      },
+      "localTestContractPrincipalAndSponsor": "0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496",
+      "executionOperator": "0x3D7Ebc40AF7092E3F1C81F2e996cbA5Cae2090d7",
+      "roleInterpretation": "The test contract is the local registry/configuration authority principal, operation initiator, sponsor and operator principal. This is fixture behavior, not an approved external authority policy."
+    },
+    "principalClassification": "Locally exercised test authority/operator; externally authenticated signer policy is absent.",
+    "fundingRelation": "The retained local test consumes the admitted assurance through ratification and records a 70-unit reserve-to-allocator transfer; the state projection records the same balances."
+  },
+  "sourceBuildRuntime": {
+    "sourceRevision": "10f592994975bb6f51e12b6f94bd190c06bbbd27",
+    "manifestBaseGitCommit": "46a6910a8849b45e63a69c11f1741e837df5f64e",
+    "sourceFileDigests": {
+      "test/PartialFillV3Controlled.t.sol": "4c2417e6d41ee8da9cfd120b4c3673181a5134413d4fdd9aa13157680fadfac6",
+      "src/applications/pro-rata/ProductionProRataAllocatorV2.sol": "9e4aae83a7b28546580cb62333f4bb5cb125d396b5f251d18774fff99cf9c380",
+      "src/applications/pro-rata/PublicPackedEntitlementRepresentationV1.sol": "7433a80e7f3846cb5515ee6cfd7adfd62ae6d5722c16f33a6b9c327797b31541",
+      "src/applications/shortfall/OnchainShortfallReserveV3.sol": "91bee42d54fc4d843cbb90cd3dd0e4b71c9d8dcaaa65a9eb541d07e42c2c8921",
+      "src/applications/shortfall/SourceBoundProRataControllerV2.sol": "4b316acfd9e7369b08504a99adcff0f7d40b85bc27a0dc45f8fc3438ac089d08",
+      "src/applications/shortfall/SourceBoundProRataEntitlementAssuranceV1.sol": "576519584a207e931e65a2e45c88d5b40238fff3eab7a94cbd339b5790b34660",
+      "src/applications/shortfall/SourceBoundProRataEntitlementRatificationControllerV1.sol": "293bc55a65ac1d34fd970cab489c08bc6fb079a40034dc1822e38f4862abc0e1",
+      "src/core/PrfChainInstanceGenesis.sol": "f3659316392344fa7c1c2b5ab0850d484d3014a5e31e6ef792ab399ae77feb3e",
+      "src/core/PrfStatementAdmission.sol": "60fe50bbd866b7c6910c208ea3c8abad3aeb6fef8f8f2af1d2842387c04ddb20",
+      "src/core/PrfVerifierRegistry.sol": "54883a0381cd396a653c0452c026a8bbc09421dec2a23d53f2d036927708eae4",
+      "src/integrations/sew/SewConfigurationExecutor.sol": "184ad5b3b6871194deadcb4cf620bb7157996a9e974b865644ed83c4b119bef6",
+      "src/integrations/sew/SewGovernanceAuthorityAdapter.sol": "87726e9db59bb0e2da0681b572b5e94e971b21ee335945ce242fea84468264a5",
+      "src/interfaces/IShortfallAllocatorV2.sol": "aee54ed7933c58acf8e90f554c4f3579916e8be474bd94446e00a4ea9b7f8b25",
+      "src/verification/SourceBoundEntitlementV1Commitments.sol": "517af38f95e87b91bdda1b4d03fa40b32c3e434dfa0898f77cf56fb979733647",
+      "src/verification/adapters/PrfSourceBoundEntitlementVerifierAdapterV1.sol": "5e1a1a6c8f4d0cc9db4b5460b5430838df3a1af148e13a2bb26c2c18559308a9"
+    },
+    "contractBindings": [
+      {
+        "role": "token",
+        "address": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "runtimeCodeHash": "0xc4e8c317e34ef81782901f932546a354f18f47f1e9ab5d9a4a4cede369a1de8c",
+        "sourceFile": "test/PartialFillV3Controlled.t.sol",
+        "manifestRecordedSourceSha256": "4c2417e6d41ee8da9cfd120b4c3673181a5134413d4fdd9aa13157680fadfac6",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "reserve",
+        "address": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+        "runtimeCodeHash": "0x06191f4744c1c52d0879cf36a79c53d54d3326fe9c3581e20467cba86e8a80e9",
+        "sourceFile": "src/applications/shortfall/OnchainShortfallReserveV3.sol",
+        "manifestRecordedSourceSha256": "91bee42d54fc4d843cbb90cd3dd0e4b71c9d8dcaaa65a9eb541d07e42c2c8921",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "allocator",
+        "address": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "runtimeCodeHash": "0x6bf47ede2f9b76226e67d997e4e38a1af4c2a796f1c0557d72589e2c1c214ee6",
+        "sourceFile": "src/applications/pro-rata/ProductionProRataAllocatorV2.sol",
+        "manifestRecordedSourceSha256": "9e4aae83a7b28546580cb62333f4bb5cb125d396b5f251d18774fff99cf9c380",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "preparedController",
+        "address": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+        "runtimeCodeHash": "0x8922634ff0ecc2e1213c766714887e3fd0a9e4a87ffa2b6072863055f4287403",
+        "sourceFile": "src/applications/shortfall/SourceBoundProRataControllerV2.sol",
+        "manifestRecordedSourceSha256": "4b316acfd9e7369b08504a99adcff0f7d40b85bc27a0dc45f8fc3438ac089d08",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "assurance",
+        "address": "0x212224D2F2d262cd093eE13240ca4873fcCBbA3C",
+        "runtimeCodeHash": "0xc98a4d5af8c7d4adac14648ae8597a4ebb8da1763f99598eea4d2006a7dd9153",
+        "sourceFile": "src/applications/shortfall/SourceBoundProRataEntitlementAssuranceV1.sol",
+        "manifestRecordedSourceSha256": "576519584a207e931e65a2e45c88d5b40238fff3eab7a94cbd339b5790b34660",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "ratification",
+        "address": "0x2a07706473244BC757E10F2a9E86fB532828afe3",
+        "runtimeCodeHash": "0xb01e9a6101eef8b133c1948993011c30ee70de505f22f7fadbe5075a8d062261",
+        "sourceFile": "src/applications/shortfall/SourceBoundProRataEntitlementRatificationControllerV1.sol",
+        "manifestRecordedSourceSha256": "293bc55a65ac1d34fd970cab489c08bc6fb079a40034dc1822e38f4862abc0e1",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "admission",
+        "address": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+        "runtimeCodeHash": "0xfd317ffd08c3011953dd4401a001612a8d8e63e32ec9a5a02bc46838a22b3d1f",
+        "sourceFile": "src/core/PrfStatementAdmission.sol",
+        "manifestRecordedSourceSha256": "60fe50bbd866b7c6910c208ea3c8abad3aeb6fef8f8f2af1d2842387c04ddb20",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "registry",
+        "address": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+        "runtimeCodeHash": "0x40068c88ad2dfcd2b91833157ab95a9f2146155f33d6f831712d0c08069f6387",
+        "sourceFile": "src/core/PrfVerifierRegistry.sol",
+        "manifestRecordedSourceSha256": "54883a0381cd396a653c0452c026a8bbc09421dec2a23d53f2d036927708eae4",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "adapter",
+        "address": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a",
+        "runtimeCodeHash": "0x155ea2aacc248a9358702bcc90c6dc1395505064991b282d8135ee1610adf1cb",
+        "sourceFile": "src/verification/adapters/PrfSourceBoundEntitlementVerifierAdapterV1.sol",
+        "manifestRecordedSourceSha256": "5e1a1a6c8f4d0cc9db4b5460b5430838df3a1af148e13a2bb26c2c18559308a9",
+        "sourceBinding": "Role-to-source mapping follows the pinned PartialFillV3Controlled.t.sol imports; the source digest is recorded in manifest.json.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      },
+      {
+        "role": "verifier",
+        "address": "0x2e234DAe75C793f67A35089C9d99245E1C58470b",
+        "runtimeCodeHash": "0xd50f7978fa1b090c48efcacce364a5ff91f4514e5d8886f9533257ba2cf79b4f",
+        "sourceFile": null,
+        "manifestRecordedSourceSha256": null,
+        "sourceBinding": "SP1 verifier implementation imported from sp1Contracts revision d3629729c3216eb51bd4859d027a8eb729399fa4; source file digest is not listed as an application source.",
+        "runtimeEvidence": "PARTIAL_FILL_V3_IDENTITY_JSON in the manifest-pinned local execution.log"
+      }
+    ],
+    "publishedManifestFilesVerified": [
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/README.md",
+        "sha256": "79bfa08e722ea9a733dfa8c6d8b465436d1f5075f60d3deb5eac6692a7e72bc5"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/execution.log",
+        "sha256": "6c1afa78e3f6e8bac05ca3bccf2111df0727b6afe7cd68f4558eef261558fc1a"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/adversarial-tests.log",
+        "sha256": "e2b1735a7e7501d8c686f83c3257bb2c17d48c05c49b9eed72d289dba6633f76"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/source-witness.json",
+        "sha256": "b0d10ccd549ad86435f8e13381c83c91500dd0f5a9eaa07a017ca601cb31f87b"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/clojure-replay.json",
+        "sha256": "048e86a26e49e5ec56756d6ca77755df8d2ee1f8555dc2548ba7170d0e6e75d9"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/rust-replay.json",
+        "sha256": "da3b6ab9922ad05c1eafbe2cf49ac31dddaa03cca26c0d5ddf2c97cec0c36aa3"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/accounting-journal.json",
+        "sha256": "53ceb696d1bcb8766d25fab8fd2efffd770895f32024285951911cac59d51900"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+        "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+        "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/reconciliation.json",
+        "sha256": "d588c78c27775575858a182ad6ecfe1397bf9fb713aec9477e3d6c59782cc79b"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/prf-v3-live-context-manifest.json",
+        "sha256": "48afd9aa8553076ba24b017344d07dc3cb7fa2756a5e591caf4f2881feb05798"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+        "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121"
+      },
+      {
+        "path": "evidence/composed-pro-rata-v2-settlement/full-stage2-qualification.log",
+        "sha256": "1edaa2953298e837550e4cc38ce315f08a894547b5deaac92819763c6a6db14a"
+      }
+    ],
+    "manifestFilesNotPublishedWithSiteBundle": [
+      "scripts/verify-composed-pro-rata-v2.py",
+      "test/PartialFillV3Controlled.t.sol",
+      "test/fixtures/partial-fill-v3/configuration.json",
+      "test/fixtures/partial-fill-v3/genesis.json",
+      "test/fixtures/partial-fill-v3/identity.json",
+      "test/fixtures/partial-fill-v3/proof.json",
+      "test/fixtures/partial-fill-v3/replay.json",
+      "src/applications/pro-rata/ProductionProRataAllocatorV2.sol",
+      "src/applications/pro-rata/PublicPackedEntitlementRepresentationV1.sol",
+      "src/applications/shortfall/OnchainShortfallReserveV3.sol",
+      "src/applications/shortfall/SourceBoundProRataControllerV2.sol",
+      "src/applications/shortfall/SourceBoundProRataEntitlementAssuranceV1.sol",
+      "src/applications/shortfall/SourceBoundProRataEntitlementRatificationControllerV1.sol",
+      "src/core/PrfChainInstanceGenesis.sol",
+      "src/core/PrfStatementAdmission.sol",
+      "src/core/PrfVerifierRegistry.sol",
+      "src/integrations/sew/SewConfigurationExecutor.sol",
+      "src/integrations/sew/SewGovernanceAuthorityAdapter.sol",
+      "src/interfaces/IShortfallAllocatorV2.sol",
+      "src/verification/SourceBoundEntitlementV1Commitments.sol",
+      "src/verification/adapters/PrfSourceBoundEntitlementVerifierAdapterV1.sol"
+    ],
+    "foundry": "1.7.1 (4072e48705af9d93e3c0f6e29e93b5e9a40caed8)",
+    "solidityCompiler": "0.8.33+commit.64118f21",
+    "pinnedDependencies": {
+      "foundry": "1.7.1 (4072e48705af9d93e3c0f6e29e93b5e9a40caed8)",
+      "solc": "0.8.33+commit.64118f21",
+      "forgeStd": "e3386f2f9cc5ebf16ec5370869d5a49cdb85a0cb",
+      "openzeppelinContracts": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+      "sp1Contracts": "d3629729c3216eb51bd4859d027a8eb729399fa4",
+      "sp1SdkProofGeneration": "6.3.1, as recorded in the retained PRF V3 live-context manifest"
+    },
+    "deploymentRuntimePairs": {
+      "token": {
+        "address": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "codeHash": "0xc4e8c317e34ef81782901f932546a354f18f47f1e9ab5d9a4a4cede369a1de8c"
+      },
+      "reserve": {
+        "address": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+        "codeHash": "0x06191f4744c1c52d0879cf36a79c53d54d3326fe9c3581e20467cba86e8a80e9"
+      },
+      "allocator": {
+        "address": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "codeHash": "0x6bf47ede2f9b76226e67d997e4e38a1af4c2a796f1c0557d72589e2c1c214ee6"
+      },
+      "preparedController": {
+        "address": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+        "codeHash": "0x8922634ff0ecc2e1213c766714887e3fd0a9e4a87ffa2b6072863055f4287403"
+      },
+      "assurance": {
+        "address": "0x212224D2F2d262cd093eE13240ca4873fcCBbA3C",
+        "codeHash": "0xc98a4d5af8c7d4adac14648ae8597a4ebb8da1763f99598eea4d2006a7dd9153"
+      },
+      "ratification": {
+        "address": "0x2a07706473244BC757E10F2a9E86fB532828afe3",
+        "codeHash": "0xb01e9a6101eef8b133c1948993011c30ee70de505f22f7fadbe5075a8d062261"
+      },
+      "admission": {
+        "address": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+        "codeHash": "0xfd317ffd08c3011953dd4401a001612a8d8e63e32ec9a5a02bc46838a22b3d1f"
+      },
+      "registry": {
+        "address": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+        "codeHash": "0x40068c88ad2dfcd2b91833157ab95a9f2146155f33d6f831712d0c08069f6387"
+      },
+      "adapter": {
+        "address": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a",
+        "codeHash": "0x155ea2aacc248a9358702bcc90c6dc1395505064991b282d8135ee1610adf1cb"
+      },
+      "verifier": {
+        "address": "0x2e234DAe75C793f67A35089C9d99245E1C58470b",
+        "codeHash": "0xd50f7978fa1b090c48efcacce364a5ff91f4514e5d8886f9533257ba2cf79b4f"
+      }
+    },
+    "creationInputAndTransactionEvidence": "not-retained-in-this-operation-inventory",
+    "independentImmutableAwareSourceToRuntimeMatch": "not-established"
+  },
+  "economicLedger": {
+    "currency": "local fixture-token units",
+    "observationBoundary": "Local Foundry getter and ERC-20 Transfer records; no transaction hashes, block hashes or mined receipt identities are present.",
+    "openingCapitalOrigin": {
+      "amount": 80,
+      "from": "0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496",
+      "to": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+      "observation": "v3-live-context/funding-observation.json",
+      "evidenceKind": "retained-local-test observation; no mined receipt or transaction hash"
+    },
+    "transitions": [
+      {
+        "sequence": 0,
+        "stage": "opening",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-7",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/0"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/0"
+          },
+          {
+            "path": "evidence/partial-fill/v3-live-context/funding-observation.json",
+            "sha256": "96a24ca783b9f7e6114851d0cae34be9b850c593125d4795336594d7613fe824",
+            "jsonPointer": "/observedTransferAmount",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 0,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/partial-fill/v3-live-context/funding-observation.json",
+            "sha256": "96a24ca783b9f7e6114851d0cae34be9b850c593125d4795336594d7613fe824",
+            "jsonPointer": "/observedTransferAmount"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": 80,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 80,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 0,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "8ce34829bf0d23ac43d66d5fb56cc7f0489cfd622ea8179651150ab7bf870421"
+      },
+      {
+        "sequence": 1,
+        "stage": "proof_admitted",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-8",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/1"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/1"
+          }
+        ],
+        "before": {
+          "reserveBalance": 80,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [],
+        "balanceDelta": {
+          "reserveBalance": 0,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 80,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 0,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "f6b10d23bf60114bd44fb00b31470eb39a225323e1100cb78e3003cc5d60cd62"
+      },
+      {
+        "sequence": 2,
+        "stage": "funded",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-9",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/2"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/2"
+          },
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/0",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 80,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/0"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": -70,
+          "allocatorBalance": 70,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 10,
+          "allocatorBalance": 70,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 0,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "3e89a7e58eca3586eef3943c20a20b7ef0d49333f463a78d218e8ce6bed03241"
+      },
+      {
+        "sequence": 3,
+        "stage": "activated",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-10",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/3"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/3"
+          }
+        ],
+        "before": {
+          "reserveBalance": 10,
+          "allocatorBalance": 70,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [],
+        "balanceDelta": {
+          "reserveBalance": 0,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 10,
+          "allocatorBalance": 70,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 70,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "0d0e801b300f308c43d28b63f50affa0b3c7bb5f8add6288f0a42880b119b5aa"
+      },
+      {
+        "sequence": 4,
+        "stage": "after_alice_claim",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-11",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/4"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/4"
+          },
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/1",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 10,
+          "allocatorBalance": 70,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/1"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": 0,
+          "allocatorBalance": -35,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 35,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "c0cf9d10c42b1abb9d44951d2634fa6dbdab10927db2da8cd81057291b2cf43a"
+      },
+      {
+        "sequence": 5,
+        "stage": "after_bob_claim",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-12",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/5"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/5"
+          },
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/2",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 0
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/2"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": 0,
+          "allocatorBalance": -21,
+          "aliceBalance": 0,
+          "bobBalance": 21,
+          "carolBalance": 0
+        },
+        "after": {
+          "reserveBalance": 10,
+          "allocatorBalance": 14,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 0
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 14,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "c3e9855f569923ee457cebded0220a37889f27d9ec75cbd45005d5a5207b6626"
+      },
+      {
+        "sequence": 6,
+        "stage": "allocator_closed",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-13",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/6"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/6"
+          },
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/3",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 10,
+          "allocatorBalance": 14,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 0
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/3"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": 0,
+          "allocatorBalance": -14,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 14
+        },
+        "after": {
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 0,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "657b6712770451f0993064674392fd11f8e0c7c16e7633ac9b3aefd2fe2ea052"
+      },
+      {
+        "sequence": 7,
+        "stage": "reserve_finalized",
+        "identity": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "observationOrder": "Foundry call boundary; not a mined transaction index",
+        "sourceRef": "v3-accounting-qualification.log:line-14",
+        "evidenceRefs": [
+          {
+            "kind": "state-observation",
+            "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+            "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768",
+            "jsonPointer": "/states/7"
+          },
+          {
+            "kind": "validated-state-projection",
+            "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+            "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+            "jsonPointer": "/stateProjections/7"
+          },
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/4",
+            "kind": "asset-transfer-observation"
+          }
+        ],
+        "before": {
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14
+        },
+        "transferRefs": [
+          {
+            "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+            "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55",
+            "jsonPointer": "/4"
+          }
+        ],
+        "balanceDelta": {
+          "reserveBalance": -10,
+          "allocatorBalance": 0,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 10
+        },
+        "after": {
+          "reserveBalance": 0,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 24
+        },
+        "custodyTotal": 80,
+        "outstandingLiability": 0,
+        "custodyConserved": true,
+        "liabilityReconciled": true,
+        "projectionRecordSha256": "7d4b930295918b2abdbedc49f85fff408888cb84010529bf062c88a4c7d56794"
+      }
+    ],
+    "assetConservation": {
+      "equation": "reserve + allocator + participant balances = opening funded custody",
+      "opening": 80,
+      "terminal": 80,
+      "holdsAtAllEightObservations": true,
+      "transfersReconciled": 5
+    },
+    "obligations": {
+      "requested": 100,
+      "fundedEntitlements": 70,
+      "paidClaims": 70,
+      "remainingClaimLiability": 0,
+      "unmetRequest": 30,
+      "restrictedRefund": 10,
+      "equation": "funded entitlement total = paid claims + remaining claim liability",
+      "holds": true,
+      "restrictedCapitalIsSeparate": true
+    }
+  },
+  "adversarialCoverage": {
+    "retainedNegativeTestCount": 10,
+    "retainedNegativeTests": [
+      "test_RejectChangedAllocationRepresentation",
+      "test_RejectFundingMoreThanCommittedCapital",
+      "test_RejectOverWithdrawalAndDuplicateConsumption",
+      "test_RejectProofForAnotherOperationAndPolicyMutation",
+      "test_RejectProofPublicValueSubstitution",
+      "test_RejectRatificationAndFundingReplay",
+      "test_RejectStaleReserveWithoutChangingState",
+      "test_RejectUnauthorizedAndPrematureProtectedFinalization",
+      "test_RejectUnauthorizedAndRouteBypass",
+      "test_RejectUnauthorizedRecipientSubstitution"
+    ],
+    "freshProofStaleAssuranceRecoveryPassed": true,
+    "conflictingObservationInjection": "not-covered",
+    "wholeSelfConsistentBundleSubstitution": "a self-consistent replacement can be re-pinned if the pin is replaced with the bundle; an independently retained original pin rejects the substituted manifest"
+  },
+  "recovery": {
+    "staleAssuranceReplacement": "demonstrated as a separate fresh-proof branch; finalization rejects with a remaining unrelated reserve hold",
+    "processInterruptionAndResume": "not-demonstrated",
+    "retryBoundaryEvidence": "no persisted crash/restart checkpoints are retained for admission, preparation, funding, activation or partial claims"
+  },
+  "scale": {
+    "entitlementCount": 3,
+    "aggregateQualificationTestGas": 2974315,
+    "gasInterpretation": "aggregate Foundry test gas for this one test; not per-stage gas or a scale benchmark",
+    "supportedMaximum": null,
+    "status": "no qualified scale envelope"
+  },
+  "gaps": [
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Public execution",
+      "detail": "No mined receipts, transaction hashes, block hashes, public RPC observations or canonical-chain proofs are retained."
+    },
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Source/build/runtime closure",
+      "detail": "The manifest base commit differs from the publication pin revision. Source file digests, compiler/dependency versions and local runtime hashes are recorded, but the checkout must be independently matched; creation inputs and an immutable-aware source-to-runtime rebuild comparison are absent."
+    },
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Complete deployment dependency inventory",
+      "detail": "Ten operation roles have address/runtime pairs; genesis and local authority have supplemental address/code-hash context. Configuration executor and packed representation lack complete pairs here, and the local execution operator has no paired runtime hash in the identity record."
+    },
+    {
+      "type": "unverified-claim",
+      "status": "open",
+      "claim": "Request legitimacy and completeness",
+      "detail": "The allocation is correct conditional on the controlled source fixture; the external truth and completeness of obligations are not established."
+    },
+    {
+      "type": "unverified-claim",
+      "status": "open",
+      "claim": "Beneficial ownership",
+      "detail": "Beneficiary addresses and Carol’s refund destination are fixture-policy-bound; legal or external ownership is not established."
+    },
+    {
+      "type": "conflicting-evidence",
+      "status": "not-tested",
+      "claim": "Conflicting observations",
+      "detail": "The retained bundle does not report a conflict, but it does not include an adversarial reconciliation test that injects contradictory receipt, storage and event evidence."
+    },
+    {
+      "type": "policy-required-attestation",
+      "status": "open",
+      "claim": "External authority approval",
+      "detail": "The authority and operator are local test fixtures; no externally authenticated governance approval is present."
+    },
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Crash recovery",
+      "detail": "A fresh-proof stale-assurance recovery branch is tested. Process interruption and restart at each lifecycle boundary are not demonstrated."
+    },
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Scale envelope",
+      "detail": "The fixture covers three entitlements. Its aggregate test gas is not a per-stage measurement or a supported maximum."
+    },
+    {
+      "type": "missing-observation",
+      "status": "open",
+      "claim": "Packed representation equivalence",
+      "detail": "The activated representation is bound to the admitted table and altered representations reject; an independent decoder comparison and cross-representation equivalence run are not retained."
+    },
+    {
+      "type": "optional-out-of-scope",
+      "status": "not-required",
+      "claim": "Research acceptance and incentives",
+      "detail": "No acceptance, reward eligibility, obligation or payment is inferred from this operation."
+    }
+  ],
+  "reproduction": {
+    "publishedBundle": "/evidence/composed-pro-rata-v2-settlement/",
+    "reportAndArtifactCheck": "pnpm verify:shortfall-evidence",
+    "independentPinCheck": "pnpm verify:shortfall-pin --trusted-pin <independently acquired publication pin>",
+    "sourceExecution": "git checkout 10f592994975bb6f51e12b6f94bd190c06bbbd27; run the pinned Foundry positive and full-stage2 commands in the evidence README; then run python3 scripts/verify-composed-pro-rata-v2.py",
+    "proofGenerationRequired": false,
+    "localOnly": true
+  },
+  "inputs": [
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/manifest.json",
+      "sha256": "753ce78c324bc6793366ecc5c868952baedec6bc2727fe096e9be93e03010564",
+      "relationship": "source and operation inventory"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+      "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+      "relationship": "retained validator output and state projection"
+    },
+    {
+      "path": "evidence/partial-fill/v3-live-context/proof.json",
+      "sha256": "f9116bad735e090f2d893ce2b79aac642ce18a991b842497dce3b07774dffc9d",
+      "relationship": "exact Groth16 proof fixture"
+    },
+    {
+      "label": "eight local getter snapshots",
+      "path": "accounting-states.json",
+      "href": "/evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+      "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768"
+    },
+    {
+      "label": "five local ERC-20 transfer observations",
+      "path": "transfers.json",
+      "href": "/evidence/composed-pro-rata-v2-settlement/transfers.json",
+      "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55"
+    },
+    {
+      "path": "evidence/partial-fill/v3-live-context/funding-observation.json",
+      "sha256": "96a24ca783b9f7e6114851d0cae34be9b850c593125d4795336594d7613fe824",
+      "relationship": "opening reserve transfer attribution"
+    },
+    {
+      "path": "evidence/partial-fill/v3-live-context/genesis-context.json",
+      "sha256": "3095a42b791ce41dcae3f067abe6bfba496068b4fde509071bc963146379fef0",
+      "relationship": "supplemental local genesis and authority identity"
+    }
+  ]
+}

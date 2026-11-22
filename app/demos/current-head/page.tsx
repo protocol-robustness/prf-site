@@ -27,12 +27,12 @@ export default function CurrentHeadPage() {
 
       <DemoShell
         steps={[
-          { id: 'scenario', label: 'Verified history', node: <HistoryCard demo={demo} /> },
-          { id: 'baseline', label: 'Current head', node: <BaselineCard demo={demo} /> },
-          { id: 'change', label: 'Stale submission', node: <ChangeCard demo={demo} /> },
-          { id: 'outcome', label: 'Admission result', node: <OutcomeCard demo={demo} /> },
-          { id: 'why', label: 'Why', node: <WhyCard demo={demo} /> },
-          { id: 'evidence', label: 'Evidence', node: <><EvidencePanel demo={demo} /><div className={styles.spacer} /><CommitmentsCard demo={demo} /></> },
+          { id: 'scenario', label: 'Verified history', node: <HistoryCard demo={demo} />, narration: `The retained sequence is ${demo.scenario.records.items.join(' → ')}.`, evidence: { status: 'verified-check', sourceLabel: 'generated/demos/current-head.json', identity: demo.evidence['committed-hash'], scope: 'This fixture represents a bounded resubmission history.' } },
+          { id: 'baseline', label: 'Current head', node: <BaselineCard demo={demo} />, narration: `${demo.baseline.value} is admitted as the current head.`, evidence: { status: 'verified-check', sourceLabel: 'generated/demos/current-head.json', identity: demo.evidence['committed-hash'], scope: 'The current-head claim is relative to this retained history.' } },
+          { id: 'change', label: 'Stale submission', node: <ChangeCard demo={demo} />, narration: `${demo.change.label}: candidate parent ${demo.change.to} is older than current head ${demo.change.from}.`, evidence: { status: 'qualified', sourceLabel: 'generated/demos/current-head.json', identity: demo.evidence['committed-hash'], scope: 'The stale candidate is part of the retained fixture, not a public network submission.' } },
+          { id: 'outcome', label: 'Admission result', node: <OutcomeCard demo={demo} />, narration: `The stale candidate is ${demo.outcome.admitted ? 'admitted' : 'rejected'}; the retained check reports ${demo.evidence.checks.map((check) => `${check.id}: ${check.status}`).join('; ')}.`, evidence: { status: demo.outcome.admitted ? 'verified-check' : 'rejected', sourceLabel: 'generated/demos/current-head.json', identity: demo.source['result-root'], scope: 'The evidence shows this test history refuses the stale parent and preserves its head.' } },
+          { id: 'why', label: 'Why', node: <WhyCard demo={demo} />, narration: demo.why, evidence: { status: 'qualified', sourceLabel: 'generated/demos/current-head.json', identity: demo.evidence['committed-hash'], scope: 'This does not establish global latestness across a public Ethereum network.' } },
+          { id: 'evidence', label: 'Evidence', node: <><EvidencePanel demo={demo} /><div className={styles.spacer} /><CommitmentsCard demo={demo} /></>, narration: `The committed result is ${demo.source['result-root']}.`, evidence: { status: 'qualified', sourceLabel: 'generated/demos/current-head.json', identity: demo.source['result-root'], scope: 'This record identity does not authenticate a globally canonical history.' } },
         ]}
       />
 

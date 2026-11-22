@@ -1,0 +1,85 @@
+{
+  "schema": "research-incentive-workflow-qualification.v1",
+  "recorded_date": "2026-10-11",
+  "status": "local test suites passed; no production reward operation",
+  "qualifications": [
+    {
+      "suite": "resolver-sim.research.researcher-challenges-test",
+      "tests": 29,
+      "assertions": 233,
+      "failures": 0,
+      "errors": 0,
+      "covers": [
+        "two-key test researchers",
+        "review decisions and replay",
+        "rooted reward obligations",
+        "ineligible and rejected work",
+        "external payout assertions"
+      ]
+    },
+    {
+      "suite": "resolver-sim.benchmark.researcher-reward-test",
+      "tests": 6,
+      "assertions": 41,
+      "failures": 0,
+      "errors": 0,
+      "covers": [
+        "eligibility policy",
+        "untrusted evidence rejection",
+        "policy-bound proposals and obligations",
+        "no payment authority on an obligation"
+      ]
+    }
+  ],
+  "workflow_boundary": {
+    "public_challenge": "none",
+    "reviewer_acceptance": "test fixture only",
+    "eligible_contribution": "test fixture only",
+    "reward_obligation": "test fixture only",
+    "payment_execution": "not qualified; no payment represented"
+  },
+  "challenge_001": {
+    "status": "unpublished candidate",
+    "funding_terms": "proposed; token contract and decimals pending approval",
+    "reward_budget": "not authorized"
+  },
+  "source_identity": {
+    "revision": "not pinned; source hashes identify checked files"
+  },
+  "source_files": [
+    {
+      "path": "src/resolver_sim/benchmark/researcher_reward.clj",
+      "sha256": "2afb06392f6b36a6a8ebc089d5bf5fba7f969a0659ef1c641931747f914dbd06"
+    },
+    {
+      "path": "src/resolver_sim/research/researcher_challenges.clj",
+      "sha256": "7fe95a8267043de2ef76cf2c2463b07627893572d78c472febba331a1232e821"
+    },
+    {
+      "path": "test/resolver_sim/benchmark/researcher_reward_test.clj",
+      "sha256": "1fea6b99e20326eea8a36ef0ae50a979bd825711b3a119d7e4bb4433566460a7"
+    },
+    {
+      "path": "test/resolver_sim/research/researcher_challenges_test.clj",
+      "sha256": "5982f3bebebd8f5691065d34039d4d510c185de05e51a5d4f2d1862126aaa440"
+    }
+  ],
+  "verification_commands": [
+    {
+      "suite": "researcher-challenges-test",
+      "command": "clojure -M:test -e '(require clojure.test resolver-sim.research.researcher-challenges-test) (clojure.test/run-tests resolver-sim.research.researcher-challenges-test)'",
+      "result": "29 tests, 233 assertions, 0 failures, 0 errors"
+    },
+    {
+      "suite": "researcher-reward-test",
+      "command": "clojure -M:test -e '(require clojure.test resolver-sim.benchmark.researcher-reward-test) (clojure.test/run-tests resolver-sim.benchmark.researcher-reward-test)'",
+      "result": "6 tests, 41 assertions, 0 failures, 0 errors"
+    }
+  ],
+  "limitations": [
+    "The suites use local test identities and do not constitute a public multi-host researcher network.",
+    "No serialized public contribution history or reviewer approval is retained by this demo.",
+    "Eligibility and rooted obligation construction are tested; an obligation is not a payment, and payment execution is not qualified.",
+    "Challenge 001 remains a candidate and its draft reward terms are not authorized."
+  ]
+}

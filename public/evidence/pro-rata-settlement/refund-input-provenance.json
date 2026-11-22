@@ -1,0 +1,7 @@
+{
+  "bundle_sha256": "sha256:a8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848",
+  "manifest_digest": "sha256:5c1595c82273e756adcd51abfb5a3e3a371a9154c6752484e93533f7c80d64e0",
+  "schema": "prf-evm.gate-e-entitlement-witness-provenance.v1",
+  "vector_id": "A-minimum-realistic",
+  "witness_sha256": "sha256:56231b11235ce13db5f01fc86f4e17ddcaf4196c1579c9a427e1a9b8223b85a1"
+}

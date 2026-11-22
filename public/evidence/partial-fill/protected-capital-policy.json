@@ -1,0 +1,18 @@
+{
+  "beneficialOwner": "0x3333333333333333333333333333333333333333",
+  "chainId": 31337,
+  "enforcementStatus": "Declared fixture policy only; current frozen reserve V2 has no policy-binding or protected-capital release entry point.",
+  "operationId": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+  "permittedPurpose": "Restricted refundable sponsor capital; excluded from claimant entitlements, protocol income, fees, and available allocation capital.",
+  "policyRoot": "0xf00f30bf804737a8810322c3fb4f9c079537566877bb6a07d51f3b7ad73fcbf7",
+  "refundBeneficiary": "0x3333333333333333333333333333333333333333",
+  "releaseAuthority": "0x2a07706473244BC757E10F2a9E86fB532828afe3",
+  "releaseAuthorityRole": "Ratification controller may authorize terminal finalization; it is not the beneficial owner.",
+  "reserve": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+  "restrictedAmount": 10,
+  "schema": "eae.protected-sponsor-capital-policy.v1",
+  "sponsorAndFundingSource": "0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496",
+  "terminalConditions": "Scoped allocator Closed; claimant liability zero; no active reserve reservations; exact protected balance remains; reserve terminally finalized.",
+  "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+  "version": 1
+}

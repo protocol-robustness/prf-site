@@ -9,8 +9,9 @@ export default function ExtLink({
   children: React.ReactNode
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <a href={href} rel="noopener" target="_blank" {...props}>
+    <a href={href} rel="noopener noreferrer" target="_blank" {...props}>
       {children}
+      <span className="sr-only"> (opens in a new tab)</span>
     </a>
   )
 }

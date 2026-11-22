@@ -1,0 +1,68 @@
+{
+  "schema": "prf-demo-manifest.v1",
+  "manifest_version": 1,
+  "demo": {
+    "id": "liquidity-shortfall",
+    "page": "/demos/liquidity-shortfall",
+    "title": "Pro-Rata Allocation Under Shortfall"
+  },
+  "subject_revision": {
+    "git_revision": null,
+    "revision_status": "source revision not retained; source file hash recorded",
+    "note": "PRF scenario source identity is the SHA-256 recorded in the policy input fixture. The separate verifier is published with its own hash."
+  },
+  "subject": {
+    "question": "Do the retained recipient allocations follow the declared pro-rata policy?",
+    "scope": "One 70-of-100 no-cap fixture using largest-remainder rounding, canonical-row tie-breaking and unallocated residual handling. Policy conformity does not establish fairness or observed payment."
+  },
+  "inputs": [
+    {
+      "path": "evidence/shortfall/policy-inputs.v1.json",
+      "role": "canonical policy and recipient inputs projected from the PRF fixture",
+      "sha256": "515f84a2b16634ffa705b16495149d0c4ef16e26c9538d8f80c4da92090d2f5f",
+      "source_path": "src/resolver_sim/demos/liquidity_shortfall/scenario.clj",
+      "source_sha256": "080aba7d55f7769c6c459ba20f6d18b84b6fff070a5bb8e71c8b8ac0d2266642"
+    },
+    {
+      "path": "generated/demos/liquidity-shortfall.json",
+      "role": "retained PRF allocation result and roots",
+      "sha256": "3a7548ea1bc01cd48816ffc3b475cb451a7b9f70070c82fc62fdb1729170d7b1"
+    }
+  ],
+  "retained_evidence": [
+    {
+      "path": "evidence/shortfall/independent-verification.v1.json",
+      "role": "independent recipient-level policy reconstruction report",
+      "sha256": "a83729c8e8921af391ee2df5a76b542958b794afc390f657fa34ece38756eee3"
+    },
+    {
+      "path": "evidence/shortfall/verify-shortfall-allocation.mjs",
+      "role": "separate integer-arithmetic verifier source",
+      "sha256": "414efd8a04e87c14228c5de3f530c18b3c040be910dba8e3a25c09269110dad5"
+    }
+  ],
+  "expected_outputs": {
+    "alice": 35,
+    "bob": 21,
+    "cara": 14,
+    "total_allocated": 70,
+    "unallocated_residual": 0,
+    "recipient_policy_reconstruction": "pass",
+    "request_hash": "311cb21f13a29eef9a822ebc6f2b8ac12492af5f721660e2c351190518d40e61",
+    "allocation_hash": "447bd6c537b9a74c966a82ded18d88165d61625842df19c55a5642f8bcecbefe"
+  },
+  "verification": [
+    {
+      "working_directory": "website repository root",
+      "command": "node scripts/verify-shortfall-allocation.mjs",
+      "purpose": "Independently reconstruct each recipient allocation and validate policy, rounding, no-cap applicability, roots and residual."
+    }
+  ],
+  "limitations": [
+    "Verifier is a separate JavaScript BigInt implementation and covers this fixture's no-cap largest-remainder policy only.",
+    "The PRF source revision is not retained; its scenario file is identified by SHA-256.",
+    "Policy compliance does not establish that the policy itself is fair, complete or appropriate.",
+    "Calculated entitlements are not observed recipient payments."
+  ],
+  "source_repository": "prf-main"
+}

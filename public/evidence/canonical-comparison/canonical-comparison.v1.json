@@ -1,0 +1,63 @@
+{
+  "schema": "canonical-comparison-demo.v1",
+  "demo": "can-two-programs-verify-the-same-record",
+  "source": {
+    "repository": "https://github.com/protocol-robustness/prf-clean-room",
+    "revision": "7e00f03f01ee913a4287e42de6c37cda1fc4764a"
+  },
+  "fixtures": {
+    "canonical": {
+      "path": "canonical-v1.json",
+      "cases": [
+        "map-ab",
+        "map-ba"
+      ],
+      "claim": "Same map entries in different input orders have identical canonical bytes."
+    },
+    "proRata": {
+      "path": "pro-rata-v1.json",
+      "case": "primary",
+      "available": "90",
+      "requests": {
+        "alice": "60",
+        "bob": "40",
+        "carol": "20"
+      },
+      "calculatedAllocations": {
+        "alice": "45",
+        "bob": "30",
+        "carol": "15"
+      },
+      "policy": "largest-remainder / canonical-claim-id / unallocated",
+      "result": {
+        "domain": "PRF_CLEAN_PRO_RATA_RESULT_V1",
+        "root": "3fb97bad5088ed68662a4e9b6c9eeac3aa2bc68751c4c418c28ab6fafd120fc9",
+        "canonicalBytesSource": "pro-rata-v1.json#/chains/0/artifacts/result/canonicalByteHex"
+      }
+    }
+  },
+  "verification": {
+    "clojure": {
+      "status": "pass",
+      "verifiedCommand": "clojure -M -e '(load-file \"clojure-reproduce.clj\")'",
+      "result": "Existing clean-room Clojure implementation reconstructed the primary fixture; full canonical bytes and SHA-256 result root matched the frozen pro-rata vector.",
+      "suiteCommand": "bb test",
+      "suiteResult": "117 tests, 1165 assertions passed in the local checkout."
+    },
+    "rust": {
+      "status": "pass",
+      "verifiedCommand": "CARGO_TARGET_DIR=/tmp/prf-cleanroom-target cargo run --offline --release -- verify-fixtures",
+      "reproductionCommand": "cargo run --release -- verify-fixtures",
+      "result": "22 Canonical ABI V1 cases and all 6 Pro-Rata V1 artifact bundles verified, including canonical bytes and roots."
+    }
+  },
+  "interactionBoundaries": {
+    "fieldOrder": "fixture-backed: map-ab and map-ba have identical canonical bytes",
+    "changedAmount": "conceptual only: no retained same-record amount-mutation pair or independently computed modified digest",
+    "recordType": "scope illustration: claim and allocation-result artifacts have distinct declared domains; this does not establish semantic equivalence"
+  },
+  "limitations": [
+    "Matching record identity does not establish that the calculation is correct, authorized, fair or executed.",
+    "The pro-rata amounts are calculated allocations in a clean-room fixture, not recipient payments."
+  ]
+}

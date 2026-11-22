@@ -97,6 +97,22 @@ function assertLiquidity(demo, d) {
   if (cAlloc !== totalAlloc) fail(demo, 'conservation.allocated', '!= total-allocated')
   if (cReq !== cAlloc + cShort) fail(demo, 'conservation', 'requested != allocated + shortfall')
   if (d.conservation.holds !== true) fail(demo, 'conservation.holds', 'expected true')
+  const verdicts = d.evidence['claimant-verdicts']
+  if (!Array.isArray(verdicts) || verdicts.length !== d.scenario.requests.length) {
+    fail(demo, 'evidence.claimant-verdicts', 'must include one replay record per request')
+    return
+  }
+  const rows = new Map(d.scenario.requests.map((r) => [r.id, r]))
+  const seen = new Set()
+  for (const v of verdicts) {
+    const row = rows.get(v.claimant)
+    if (!row || seen.has(v.claimant)) fail(demo, 'claimant-verdicts.claimant', 'unknown or duplicate claimant')
+    seen.add(v.claimant)
+    if (v['request-hash'] !== d.evidence['request-hash']) fail(demo, `claimant-verdicts.${v.claimant}.request-hash`, 'not bound to the request root')
+    if (v['allocation-hash'] !== d.evidence['committed-hash']) fail(demo, `claimant-verdicts.${v.claimant}.allocation-hash`, 'not bound to the allocation root')
+    if (v['expected-allocated'] !== row.allocated || v['observed-allocated'] !== row.allocated) fail(demo, `claimant-verdicts.${v.claimant}`, 'replay values differ from published allocation row')
+    if (v.verdict !== 'pass' || v['expected-allocated'] !== v['observed-allocated']) fail(demo, `claimant-verdicts.${v.claimant}.verdict`, 'expected replay agreement')
+  }
 }
 
 const files = readdirSync(generatedDir).filter((f) => f.endsWith('.json')).sort()

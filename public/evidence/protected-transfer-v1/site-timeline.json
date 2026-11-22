@@ -1,0 +1,1527 @@
+{
+  "schema": "eae.site.protected-transfer-timeline.v1",
+  "projection": {
+    "owner": "prf-site",
+    "canonicalIdentity": false,
+    "purpose": "evidence-checked presentation projection; not a PRF canonical root"
+  },
+  "subject": {
+    "chainId": 31337,
+    "environment": "local Anvil · localOnly",
+    "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+    "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8",
+    "preparedOperationRoot": "0xe0c2dc5821ca3b6ec330d8af7bcb407400b19bff4d8ee08f727970494dd85eb2",
+    "configurationRoot": "0x0101010101010101010101010101010101010101010101010101010101010101",
+    "configurationEpoch": 0,
+    "programId": "source-bound-entitlement-sp1-program.v1",
+    "proofSystem": "groth16",
+    "vkey": "0x00d90efa52d17e54670a4248f001e4da443a938f12c55d0d414c125ba68087b9",
+    "elfSha256": "0x636330de8e7af3485aba50bd3ca4b5e024cc4f977a2bf0f2c005f711e5ffacf8",
+    "publicValuesSchema": "prf/source-bound-entitlement-public-values.v1",
+    "publicValuesLength": 288,
+    "publicValuesSha256": "0xe271c6e20591109e46e3e44191c007c8f40f0e0ddec9491451f6cb11703e5ae1",
+    "source": {
+      "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+      "bundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+    },
+    "contracts": [
+      {
+        "role": "admission",
+        "address": "0x1c85638e118b37167e9298c2268758e058DdfDA0"
+      },
+      {
+        "role": "allocator",
+        "address": "0x4C2F7092C2aE51D986bEFEe378e50BD4dB99C901"
+      },
+      {
+        "role": "assurance",
+        "address": "0x4631BCAbD6dF18D94796344963cB60d44a4136b6"
+      },
+      {
+        "role": "executor",
+        "address": "0xC9a43158891282A2B1475592D5719c001986Aaec"
+      },
+      {
+        "role": "genesis",
+        "address": "0xf4B146FbA71F41E0592668ffbF264F1D186b2Ca8"
+      },
+      {
+        "role": "preparedController",
+        "address": "0x49fd2BE640DB2910c2fAb69bB8531Ab6E76127ff"
+      },
+      {
+        "role": "ratificationController",
+        "address": "0x86A2EE8FAf9A840F7a2c64CA3d51209F9A02081D"
+      },
+      {
+        "role": "registry",
+        "address": "0xD84379CEae14AA33C123Af12424A37803F885889"
+      },
+      {
+        "role": "reserve",
+        "address": "0x7A9Ec1d04904907De0ED7b6839CcdD59c3716AC9"
+      },
+      {
+        "role": "sourceAdapter",
+        "address": "0xBEc49fA140aCaA83533fB00A2BB19bDdd0290f25"
+      },
+      {
+        "role": "token",
+        "address": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb"
+      },
+      {
+        "role": "verifier",
+        "address": "0x4EE6eCAD1c2Dae9f525404De8555724e3c35d07B"
+      }
+    ],
+    "sourceRevision": "4cfa2f96a493"
+  },
+  "economics": {
+    "unit": "local controlled fixture-token units; not USDC or a currency valuation",
+    "requested": 100,
+    "grossReserve": 80,
+    "protectedReserve": 10,
+    "available": 70,
+    "unmet": 30,
+    "allocations": [
+      {
+        "name": "Alice",
+        "claimId": "claim-a",
+        "requested": 50,
+        "amount": 35,
+        "beneficiary": "0x1111111111111111111111111111111111111111"
+      },
+      {
+        "name": "Bob",
+        "claimId": "claim-b",
+        "requested": 30,
+        "amount": 21,
+        "beneficiary": "0x2222222222222222222222222222222222222222"
+      },
+      {
+        "name": "Carol",
+        "claimId": "claim-c",
+        "requested": 20,
+        "amount": 14,
+        "beneficiary": "0x3333333333333333333333333333333333333333"
+      }
+    ],
+    "terminal": {
+      "reserve": 10,
+      "allocator": 0,
+      "paid": 70,
+      "liability": 0
+    }
+  },
+  "verification": {
+    "portableBundle": {
+      "status": "passed",
+      "scope": "offline indexed artifact integrity and cross-link checks"
+    },
+    "localExecution": {
+      "status": "observed",
+      "receipts": 41,
+      "freshReplayTests": "4 passed / 0 failed"
+    },
+    "proof": {
+      "status": "recorded-passed",
+      "scope": "retained local Foundry proof/admission run; not re-executed by the site"
+    },
+    "economicReconciliation": {
+      "status": "passed-for-retained-local-observations",
+      "transfers": 4,
+      "funded": 70,
+      "withdrawn": 70,
+      "liability": 0
+    },
+    "transactionCallLabels": {
+      "status": "conflict",
+      "note": "Where script broadcast labels differ from forensic call labels, exact receipt hashes and emitted events/logs anchor the displayed observation."
+    },
+    "publicChainAuthentication": {
+      "status": "not-established"
+    },
+    "claimsSourceAuthority": {
+      "status": "not-established"
+    }
+  },
+  "steps": [
+    {
+      "sequence": 1,
+      "id": "source",
+      "title": "Shortfall source and reserve",
+      "kind": "source-observation",
+      "narration": "The controlled request totals 100 units. The local reserve holds 80, including 10 protected; 70 are available.",
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/manifest.json",
+          "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/witness.json",
+          "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/source-bound-entitlement-v1.json",
+          "sha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "authenticated-input-fixture",
+        "address": null
+      },
+      "action": "bind-source-and-reserve-facts",
+      "dependencies": [],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "operation-chain-binding",
+        "prepared-configuration-binding",
+        "reserve-availability-consistency"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site evidence projection",
+          "status": "passed",
+          "scope": "witness, manifest, operation, configuration and reserve facts agree"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/manifest.json",
+            "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/witness.json",
+            "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/source-bound-entitlement-v1.json",
+            "sha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+          }
+        ]
+      },
+      "trustStatus": "reconstructed-from-retained-local-evidence"
+    },
+    {
+      "sequence": 2,
+      "id": "allocation",
+      "title": "Pro-rata / Pro-Rata V2 allocation",
+      "kind": "derived-calculation",
+      "narration": "The committed requests project to Alice 35, Bob 21, Carol 14 from 70 available units. A calculation alone does not move capital.",
+      "allocations": [
+        {
+          "name": "Alice",
+          "claimId": "claim-a",
+          "requested": 50,
+          "amount": 35,
+          "beneficiary": "0x1111111111111111111111111111111111111111"
+        },
+        {
+          "name": "Bob",
+          "claimId": "claim-b",
+          "requested": 30,
+          "amount": 21,
+          "beneficiary": "0x2222222222222222222222222222222222222222"
+        },
+        {
+          "name": "Carol",
+          "claimId": "claim-c",
+          "requested": 20,
+          "amount": 14,
+          "beneficiary": "0x3333333333333333333333333333333333333333"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/witness.json",
+          "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/gate-e-proof-fixture.json",
+          "sha256": "0x54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/source-bound-entitlement-v1.json",
+          "sha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "reviewed-pro-rata-derivation",
+        "address": null
+      },
+      "action": "reconstruct-pro-rata-allocation",
+      "dependencies": [
+        "source"
+      ],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "requested-total-reconstruction",
+        "pro-rata-share-reconstruction",
+        "public-count-total-match"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site arithmetic reconstruction",
+          "status": "passed",
+          "scope": "pro-rata shares reconstruct exactly to the admitted total"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/witness.json",
+            "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/gate-e-proof-fixture.json",
+            "sha256": "0x54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/source-bound-entitlement-v1.json",
+            "sha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+          }
+        ]
+      },
+      "trustStatus": "reconstructed-from-retained-local-evidence"
+    },
+    {
+      "sequence": 3,
+      "id": "deployment",
+      "title": "Deploy the protected dependencies",
+      "kind": "local-deployment",
+      "narration": "24 successful receipts deployed the contracts named in this operation manifest on local Anvil.",
+      "transactions": [
+        {
+          "hash": "0xc0175c3693f1afb0d2ae6c3c5ead74ef1896de4e569d1495959d676bd2d1e872",
+          "blockNumber": 35,
+          "blockHash": "0x2ecc8952e31f99ea8de816a503b8e2565f3e7653d9516e6baf1d75f68fb2f223",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xa92d757e9248a3eeb5e4e15271b68d9d189d13ce9660d423d839998241cd4e26",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 4,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x58333bc03d12de6cd27670bc8abe6552f4e4e16d79c517ae153ed269c52479a9",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 3,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x811e816c5a3648f2119a15d9b44ddf5c7f8887f8a45d7e6ae556af9eb8407396",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 15,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xcd600e443fffb638884f15296e33a58207b6619dd3e64b9b4d0972eb0a7850e1",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 3,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xf1027e1ef99ebd9bd730b5e6829cfb877068302a196207f3ce8edcff3a161b8e",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 6,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xddaaf4a5b90e930b0e8fa1b12a7d5e52a2075a2b02efe914eabc388836080ebd",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 8,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x5d5afa1d27dd7290ff9ef43194818e9de3f05dc8f51e724caf36924a4e1a61c1",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 4,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xaf55f3f0667f761a93bd1815684a46bc85c0e9b926a3101cbc812294010c8424",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 1,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x7b492089e6fc02113d2ac5a8d5655be33992b64782d42fdf0555a98a310ae6ba",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 5,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x3dd2307fa9bae4345851f8fcc64c273b6dafa34bb772bc4b160005762d5cf852",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 1,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x1acfe5c90edb27da529a143bdb486002dc8327ebc7512fad44f38056fd76d0fd",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 13,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x9ce75716625c682e62066cac189b0084fd7d4582a7c8e8182e39e20c545cb094",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 14,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x7f0d30c293094dbceff39a516430a3b241c195f1bdf1a991f0690210a04b5b70",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 11,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x4452c548a3553c24b323bfea12fee3e91883b672f22695d3089df77c24bd4a3a",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 7,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xbebe23d3e9fc56bae62b2efd2f0fdc81ba235a05bb724bf2487f0141189509f0",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 5,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xe5e7d553d0c0d543bb38d6c92bfbb0e268a3dbaacdebb9d7219c1f6d2cc6d03a",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 9,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xbc0f2323301fd7b81ce9f863cf79ddf5c65f60e69a45c56fa4b18fbe2bc3579f",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 12,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x813abf84bda218725bf88eb257a7eea901fb92bf3b5c5a706d28c47666e64e66",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 2,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xd98fa3b1a6c0833dbb3b654f24d70f8b6480b9812ac03c03a2b230c2f44b95de",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 2,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xaba7a017f1f32e76cb8368fde112a663a857fc60aae27b7404d9af4ffb53214b",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 10,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x04eb1c44d733bbb2e6778af63b3125779cf71f0b5cae9401937ec2690337c3dd",
+          "blockNumber": 36,
+          "blockHash": "0xba21ea68fe81a23bfd48864276e2f40e80251cde16a360f1ba401903ea22469c",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x63d9aca958669de89e036564a2e174eb59a4e1658c2b6d58ce88438cf9e54c5c",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 6,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0xaf8af1e2eeb67796417f2536a5f8a382859b6d084064eee7409b05a9fd8a6207",
+          "blockNumber": 37,
+          "blockHash": "0x0b6e18e1ef3b1167e5f83fda1f051e86e3e73c0e91637af4908c15eeadef904b",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/manifest.json",
+          "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/deployment-broadcast.json",
+          "sha256": "0x9987774346947e2f6b187e048ad8b2b47e36957536f74a27a913e39d0c504032"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "deployer",
+        "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
+      },
+      "action": "deploy-selected-contracts",
+      "dependencies": [
+        "allocation"
+      ],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "manifest-addresses-have-deployment-receipts",
+        "all-receipts-successful-local-chain-and-deployer"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site receipt validator",
+          "status": "passed",
+          "scope": "deployment addresses, transaction hashes, signers, chain IDs and receipts cross-link"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/manifest.json",
+            "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/deployment-broadcast.json",
+            "sha256": "0x9987774346947e2f6b187e048ad8b2b47e36957536f74a27a913e39d0c504032"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 4,
+      "id": "admission",
+      "title": "Verify and admit the proof",
+      "kind": "proof-admission",
+      "narration": "The retained Foundry run reports the real successor Groth16 proof passing the deployed verifier/admission path. This website does not execute SP1 or verify the proof itself.",
+      "transaction": {
+        "hash": "0x070175ddc3b3e083d4fa8cf392f628599031561e7dc7c8ea65b9e03e2afa62ea",
+        "blockNumber": 39,
+        "blockHash": "0xcee609a74f327ab38d9584db5202cd84ad35c6a387f6cdb41e8d11ff70d0f05f",
+        "transactionIndex": 1,
+        "status": "successful-local-receipt"
+      },
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/gate-e-proof-fixture.json",
+          "sha256": "0x54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+          "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+          "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "statement-admission",
+        "address": "0x1c85638e118b37167e9298c2268758e058DdfDA0"
+      },
+      "action": "verify-and-admit-proof",
+      "dependencies": [
+        "deployment"
+      ],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "proof-program-vkey-elf-schema-binding",
+        "admission-event-from-bound-contract",
+        "proof-pass-recorded-in-foundry-fixture"
+      ],
+      "verificationResults": [
+        {
+          "validator": "retained Foundry proof/admission test",
+          "status": "recorded-passed",
+          "scope": "fixture reports real Groth16 admission; not re-executed by this site"
+        },
+        {
+          "validator": "site receipt validator",
+          "status": "passed",
+          "scope": "admission event is in the receipt bound to the operation evidence"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/gate-e-proof-fixture.json",
+            "sha256": "0x54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+            "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+            "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 5,
+      "id": "prepare",
+      "title": "Prepare and register the operation",
+      "kind": "prepared-operation",
+      "narration": "The retained assurance and ratification records bind the operation to its prepared identity before funding.",
+      "transactions": [
+        {
+          "hash": "0x0a41a174689546f4bab330d24f9dc47d7fe76fc50e4db887bc743e399d847a0d",
+          "blockNumber": 39,
+          "blockHash": "0xcee609a74f327ab38d9584db5202cd84ad35c6a387f6cdb41e8d11ff70d0f05f",
+          "transactionIndex": 2,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x7504576f400d38bf7c828e8ab067cb441df34ad3c02455a096938bf87b180bc8",
+          "blockNumber": 40,
+          "blockHash": "0xe0865e8cd5fd3b9e6d92899c543a56c22183d2552825d61c51e8242faa97f70a",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/manifest.json",
+          "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/witness.json",
+          "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+          "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+          "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "prepared-controller",
+        "address": "0x49fd2BE640DB2910c2fAb69bB8531Ab6E76127ff"
+      },
+      "action": "prepare-and-register-operation",
+      "dependencies": [
+        "admission"
+      ],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "prepared-operation-root-bound",
+        "preparation-and-registration-receipts-matched"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site receipt validator",
+          "status": "passed",
+          "scope": "prepared-operation and registration receipt records bind to the same operation"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/manifest.json",
+            "sha256": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/witness.json",
+            "sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+            "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+            "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 6,
+      "id": "prepare-ratify-fund",
+      "title": "Ratify and fund the allocator",
+      "kind": "protected-funding",
+      "narration": "The protected operation moved exactly 70 fixture-token units from reserve to allocator. 10 protected units remained in reserve.",
+      "transaction": {
+        "hash": "0x5acb0220a3c1adde09676088da1e5e633f5f470e5b890995aeac11435c3cdcdf",
+        "blockNumber": 40,
+        "blockHash": "0xe0865e8cd5fd3b9e6d92899c543a56c22183d2552825d61c51e8242faa97f70a",
+        "transactionIndex": 1,
+        "status": "successful-local-receipt"
+      },
+      "transfer": {
+        "tokenAddress": "0x367761085bf3c12e5da2df99ac6e1a824612b8fb",
+        "from": "0x7a9ec1d04904907de0ed7b6839ccdd59c3716ac9",
+        "to": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+        "amount": 70,
+        "transactionHash": "0x5acb0220a3c1adde09676088da1e5e633f5f470e5b890995aeac11435c3cdcdf",
+        "blockNumber": 40,
+        "blockHash": "0xe0865e8cd5fd3b9e6d92899c543a56c22183d2552825d61c51e8242faa97f70a",
+        "logIndex": 3,
+        "status": "observed-local-transfer-log"
+      },
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+          "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+          "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "ratification-controller-and-reserve",
+        "address": "0x86A2EE8FAf9A840F7a2c64CA3d51209F9A02081D"
+      },
+      "action": "ratify-and-fund",
+      "dependencies": [
+        "prepare"
+      ],
+      "preState": {
+        "reserve": 80,
+        "allocator": 0,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 70,
+        "paid": 0,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x7a9ec1d04904907de0ed7b6839ccdd59c3716ac9",
+            "amount": -70
+          },
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+            "amount": 70
+          }
+        ],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "exact-reserve-to-allocator-transfer-log",
+        "funding-state-delta-reconciles"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site economic reconciler",
+          "status": "passed",
+          "scope": "ERC-20 transfer log and before/after custody agree"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/funding-broadcast.json",
+            "sha256": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+            "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 7,
+      "id": "activate",
+      "title": "Activate entitlements",
+      "kind": "activation",
+      "narration": "Activation bound the logical table. Liability changed from zero to 70; token custody did not move.",
+      "transactions": [
+        {
+          "hash": "0xd8f7e95bd49c881b8b1509917d0ae422bdc9ed624d142780b92e474bfe241d84",
+          "blockNumber": 41,
+          "blockHash": "0xbf0aa6e21286db443ac04e5fb6ccce671a3de5c4bfcdae155a755cb002634adf",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        },
+        {
+          "hash": "0x75eca777ddb8b17c370048ff31f25d89d941602f37b1d6fb1451827d8325ad3e",
+          "blockNumber": 42,
+          "blockHash": "0x7a2173613dee5f21e56cee3bc602d722ed7779b5bc9bedbae257d31baa0a8166",
+          "transactionIndex": 0,
+          "status": "successful-local-receipt"
+        }
+      ],
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/activation-broadcast.json",
+          "sha256": "0x3a00547b6111f3e3077069ecabf294a0f3396f5f8a80becc913e9c1a2fc49a13"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/activation-forensic.json",
+          "sha256": "0x587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "successor-entitlement-allocator",
+        "address": "0x4C2F7092C2aE51D986bEFEe378e50BD4dB99C901"
+      },
+      "action": "activate-entitlement-table",
+      "dependencies": [
+        "prepare-ratify-fund"
+      ],
+      "preState": {
+        "reserve": 10,
+        "allocator": 70,
+        "paid": 0,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 70,
+        "paid": 0,
+        "liability": 70
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 70
+      },
+      "requiredChecks": [
+        "activated-representation-evidence-linked",
+        "liability-increase-matches-entitlement-total",
+        "no-token-custody-change"
+      ],
+      "verificationResults": [
+        {
+          "validator": "portable bundle verifier",
+          "status": "passed",
+          "scope": "activation evidence cross-links the funding evidence and liability state"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/activation-broadcast.json",
+            "sha256": "0x3a00547b6111f3e3077069ecabf294a0f3396f5f8a80becc913e9c1a2fc49a13"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/activation-forensic.json",
+            "sha256": "0x587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 8,
+      "id": "claim-claim-a",
+      "title": "Alice withdraws 35",
+      "kind": "observed-asset-transfer",
+      "actor": {
+        "role": "entitlement-beneficiary",
+        "address": "0x1111111111111111111111111111111111111111"
+      },
+      "narration": "Alice received 35 local fixture-token units in a successful local receipt.",
+      "amount": 35,
+      "beneficiary": "0x1111111111111111111111111111111111111111",
+      "withdrawalMode": "Requested",
+      "transaction": {
+        "hash": "0x997ec308933d61b489bae2dd577e30b090ec643d10b3fa78db3ab49064a1fa6c",
+        "blockNumber": 43,
+        "blockHash": "0xd97091cc97db9fb7d089974fea5d629c052fb488fb57b1b010250a642dd42f80",
+        "transactionIndex": 0,
+        "status": "successful-local-receipt"
+      },
+      "transfer": {
+        "tokenAddress": "0x367761085bf3c12e5da2df99ac6e1a824612b8fb",
+        "from": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+        "to": "0x1111111111111111111111111111111111111111",
+        "amount": 35,
+        "transactionHash": "0x997ec308933d61b489bae2dd577e30b090ec643d10b3fa78db3ab49064a1fa6c",
+        "blockNumber": 43,
+        "blockHash": "0xd97091cc97db9fb7d089974fea5d629c052fb488fb57b1b010250a642dd42f80",
+        "logIndex": 0,
+        "status": "observed-local-transfer-log"
+      },
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+          "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+          "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "action": "withdraw-claim",
+      "dependencies": [
+        "activate"
+      ],
+      "preState": {
+        "reserve": 10,
+        "allocator": 70,
+        "paid": 0,
+        "liability": 70
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 35,
+        "paid": 35,
+        "liability": 35
+      },
+      "assetDeltas": {
+        "token": [
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+            "amount": -35
+          },
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x1111111111111111111111111111111111111111",
+            "amount": 35
+          }
+        ],
+        "liability": -35
+      },
+      "requiredChecks": [
+        "beneficiary-and-claim-amount-match",
+        "transfer-log-and-liability-delta-match"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site transfer validator",
+          "status": "passed",
+          "scope": "beneficiary, amount, receipt context and token Transfer log agree"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+            "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+            "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 9,
+      "id": "claim-claim-b",
+      "title": "Bob withdraws 21",
+      "kind": "observed-asset-transfer",
+      "actor": {
+        "role": "entitlement-beneficiary",
+        "address": "0x2222222222222222222222222222222222222222"
+      },
+      "narration": "Bob received 21 local fixture-token units in a successful local receipt.",
+      "amount": 21,
+      "beneficiary": "0x2222222222222222222222222222222222222222",
+      "withdrawalMode": "Required",
+      "transaction": {
+        "hash": "0x29d7a85808c8a88c5070b7338454143fd9740703c5c98d24b02be9440d10143c",
+        "blockNumber": 45,
+        "blockHash": "0xfda6596479208c3ca2ab5230d81522ead15259257ef1910f1e583a300c1f2ad5",
+        "transactionIndex": 0,
+        "status": "successful-local-receipt"
+      },
+      "transfer": {
+        "tokenAddress": "0x367761085bf3c12e5da2df99ac6e1a824612b8fb",
+        "from": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+        "to": "0x2222222222222222222222222222222222222222",
+        "amount": 21,
+        "transactionHash": "0x29d7a85808c8a88c5070b7338454143fd9740703c5c98d24b02be9440d10143c",
+        "blockNumber": 45,
+        "blockHash": "0xfda6596479208c3ca2ab5230d81522ead15259257ef1910f1e583a300c1f2ad5",
+        "logIndex": 0,
+        "status": "observed-local-transfer-log"
+      },
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+          "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+          "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "action": "withdraw-claim",
+      "dependencies": [
+        "activate",
+        "claim-claim-a"
+      ],
+      "preState": {
+        "reserve": 10,
+        "allocator": 35,
+        "paid": 35,
+        "liability": 35
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 14,
+        "paid": 56,
+        "liability": 14
+      },
+      "assetDeltas": {
+        "token": [
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+            "amount": -21
+          },
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x2222222222222222222222222222222222222222",
+            "amount": 21
+          }
+        ],
+        "liability": -21
+      },
+      "requiredChecks": [
+        "beneficiary-and-claim-amount-match",
+        "transfer-log-and-liability-delta-match"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site transfer validator",
+          "status": "passed",
+          "scope": "beneficiary, amount, receipt context and token Transfer log agree"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+            "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+            "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 10,
+      "id": "claim-claim-c",
+      "title": "Carol withdraws 14",
+      "kind": "observed-asset-transfer",
+      "actor": {
+        "role": "entitlement-beneficiary",
+        "address": "0x3333333333333333333333333333333333333333"
+      },
+      "narration": "Carol received 14 local fixture-token units in a successful local receipt.",
+      "amount": 14,
+      "beneficiary": "0x3333333333333333333333333333333333333333",
+      "withdrawalMode": "Requested",
+      "transaction": {
+        "hash": "0xdfa9e9faa5270061ab3686223bc7c7b75253ec32507f06ea8e00ee8a79752513",
+        "blockNumber": 46,
+        "blockHash": "0xf4626e9656a0c79e1bb49487a4ef0e6ecafc9dbccbd5827a31f10f6b2f8962b8",
+        "transactionIndex": 1,
+        "status": "successful-local-receipt"
+      },
+      "transfer": {
+        "tokenAddress": "0x367761085bf3c12e5da2df99ac6e1a824612b8fb",
+        "from": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 14,
+        "transactionHash": "0xdfa9e9faa5270061ab3686223bc7c7b75253ec32507f06ea8e00ee8a79752513",
+        "blockNumber": 46,
+        "blockHash": "0xf4626e9656a0c79e1bb49487a4ef0e6ecafc9dbccbd5827a31f10f6b2f8962b8",
+        "logIndex": 2,
+        "status": "observed-local-transfer-log"
+      },
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+          "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+          "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "action": "withdraw-claim",
+      "dependencies": [
+        "activate",
+        "claim-claim-b"
+      ],
+      "preState": {
+        "reserve": 10,
+        "allocator": 14,
+        "paid": 56,
+        "liability": 14
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 0,
+        "paid": 70,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x4c2f7092c2ae51d986befee378e50bd4db99c901",
+            "amount": -14
+          },
+          {
+            "asset": "0x367761085BF3C12e5DA2Df99AC6E1a824612b8fb",
+            "account": "0x3333333333333333333333333333333333333333",
+            "amount": 14
+          }
+        ],
+        "liability": -14
+      },
+      "requiredChecks": [
+        "beneficiary-and-claim-amount-match",
+        "transfer-log-and-liability-delta-match"
+      ],
+      "verificationResults": [
+        {
+          "validator": "site transfer validator",
+          "status": "passed",
+          "scope": "beneficiary, amount, receipt context and token Transfer log agree"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-broadcast.json",
+            "sha256": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+            "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+          }
+        ]
+      },
+      "trustStatus": "retained-local-observation"
+    },
+    {
+      "sequence": 11,
+      "id": "reconcile",
+      "title": "Reconcile custody and obligations",
+      "kind": "reconciliation",
+      "narration": "All 70 funded units were paid to the three fixture beneficiaries. 10 protected units remain in reserve. 30 of the original 100 requested units were unmet and never became funded liabilities.",
+      "evidenceRefs": [
+        {
+          "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+          "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/activation-forensic.json",
+          "sha256": "0x587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+          "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+        },
+        {
+          "path": "/evidence/protected-transfer-v1/fresh-anvil-replay.json",
+          "sha256": "0x4677fd4ebe2156e4b3d16d352be30bbca4d086f58c32e40fedf3d35f9bfeda99"
+        }
+      ],
+      "operationId": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "chainInstance": {
+        "chainId": 31337,
+        "environment": "localOnly",
+        "manifestDigest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8"
+      },
+      "sourceCommitment": {
+        "witnessSha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+        "sourceBundleSha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+      },
+      "actor": {
+        "role": "forensic-reconstruction",
+        "address": null
+      },
+      "action": "reconcile-custody-and-liability",
+      "dependencies": [
+        "claim-claim-c"
+      ],
+      "preState": {
+        "reserve": 10,
+        "allocator": 0,
+        "paid": 70,
+        "liability": 0
+      },
+      "postState": {
+        "reserve": 10,
+        "allocator": 0,
+        "paid": 70,
+        "liability": 0
+      },
+      "assetDeltas": {
+        "token": [],
+        "liability": 0
+      },
+      "requiredChecks": [
+        "funded-amount-equals-total-payouts",
+        "terminal-custody-and-liability-reconcile",
+        "unmet-request-not-counted-as-liability"
+      ],
+      "verificationResults": [
+        {
+          "validator": "portable bundle verifier and site reconciler",
+          "status": "passed-for-retained-local-observations",
+          "scope": "payouts, custody and liability close to the funded amount"
+        }
+      ],
+      "provenance": {
+        "classification": "localOnly",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "evidenceRefs": [
+          {
+            "path": "/evidence/protected-transfer-v1/funding-forensic.json",
+            "sha256": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/activation-forensic.json",
+            "sha256": "0x587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/withdrawal-forensic.json",
+            "sha256": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+          },
+          {
+            "path": "/evidence/protected-transfer-v1/fresh-anvil-replay.json",
+            "sha256": "0x4677fd4ebe2156e4b3d16d352be30bbca4d086f58c32e40fedf3d35f9bfeda99"
+          }
+        ]
+      },
+      "trustStatus": "reconstructed-from-retained-local-evidence"
+    }
+  ],
+  "attacks": {
+    "retained": [
+      {
+        "id": "duplicate-claim-replay-1",
+        "kind": "read-only-eth-call",
+        "originalTransaction": "0x997ec308933d61b489bae2dd577e30b090ec643d10b3fa78db3ab49064a1fa6c",
+        "outcome": "reverted-in-read-only-call",
+        "transactionMined": false
+      },
+      {
+        "id": "duplicate-claim-replay-2",
+        "kind": "read-only-eth-call",
+        "originalTransaction": "0x29d7a85808c8a88c5070b7338454143fd9740703c5c98d24b02be9440d10143c",
+        "outcome": "reverted-in-read-only-call",
+        "transactionMined": false
+      },
+      {
+        "id": "duplicate-claim-replay-3",
+        "kind": "read-only-eth-call",
+        "originalTransaction": "0xdfa9e9faa5270061ab3686223bc7c7b75253ec32507f06ea8e00ee8a79752513",
+        "outcome": "reverted-in-read-only-call",
+        "transactionMined": false
+      }
+    ],
+    "isolatedTests": [
+      {
+        "id": "wrong-allocator-binding-unit-test",
+        "kind": "isolated local Foundry contract unit test; not a transaction from the protected-transfer operation",
+        "outcome": "PASS",
+        "operation": "keccak256(\"op-successor\")",
+        "expectedRejection": "SourceBoundProRataRatificationControllerV2.PreparedContextMismatch",
+        "testName": "test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator",
+        "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+        "sourcePath": "test/SourceBoundProRataRatificationControllerV2.t.sol",
+        "sourceSha256": "fdc99db1ef1b3ed99d26b0a5d67638052fd7effcf747aecf11e44e5b51bc4b8e",
+        "sourceUrl": "https://github.com/protocol-robustness/prf-evm/blob/4cfa2f96a4938d23abda609dfff9052b177ef8af/test/SourceBoundProRataRatificationControllerV2.t.sol#L131",
+        "command": "forge test --match-test test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator -vv",
+        "preparedAllocator": "0x0000000000000000000000000000000000009999",
+        "reserveBoundAllocator": "0x0000000000000000000000000000000000003333",
+        "postcondition": "assurance.consumed(RECEIPT) == false",
+        "output": "No files changed, compilation skipped\n\nRan 1 test for test/SourceBoundProRataRatificationControllerV2.t.sol:SourceBoundProRataRatificationControllerV2Test\n[PASS] test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator() (gas: 475770)\nSuite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.03ms (475.58µs CPU time)\n\nRan 1 test suite in 22.14ms (3.03ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)\n",
+        "evidencePath": "/evidence/protected-transfer-v1/negative-tests/allocator-substitution-foundry.json",
+        "evidenceSha256": "0x6cec2509352fd428fc2e36ef0e13068aa7e0e115c888f957bd2b35fa648073ba",
+        "limitations": [
+          "The test executes in Foundry's local test VM; it does not mine a transaction or produce an on-chain receipt.",
+          "It uses its own test-harness operation and is separate from the primary protected-transfer operation.",
+          "It proves the prepared allocator mismatch is rejected against the reserve-bound allocator; it is not a caller-selected destination argument test."
+        ]
+      }
+    ],
+    "notCovered": [
+      {
+        "id": "caller-selected-funding-destination",
+        "status": "not-tested-in-primary-operation",
+        "note": "The primary operation has no caller-selected destination-substitution test. A separate Foundry case covers a prepared-versus-reserve allocator mismatch."
+      }
+    ]
+  },
+  "transactionAttribution": [
+    {
+      "transactionHash": "0x070175ddc3b3e083d4fa8cf392f628599031561e7dc7c8ea65b9e03e2afa62ea",
+      "forensicFunction": "admitStatement(bytes32,bytes32,bytes,bytes)",
+      "broadcastFunction": "fund(bytes32,address)",
+      "labelsAgree": false
+    },
+    {
+      "transactionHash": "0x0a41a174689546f4bab330d24f9dc47d7fe76fc50e4db887bc743e399d847a0d",
+      "forensicFunction": "prepareSourceAssurance(bytes32,bytes32,bytes)",
+      "broadcastFunction": null,
+      "labelsAgree": false
+    },
+    {
+      "transactionHash": "0x7504576f400d38bf7c828e8ab067cb441df34ad3c02455a096938bf87b180bc8",
+      "forensicFunction": "registerPrepared(bytes32)",
+      "broadcastFunction": "registerPrepared(bytes32)",
+      "labelsAgree": true
+    },
+    {
+      "transactionHash": "0x5acb0220a3c1adde09676088da1e5e633f5f470e5b890995aeac11435c3cdcdf",
+      "forensicFunction": "fund(bytes32,address)",
+      "broadcastFunction": "admitStatement(bytes32,bytes32,bytes,bytes)",
+      "labelsAgree": false
+    }
+  ],
+  "evidenceHashes": {
+    "manifest.json": "0xa550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380",
+    "witness.json": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+    "gate-e-proof-fixture.json": "0x54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67",
+    "source-bound-entitlement-v1.json": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848",
+    "funding-forensic.json": "0x0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8",
+    "activation-forensic.json": "0x587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5",
+    "withdrawal-forensic.json": "0xfd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9",
+    "deployment-broadcast.json": "0x9987774346947e2f6b187e048ad8b2b47e36957536f74a27a913e39d0c504032",
+    "funding-broadcast.json": "0x4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358",
+    "activation-broadcast.json": "0x3a00547b6111f3e3077069ecabf294a0f3396f5f8a80becc913e9c1a2fc49a13",
+    "withdrawal-broadcast.json": "0xe39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b",
+    "fresh-anvil-replay.json": "0x4677fd4ebe2156e4b3d16d352be30bbca4d086f58c32e40fedf3d35f9bfeda99",
+    "negative-tests/allocator-substitution-foundry.json": "0x6cec2509352fd428fc2e36ef0e13068aa7e0e115c888f957bd2b35fa648073ba"
+  },
+  "limitations": [
+    "Local Anvil receipts are not independently authenticated public-chain state.",
+    "The request source, beneficiary identities, token and authority are controlled local fixtures.",
+    "A changed funding destination was not tested by this evidence bundle.",
+    "Duplicate-claim attempts are read-only eth_call replays, not mined reverted transactions.",
+    "Some funding broadcast function labels differ from the forensic call labels; this projection binds by transaction hash, receipt context and emitted evidence, and retains the discrepancy for inspection."
+  ],
+  "presentationDigest": "0xff9fef41a593d9902985671f7aefb5fe063e3619153a22a8f30f32a30b94a04f"
+}

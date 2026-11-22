@@ -1,0 +1,74 @@
+{
+  "schema": "prf.partial-fill-v3-anvil-same-block-manifest.v1",
+  "sourceRevision": "2ed0eccd4dcd44c8a7e63fed03e0fc25807d41e5",
+  "chainId": 31337,
+  "genesisHash": "0xf76d3be6eeb502ca1b54fb93676069d09403f55b178317ff5b7cb936e6361e18",
+  "anvilVersion": "anvil Version: 1.7.1",
+  "factory": {
+    "address": "0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496",
+    "codeSha256": "sha256:3982bfa6135a59bade1c43c5e7359136109d9c6b8cb98b15f100925831b295f9",
+    "installation": "anvil_setCode at deterministic Foundry fixture sponsor; creator nonce seeded to 1"
+  },
+  "sameBlock": {
+    "number": 4,
+    "hash": "0x990a59f2cdba404a717a981810b084b4268806f1a1037045769c986ffdac1abb",
+    "transactionHashes": [
+      "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb",
+      "0xf9a661e2e8c2652095a6fe4fe0dba13da590cfca7fe7c2d878aca8b13f548870",
+      "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1",
+      "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2"
+    ],
+    "transactionIndices": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "files": [
+    {
+      "path": "result.json",
+      "sha256": "4fc294e113b37789251d8340302a199ffe078ce7cbf5bc093d56b0b04822185b"
+    },
+    {
+      "path": "receipts.json",
+      "sha256": "c30d9e75c29bf381aae40359e57b53e868027647403220c3c43dd1f14696a560"
+    },
+    {
+      "path": "accounting-journal.json",
+      "sha256": "159b7799f1e602b67416d92a2172607f5de42cbc4f7948488efc384182c22351"
+    },
+    {
+      "path": "../../scripts/qualify-partial-fill-anvil-same-block.py",
+      "sha256": "803a10e1dd8a4948b40b8f423bde7551331962470a7ac2ce9700cf1e0e79f3d1"
+    },
+    {
+      "path": "../../test/PartialFillV3AnvilFixtureFactory.sol",
+      "sha256": "fa4a57955d57ba5240a200d5c6843d1e59cfcd6a4689acd6ca89fc1e79549f5c"
+    },
+    {
+      "path": "../../test/PartialFillV3Controlled.t.sol",
+      "sha256": "1cac35b3382d895d16b51e47946e7e140983925be52654519299e1edd846e395"
+    },
+    {
+      "path": "../../test/fixtures/partial-fill-v3/proof.json",
+      "sha256": "f9116bad735e090f2d893ce2b79aac642ce18a991b842497dce3b07774dffc9d"
+    },
+    {
+      "path": "../../test/fixtures/partial-fill-v3/replay.json",
+      "sha256": "da3b6ab9922ad05c1eafbe2cf49ac31dddaa03cca26c0d5ddf2c97cec0c36aa3"
+    },
+    {
+      "path": "../../test/fixtures/partial-fill-v3/configuration.json",
+      "sha256": "85b8b659abd8353d67787f67d0c9a85489ccf26b0accc8850f7ed385deecd7b1"
+    },
+    {
+      "path": "../../test/fixtures/partial-fill-v3/genesis.json",
+      "sha256": "5471e0d0f213730dfef2ddf450269c24802cf7117cb5e747597bf2097e8aef89"
+    },
+    {
+      "path": "../../test/fixtures/partial-fill-v3/identity.json",
+      "sha256": "e42180fe4621681f3e958cc1133d22b37474e3a30eb71ff04c41d3b6bc87f70e"
+    }
+  ]
+}

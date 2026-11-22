@@ -1,0 +1,12 @@
+{
+  "erc20TransferObserved": true,
+  "reserve": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+  "reserveDepositEventObserved": true,
+  "restrictedForCarolByPolicy": 10,
+  "scope": "Observed local test-token funding attribution; no offchain asset provenance.",
+  "sponsor": "0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496",
+  "sponsorMintedByFixture": 80,
+  "sponsorTransferredToReserve": 80,
+  "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+  "attributionBoundary": "The local test-token mint and sponsor-to-reserve transfer are observed; Carol ownership is declared by this fixture policy, not inferred from those transfers or from prior history."
+}

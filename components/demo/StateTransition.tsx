@@ -9,13 +9,13 @@ export default function StateTransition({
   to,
   unit,
   label,
-  signature,
+  commitmentHash,
 }: {
   from: string
   to: string
   unit: string
   label: string
-  signature: string
+  commitmentHash: string
 }) {
   return (
     <div className={styles.transition}>
@@ -37,8 +37,8 @@ export default function StateTransition({
           {to} <span className={styles.unit}>{unit}</span>
         </div>
       </div>
-      <div className={styles.signature}>
-        committed signature <code>{signature}</code>
+      <div className={styles.commitmentHash}>
+        committed hash <code>{commitmentHash}</code>
       </div>
     </div>
   )

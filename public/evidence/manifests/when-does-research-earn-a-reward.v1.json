@@ -1,0 +1,88 @@
+{
+  "schema": "prf-demo-manifest.v1",
+  "manifest_version": 1,
+  "demo": {
+    "id": "when-does-research-earn-a-reward",
+    "title": "How Research Rewards Work",
+    "page": "/demos/when-does-research-earn-a-reward"
+  },
+  "source_repository": "prf-main",
+  "subject_revision": {
+    "git_revision": null,
+    "revision_status": "source and test hashes identify local qualification inputs; revision not pinned"
+  },
+  "subject": {
+    "question": "What must happen between submitted research evidence and a policy-eligible reward obligation?",
+    "scope": "Local test qualification of review, eligibility and obligation-building logic; no live challenge or payment service."
+  },
+  "inputs": [
+    {
+      "path": "evidence/research/incentive-workflow/qualification.v1.json",
+      "role": "test suite outcomes and workflow boundary",
+      "sha256": "7eec388b6b6a932c692bdfccb36a00bde6f666b6d2c2d07987a137b2f91b7e84"
+    },
+    {
+      "path": "evidence/research/researcher-network-pilot-v0.md",
+      "role": "unpublished pilot readiness and funding gates",
+      "sha256": "43076b6a3118e2500973d38e14c2b0f0a39478cbe2db5790470a17e682e9f4af"
+    }
+  ],
+  "retained_evidence": [
+    {
+      "path": "evidence/research/challenge-001-scope-candidate.v1.edn",
+      "role": "unactivated challenge and proposed funding terms",
+      "sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08",
+      "source_path": "examples/researcher-challenges/shortfall-stress/challenge-001-scope-candidate.v1.edn",
+      "source_sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "src/resolver_sim/research/researcher_challenges.clj",
+      "role": "challenge, review and obligation workflow",
+      "sha256": "7fe95a8267043de2ef76cf2c2463b07627893572d78c472febba331a1232e821"
+    },
+    {
+      "path": "src/resolver_sim/benchmark/researcher_reward.clj",
+      "role": "reward eligibility and obligation policy",
+      "sha256": "2afb06392f6b36a6a8ebc089d5bf5fba7f969a0659ef1c641931747f914dbd06"
+    },
+    {
+      "path": "test/resolver_sim/research/researcher_challenges_test.clj",
+      "role": "local end-to-end workflow tests",
+      "sha256": "5982f3bebebd8f5691065d34039d4d510c185de05e51a5d4f2d1862126aaa440"
+    },
+    {
+      "path": "test/resolver_sim/benchmark/researcher_reward_test.clj",
+      "role": "reward policy unit tests",
+      "sha256": "1fea6b99e20326eea8a36ef0ae50a979bd825711b3a119d7e4bb4433566460a7"
+    }
+  ],
+  "verification": [
+    {
+      "working_directory": "PRF repository root",
+      "command": "clojure -M:test -e \"run resolver-sim.research.researcher-challenges-test\"",
+      "purpose": "Exercise signed local submissions, review, eligibility, obligation reconstruction, rejection and external payout records."
+    },
+    {
+      "working_directory": "PRF repository root",
+      "command": "clojure -M:test -e \"run resolver-sim.benchmark.researcher-reward-test\"",
+      "purpose": "Exercise eligibility and policy-bound proposal/obligation construction."
+    }
+  ],
+  "expected_outputs": {
+    "researcher_challenges_test": "29 tests / 233 assertions; pass",
+    "researcher_reward_test": "6 tests / 41 assertions; pass",
+    "public_challenge": "none",
+    "review_acceptance": "local test fixtures only",
+    "eligibility": "local test fixtures only",
+    "reward_obligation": "local test fixtures only",
+    "payment_execution": "not qualified; none represented"
+  },
+  "limitations": [
+    "Tests are local and not a retained public signed history.",
+    "Challenge 001 remains an unpublished candidate; its draft budget and token terms are not authorized.",
+    "An obligation does not contain payment authority. Payment execution is not qualified.",
+    "The UI accepted example describes test behavior, not a real researcher or payable reward."
+  ]
+}

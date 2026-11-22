@@ -1,0 +1,381 @@
+{
+  "status": "PASS",
+  "manifestSchema": "prf-evm.composed-pro-rata-v2-settlement.v1",
+  "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+  "sourceRoot": "0xb0738f50aa2a33b26d7d1dd6d99d027185be805b547f6473c30b563bd1ee34be",
+  "preparedOperationRoot": "0xc5897bf4d7d707dd04143c307cab6a62c790273e4d1592297c94cdd32261f799",
+  "reserveStateCommitment": "0xa40e4db35601330b194a1e4b03965f0804f613eab979f1b850b313e09f1dfd0c",
+  "inputs": {
+    "requested": 100,
+    "available": 70,
+    "unmet": 30
+  },
+  "calculatedAllocations": {
+    "claim-a": 35,
+    "claim-b": 21,
+    "claim-c": 14
+  },
+  "localObservedWithdrawals": [
+    35,
+    21,
+    14
+  ],
+  "intermediateLiabilities": [
+    70,
+    35,
+    14
+  ],
+  "stateProjections": [
+    {
+      "sequence": 0,
+      "stage": "opening",
+      "event": "opening_observation",
+      "observation": {
+        "stage": "opening",
+        "reserveBalance": 80,
+        "allocatorBalance": 0,
+        "aliceBalance": 0,
+        "bobBalance": 0,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 0,
+        "claimedCount": 0,
+        "outstandingLiability": 0,
+        "allocatorState": 0,
+        "ratificationState": 0,
+        "reserveFinalized": false,
+        "availabilityRevision": 0
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-7"
+    },
+    {
+      "sequence": 1,
+      "stage": "proof_admitted",
+      "event": "proof_admitted_without_balance_change",
+      "observation": {
+        "stage": "proof_admitted",
+        "reserveBalance": 80,
+        "allocatorBalance": 0,
+        "aliceBalance": 0,
+        "bobBalance": 0,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 0,
+        "claimedCount": 0,
+        "outstandingLiability": 0,
+        "allocatorState": 0,
+        "ratificationState": 1,
+        "reserveFinalized": false,
+        "availabilityRevision": 0
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-8"
+    },
+    {
+      "sequence": 2,
+      "stage": "funded",
+      "event": "allocator_funded_without_claim_liability",
+      "observation": {
+        "stage": "funded",
+        "reserveBalance": 10,
+        "allocatorBalance": 70,
+        "aliceBalance": 0,
+        "bobBalance": 0,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 0,
+        "claimedCount": 0,
+        "outstandingLiability": 0,
+        "allocatorState": 2,
+        "ratificationState": 3,
+        "reserveFinalized": false,
+        "availabilityRevision": 1
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-9"
+    },
+    {
+      "sequence": 3,
+      "stage": "activated",
+      "event": "claim_liability_activated",
+      "observation": {
+        "stage": "activated",
+        "reserveBalance": 10,
+        "allocatorBalance": 70,
+        "aliceBalance": 0,
+        "bobBalance": 0,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 0,
+        "claimedCount": 0,
+        "outstandingLiability": 70,
+        "allocatorState": 3,
+        "ratificationState": 4,
+        "reserveFinalized": false,
+        "availabilityRevision": 1
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-10"
+    },
+    {
+      "sequence": 4,
+      "stage": "after_alice_claim",
+      "event": "beneficiary_claim",
+      "observation": {
+        "stage": "after_alice_claim",
+        "reserveBalance": 10,
+        "allocatorBalance": 35,
+        "aliceBalance": 35,
+        "bobBalance": 0,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 35,
+        "claimedCount": 1,
+        "outstandingLiability": 35,
+        "allocatorState": 4,
+        "ratificationState": 4,
+        "reserveFinalized": false,
+        "availabilityRevision": 1
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-11"
+    },
+    {
+      "sequence": 5,
+      "stage": "after_bob_claim",
+      "event": "beneficiary_claim",
+      "observation": {
+        "stage": "after_bob_claim",
+        "reserveBalance": 10,
+        "allocatorBalance": 14,
+        "aliceBalance": 35,
+        "bobBalance": 21,
+        "carolBalance": 0,
+        "totalReserved": 0,
+        "claimedAmount": 56,
+        "claimedCount": 2,
+        "outstandingLiability": 14,
+        "allocatorState": 4,
+        "ratificationState": 4,
+        "reserveFinalized": false,
+        "availabilityRevision": 1
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-12"
+    },
+    {
+      "sequence": 6,
+      "stage": "allocator_closed",
+      "event": "final_beneficiary_claim_and_allocator_closed",
+      "observation": {
+        "stage": "allocator_closed",
+        "reserveBalance": 10,
+        "allocatorBalance": 0,
+        "aliceBalance": 35,
+        "bobBalance": 21,
+        "carolBalance": 14,
+        "totalReserved": 0,
+        "claimedAmount": 70,
+        "claimedCount": 3,
+        "outstandingLiability": 0,
+        "allocatorState": 5,
+        "ratificationState": 4,
+        "reserveFinalized": false,
+        "availabilityRevision": 1
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-13"
+    },
+    {
+      "sequence": 7,
+      "stage": "reserve_finalized",
+      "event": "restricted_capital_refunded_and_reserve_finalized",
+      "observation": {
+        "stage": "reserve_finalized",
+        "reserveBalance": 0,
+        "allocatorBalance": 0,
+        "aliceBalance": 35,
+        "bobBalance": 21,
+        "carolBalance": 24,
+        "totalReserved": 0,
+        "claimedAmount": 70,
+        "claimedCount": 3,
+        "outstandingLiability": 0,
+        "allocatorState": 5,
+        "ratificationState": 6,
+        "reserveFinalized": true,
+        "availabilityRevision": 2
+      },
+      "computed_total_custody": 80,
+      "custody_equation_holds": true,
+      "source_ref": "v3-accounting-qualification.log:line-14"
+    }
+  ],
+  "transferObservations": [
+    {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "from": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+      "to": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+      "amount": 70
+    },
+    {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+      "to": "0x1111111111111111111111111111111111111111",
+      "amount": 35
+    },
+    {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+      "to": "0x2222222222222222222222222222222222222222",
+      "amount": 21
+    },
+    {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+      "to": "0x3333333333333333333333333333333333333333",
+      "amount": 14
+    },
+    {
+      "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "from": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+      "to": "0x3333333333333333333333333333333333333333",
+      "amount": 10
+    }
+  ],
+  "reconciliation": {
+    "schema": "eae.partial-fill.v3-observed-reconciliation.v1",
+    "scope": "Derived local Foundry reconciliation for the source-bound V3 qualification run, chain 31337.",
+    "classification": "Observed balances and ERC-20 transfers plus deterministic arithmetic; not a universal ledger or public-chain record.",
+    "requests": {
+      "total": 100,
+      "allocated": 70,
+      "unmet": 30,
+      "equation": "100 = 70 + 30",
+      "holds": true,
+      "unmetMeaning": "Unmet request in this fixture; no deferred claim or recognized loss."
+    },
+    "sourceCapital": {
+      "sponsorTransferObserved": 80,
+      "protectedRestricted": 10,
+      "availableForAllocation": 70,
+      "equation": "80 = 10 + 70",
+      "holds": true
+    },
+    "claimSettlement": {
+      "fundedToAllocator": 70,
+      "withdrawals": {
+        "Alice": 35,
+        "Bob": 21,
+        "Carol": 14
+      },
+      "totalWithdrawn": 70,
+      "remainingLiability": 0,
+      "equation": "70 funded = 35 + 21 + 14 paid = 70",
+      "holds": true
+    },
+    "restrictedCapitalSettlement": {
+      "classification": "Restricted refundable sponsor capital, excluded from claimant entitlements.",
+      "refund": 10,
+      "beneficiary": "0x3333333333333333333333333333333333333333",
+      "reserveFinalized": true,
+      "equation": "10 restricted = 10 refunded after terminal closure",
+      "holds": true
+    },
+    "terminalCustody": {
+      "reserve": 0,
+      "allocator": 0,
+      "Alice": 35,
+      "Bob": 21,
+      "CarolIncludingRefund": 24,
+      "equation": "80 starting units = 35 + 21 + 24 ending participant balances",
+      "holds": true
+    },
+    "evidenceRefs": [
+      "funding-observation.json",
+      "transfers.json",
+      "terminal-observation.json",
+      "stage2-qualification.log"
+    ],
+    "limitations": [
+      "Fixture policy names Carol as beneficiary; external legal beneficial ownership is not established.",
+      "The 30 unmet request is not classified as realized loss or continuing liability.",
+      "Does not establish completeness of external obligations or public-chain execution."
+    ]
+  },
+  "deployedContractIdentities": {
+    "token": {
+      "address": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "codeHash": "0xc4e8c317e34ef81782901f932546a354f18f47f1e9ab5d9a4a4cede369a1de8c"
+    },
+    "reserve": {
+      "address": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+      "codeHash": "0x06191f4744c1c52d0879cf36a79c53d54d3326fe9c3581e20467cba86e8a80e9"
+    },
+    "allocator": {
+      "address": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+      "codeHash": "0x6bf47ede2f9b76226e67d997e4e38a1af4c2a796f1c0557d72589e2c1c214ee6"
+    },
+    "preparedController": {
+      "address": "0x15cF58144EF33af1e14b5208015d11F9143E27b9",
+      "codeHash": "0x8922634ff0ecc2e1213c766714887e3fd0a9e4a87ffa2b6072863055f4287403"
+    },
+    "assurance": {
+      "address": "0x212224D2F2d262cd093eE13240ca4873fcCBbA3C",
+      "codeHash": "0xc98a4d5af8c7d4adac14648ae8597a4ebb8da1763f99598eea4d2006a7dd9153"
+    },
+    "ratification": {
+      "address": "0x2a07706473244BC757E10F2a9E86fB532828afe3",
+      "codeHash": "0xb01e9a6101eef8b133c1948993011c30ee70de505f22f7fadbe5075a8d062261"
+    },
+    "admission": {
+      "address": "0xA4AD4f68d0b91CFD19687c881e50f3A00242828c",
+      "codeHash": "0xfd317ffd08c3011953dd4401a001612a8d8e63e32ec9a5a02bc46838a22b3d1f"
+    },
+    "registry": {
+      "address": "0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9",
+      "codeHash": "0x40068c88ad2dfcd2b91833157ab95a9f2146155f33d6f831712d0c08069f6387"
+    },
+    "adapter": {
+      "address": "0xF62849F9A0B5Bf2913b396098F7c7019b51A820a",
+      "codeHash": "0x155ea2aacc248a9358702bcc90c6dc1395505064991b282d8135ee1610adf1cb"
+    },
+    "verifier": {
+      "address": "0x2e234DAe75C793f67A35089C9d99245E1C58470b",
+      "codeHash": "0xd50f7978fa1b090c48efcacce364a5ff91f4514e5d8886f9533257ba2cf79b4f"
+    }
+  },
+  "terminal": "allocator Closed; reserve finalized; protected 10 refunded to recorded Carol address",
+  "negativeTestsPassed": [
+    "test_RejectChangedAllocationRepresentation",
+    "test_RejectFundingMoreThanCommittedCapital",
+    "test_RejectOverWithdrawalAndDuplicateConsumption",
+    "test_RejectProofForAnotherOperationAndPolicyMutation",
+    "test_RejectProofPublicValueSubstitution",
+    "test_RejectRatificationAndFundingReplay",
+    "test_RejectStaleReserveWithoutChangingState",
+    "test_RejectUnauthorizedAndPrematureProtectedFinalization",
+    "test_RejectUnauthorizedAndRouteBypass",
+    "test_RejectUnauthorizedRecipientSubstitution"
+  ],
+  "freshProofRecoveryTestPassed": true,
+  "fullStage2QualificationPassed": true,
+  "evidenceClasses": [
+    "independently reproduced calculation",
+    "cryptographically verified SP1 Groth16 proof",
+    "locally observed Foundry contract/token state and transfer logs"
+  ],
+  "limitations": [
+    "local chain 31337 only",
+    "Foundry call-boundary observations are not separately mined transaction receipts",
+    "fixture-appointed source and reserve authorities are not external authentication"
+  ]
+}

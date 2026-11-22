@@ -1,0 +1,238 @@
+{
+  "schema": "prf-evm.composed-pro-rata-v2-settlement.v1",
+  "version": 1,
+  "scope": "local Foundry EVM chainId 31337; no public-chain transaction",
+  "source": {
+    "repository": "prf-evm",
+    "baseGitCommit": "46a6910a8849b45e63a69c11f1741e837df5f64e",
+    "sourceIdentityMethod": "base Git commit plus SHA-256 for every listed implementation, test, input and evidence file",
+    "sourceTreeIdentity": "SHA-256 values for all implementation, test, input, replay, accounting and execution files listed below; manifest and sidecar are separately hashed by manifest.sha256"
+  },
+  "operation": {
+    "id": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+    "preparedOperationRoot": "0xc5897bf4d7d707dd04143c307cab6a62c790273e4d1592297c94cdd32261f799",
+    "sourceRoot": "0xb0738f50aa2a33b26d7d1dd6d99d027185be805b547f6473c30b563bd1ee34be",
+    "reserveStateCommitment": "0xa40e4db35601330b194a1e4b03965f0804f613eab979f1b850b313e09f1dfd0c",
+    "policyRoot": "0x88cad6aed4bc4e33b364275dc9a0b7d1b21b67faf11833ce1a0a63b6bfe122c4",
+    "configurationRoot": "0x987d694b9bae2d894d5c5ee79d08479856cc12fef1b643c9694a97d19e144b2c",
+    "verifierRegistryRoot": "0x197bc48fcd58320a9e8735294d80e349e1540c9eff80219dd907b590628cbaca"
+  },
+  "economicInputs": {
+    "requests": [
+      {
+        "participant": "Alice",
+        "claimId": "claim-a",
+        "requested": 50,
+        "calculatedAllocation": 35,
+        "unfilled": 15
+      },
+      {
+        "participant": "Bob",
+        "claimId": "claim-b",
+        "requested": 30,
+        "calculatedAllocation": 21,
+        "unfilled": 9
+      },
+      {
+        "participant": "Carol",
+        "claimId": "claim-c",
+        "requested": 20,
+        "calculatedAllocation": 14,
+        "unfilled": 6
+      }
+    ],
+    "totalRequested": 100,
+    "reserveDeposit": 80,
+    "protectedRestrictedCapital": 10,
+    "availableCapital": 70,
+    "unmetRequest": 30,
+    "policy": "pro-rata with largest-remainder rounding, canonical claim order; fixture selects unmet-request disposition"
+  },
+  "proofIdentity": {
+    "programId": "source-bound-entitlement-controlled-sp1-program.v1",
+    "proofSystem": "groth16",
+    "publicValuesSchema": "prf/source-bound-entitlement-public-values.v1",
+    "vkey": "0x00691e1cff8e4252731c8fe2bc326e8725ed5f9b92a298cc30a2c5fc40962dd1",
+    "elfSha256": "0x705efd1c5b997ae1f2c19eddcf6bb66a147e94b6b3b036393d6dab041c00542d",
+    "sourceWitnessSha256": "0xb0d10ccd549ad86435f8e13381c83c91500dd0f5a9eaa07a017ca601cb31f87b",
+    "proofFixtureSha256": "f9116bad735e090f2d893ce2b79aac642ce18a991b842497dce3b07774dffc9d"
+  },
+  "dependencies": {
+    "foundry": "1.7.1 (4072e48705af9d93e3c0f6e29e93b5e9a40caed8)",
+    "solc": "0.8.33+commit.64118f21",
+    "forgeStd": "e3386f2f9cc5ebf16ec5370869d5a49cdb85a0cb",
+    "openzeppelinContracts": "cab19933c33c2ad1d4c7a84864a3601dddfd16f3",
+    "sp1Contracts": "d3629729c3216eb51bd4859d027a8eb729399fa4",
+    "sp1SdkProofGeneration": "6.3.1, as recorded in the retained PRF V3 live-context manifest"
+  },
+  "qualification": {
+    "positiveCommand": "PARTIAL_FILL_STAGE=2 forge test --offline --match-path test/PartialFillV3Controlled.t.sol --match-test test_QualificationWithdrawsAndClosesExactly -vv",
+    "positiveResult": "1 passed",
+    "adversarialCommand": "PARTIAL_FILL_STAGE=2 forge test --offline --match-path test/PartialFillV3Controlled.t.sol --match-test 'test_(RejectUnauthorizedRecipientSubstitution|RejectProofForAnotherOperationAndPolicyMutation|RejectChangedAllocationRepresentation|RejectOverWithdrawalAndDuplicateConsumption|RejectUnauthorizedAndRouteBypass|RejectRatificationAndFundingReplay|RejectProofPublicValueSubstitution|RejectStaleReserveWithoutChangingState|RejectFundingMoreThanCommittedCapital|RejectUnauthorizedAndPrematureProtectedFinalization|RecoveryWithFreshV3Proof)' -vv",
+    "adversarialResult": "10 negative tests passed; fresh-proof recovery test passed",
+    "validatorCommand": "python3 scripts/verify-composed-pro-rata-v2.py",
+    "fullStage2Command": "PARTIAL_FILL_STAGE=2 forge test --offline --match-path test/PartialFillV3Controlled.t.sol --match-test 'test_(ExportWitness|ExportRecoveryWitness|Qualification|Reject|Recovery)' -vv",
+    "fullStage2Result": "14 passed; 0 failed"
+  },
+  "evidenceClasses": {
+    "calculation": "reconstructed from retained request inputs and stated integer pro-rata/largest-remainder rule",
+    "independentReplay": "Clojure and Rust source-bound replay projections match",
+    "cryptographicProof": "real retained SP1 Groth16 proof verified and admitted in local EVM execution",
+    "execution": "local Foundry getter snapshots and ERC-20 Transfer events at call boundaries"
+  },
+  "terminal": {
+    "allocator": "Closed",
+    "ratification": "Finalized",
+    "fundedLiability": 0,
+    "allocatorBalance": 0,
+    "reserveBalance": 0,
+    "protectedCapitalRefunded": 10,
+    "refundBeneficiary": "0x3333333333333333333333333333333333333333"
+  },
+  "limitations": [
+    "No public-chain deployment or transaction",
+    "Foundry call-boundary event/snapshot logs are not separate mined transaction receipts or block observations",
+    "Authorities are fixture-appointed and locally enforced, not externally authenticated",
+    "Request truth and completeness beyond the declared source fixture are not established",
+    "Carol beneficial ownership is fixture-policy-bound and not externally established",
+    "V1 source-proof schema is used with V2 allocator/preparation and V3 reserve lifecycle"
+  ],
+  "files": [
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/README.md",
+      "sha256": "79bfa08e722ea9a733dfa8c6d8b465436d1f5075f60d3deb5eac6692a7e72bc5"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/execution.log",
+      "sha256": "6c1afa78e3f6e8bac05ca3bccf2111df0727b6afe7cd68f4558eef261558fc1a"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/adversarial-tests.log",
+      "sha256": "e2b1735a7e7501d8c686f83c3257bb2c17d48c05c49b9eed72d289dba6633f76"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/source-witness.json",
+      "sha256": "b0d10ccd549ad86435f8e13381c83c91500dd0f5a9eaa07a017ca601cb31f87b"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/clojure-replay.json",
+      "sha256": "048e86a26e49e5ec56756d6ca77755df8d2ee1f8555dc2548ba7170d0e6e75d9"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/rust-replay.json",
+      "sha256": "da3b6ab9922ad05c1eafbe2cf49ac31dddaa03cca26c0d5ddf2c97cec0c36aa3"
+    },
+    {
+      "path": "scripts/verify-composed-pro-rata-v2.py",
+      "sha256": "84d83b6193309529df5223758b95226545f1f2720cc58f63c9f9ddcd9f645842"
+    },
+    {
+      "path": "test/PartialFillV3Controlled.t.sol",
+      "sha256": "4c2417e6d41ee8da9cfd120b4c3673181a5134413d4fdd9aa13157680fadfac6"
+    },
+    {
+      "path": "test/fixtures/partial-fill-v3/configuration.json",
+      "sha256": "85b8b659abd8353d67787f67d0c9a85489ccf26b0accc8850f7ed385deecd7b1"
+    },
+    {
+      "path": "test/fixtures/partial-fill-v3/genesis.json",
+      "sha256": "5471e0d0f213730dfef2ddf450269c24802cf7117cb5e747597bf2097e8aef89"
+    },
+    {
+      "path": "test/fixtures/partial-fill-v3/identity.json",
+      "sha256": "e42180fe4621681f3e958cc1133d22b37474e3a30eb71ff04c41d3b6bc87f70e"
+    },
+    {
+      "path": "test/fixtures/partial-fill-v3/proof.json",
+      "sha256": "f9116bad735e090f2d893ce2b79aac642ce18a991b842497dce3b07774dffc9d"
+    },
+    {
+      "path": "test/fixtures/partial-fill-v3/replay.json",
+      "sha256": "da3b6ab9922ad05c1eafbe2cf49ac31dddaa03cca26c0d5ddf2c97cec0c36aa3"
+    },
+    {
+      "path": "src/applications/pro-rata/ProductionProRataAllocatorV2.sol",
+      "sha256": "9e4aae83a7b28546580cb62333f4bb5cb125d396b5f251d18774fff99cf9c380"
+    },
+    {
+      "path": "src/applications/pro-rata/PublicPackedEntitlementRepresentationV1.sol",
+      "sha256": "7433a80e7f3846cb5515ee6cfd7adfd62ae6d5722c16f33a6b9c327797b31541"
+    },
+    {
+      "path": "src/applications/shortfall/OnchainShortfallReserveV3.sol",
+      "sha256": "91bee42d54fc4d843cbb90cd3dd0e4b71c9d8dcaaa65a9eb541d07e42c2c8921"
+    },
+    {
+      "path": "src/applications/shortfall/SourceBoundProRataControllerV2.sol",
+      "sha256": "4b316acfd9e7369b08504a99adcff0f7d40b85bc27a0dc45f8fc3438ac089d08"
+    },
+    {
+      "path": "src/applications/shortfall/SourceBoundProRataEntitlementAssuranceV1.sol",
+      "sha256": "576519584a207e931e65a2e45c88d5b40238fff3eab7a94cbd339b5790b34660"
+    },
+    {
+      "path": "src/applications/shortfall/SourceBoundProRataEntitlementRatificationControllerV1.sol",
+      "sha256": "293bc55a65ac1d34fd970cab489c08bc6fb079a40034dc1822e38f4862abc0e1"
+    },
+    {
+      "path": "src/core/PrfChainInstanceGenesis.sol",
+      "sha256": "f3659316392344fa7c1c2b5ab0850d484d3014a5e31e6ef792ab399ae77feb3e"
+    },
+    {
+      "path": "src/core/PrfStatementAdmission.sol",
+      "sha256": "60fe50bbd866b7c6910c208ea3c8abad3aeb6fef8f8f2af1d2842387c04ddb20"
+    },
+    {
+      "path": "src/core/PrfVerifierRegistry.sol",
+      "sha256": "54883a0381cd396a653c0452c026a8bbc09421dec2a23d53f2d036927708eae4"
+    },
+    {
+      "path": "src/integrations/sew/SewConfigurationExecutor.sol",
+      "sha256": "184ad5b3b6871194deadcb4cf620bb7157996a9e974b865644ed83c4b119bef6"
+    },
+    {
+      "path": "src/integrations/sew/SewGovernanceAuthorityAdapter.sol",
+      "sha256": "87726e9db59bb0e2da0681b572b5e94e971b21ee335945ce242fea84468264a5"
+    },
+    {
+      "path": "src/interfaces/IShortfallAllocatorV2.sol",
+      "sha256": "aee54ed7933c58acf8e90f554c4f3579916e8be474bd94446e00a4ea9b7f8b25"
+    },
+    {
+      "path": "src/verification/SourceBoundEntitlementV1Commitments.sol",
+      "sha256": "517af38f95e87b91bdda1b4d03fa40b32c3e434dfa0898f77cf56fb979733647"
+    },
+    {
+      "path": "src/verification/adapters/PrfSourceBoundEntitlementVerifierAdapterV1.sol",
+      "sha256": "5e1a1a6c8f4d0cc9db4b5460b5430838df3a1af148e13a2bb26c2c18559308a9"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/accounting-journal.json",
+      "sha256": "53ceb696d1bcb8766d25fab8fd2efffd770895f32024285951911cac59d51900"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/accounting-states.json",
+      "sha256": "cda399f57db2b9dfb92442bb991ab047f02da4dc240eba2a98e204440aebd768"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/transfers.json",
+      "sha256": "16a7bfa86045fdb08076b81cbe262eb089a92bf031776f59c090f99257622d55"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/reconciliation.json",
+      "sha256": "d588c78c27775575858a182ad6ecfe1397bf9fb713aec9477e3d6c59782cc79b"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/prf-v3-live-context-manifest.json",
+      "sha256": "48afd9aa8553076ba24b017344d07dc3cb7fa2756a5e591caf4f2881feb05798"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/validation-result.json",
+      "sha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121"
+    },
+    {
+      "path": "evidence/composed-pro-rata-v2-settlement/full-stage2-qualification.log",
+      "sha256": "1edaa2953298e837550e4cc38ce315f08a894547b5deaac92819763c6a6db14a"
+    }
+  ]
+}

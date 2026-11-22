@@ -1,0 +1,107 @@
+{
+  "demo": {
+    "id": "where-did-every-token-go",
+    "page": "/demos/where-did-every-token-go",
+    "title": "Where Did Every Token Go?"
+  },
+  "expected_outputs": {
+    "activated_liability": 70,
+    "asset_equation": "80 = 10 + 35 + 21 + 14",
+    "beneficiary_payouts": [
+      35,
+      21,
+      14
+    ],
+    "final_allocator_custody": 0,
+    "final_liability": 0,
+    "final_reserve": 10,
+    "funded_allocator_custody": 70,
+    "funded_reserve": 10,
+    "liability_equation": "70 = 70 paid + 0 remaining",
+    "opening_reserve": 80,
+    "total_paid": 70
+  },
+  "inputs": [
+    {
+      "id": "gate-e-20261010-current-00d90",
+      "operation_id": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+      "path": "evidence/pro-rata-settlement/settlement-manifest.json",
+      "prepared_operation_root": "0xe0c2dc5821ca3b6ec330d8af7bcb407400b19bff4d8ee08f727970494dd85eb2",
+      "reserve_commitment": "0xe04f4989c32dfde256d9c2ba9f4187e64910999506bb0528b3fda7c33a8f3aee",
+      "role": "retained-run-input-and-operation-manifest",
+      "sha256": "a550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380",
+      "source_identity_status": "Run source bundle digest is recorded in subject_revision.",
+      "vector_id": "A-minimum-realistic"
+    }
+  ],
+  "limitations": [
+    "Local Anvil, chain ID 31337, and fixture token.",
+    "Balance and liability observations are unsigned RPC observations, not cryptographic state proofs.",
+    "This run has no shortfall and does not establish loss-allocation policy.",
+    "Contract tests do not regenerate the exact retained run evidence."
+  ],
+  "manifest_version": 1,
+  "retained_evidence": [
+    {
+      "path": "evidence/pro-rata-settlement/settlement-funding.json",
+      "role": "funding-custody-observations",
+      "sha256": "0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8",
+      "source_path": "evidence/gate-e-20261010-current-00d90/funding-forensic.json",
+      "source_sha256": "0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+    },
+    {
+      "path": "evidence/pro-rata-settlement/settlement-activation.json",
+      "role": "activation-liability-observations",
+      "sha256": "587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5",
+      "source_path": "evidence/gate-e-20261010-current-00d90/activation-forensic.json",
+      "source_sha256": "587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+    },
+    {
+      "path": "evidence/pro-rata-settlement/settlement-withdrawals.json",
+      "role": "payout-custody-and-liability-observations",
+      "sha256": "fd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9",
+      "source_path": "evidence/gate-e-20261010-current-00d90/withdrawal-forensic.json",
+      "source_sha256": "fd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+    },
+    {
+      "path": "evidence/pro-rata-settlement/settlement-manifest.json",
+      "role": "run-manifest",
+      "sha256": "a550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380",
+      "source_file_status": "public copy is the retained record; source run file not found at mapped path",
+      "source_identity_status": "Only the public website-retained copy is present in the source checkout."
+    },
+    {
+      "path": "evidence/pro-rata-settlement/settlement-input-provenance.json",
+      "role": "input-provenance",
+      "sha256": "aaa2adaf3f16ae07137831b90b38c306a15dd0a7a7c48a87801c27a2ebf13c80",
+      "source_file_status": "public copy is the retained record; source run file not found at mapped path",
+      "source_identity_status": "Only the public website-retained copy is present in the source checkout."
+    },
+    {
+      "path": "evidence/pro-rata-settlement/settlement-execution-dag.json",
+      "role": "execution-lineage",
+      "sha256": "ee367543b1e7f27fd438571ac1fc8a66312d56b830e00a88b0838144a3c2938b",
+      "source_path": "evidence/gate-e-20261010-current-00d90/execution-dag.json",
+      "source_sha256": "ee367543b1e7f27fd438571ac1fc8a66312d56b830e00a88b0838144a3c2938b"
+    }
+  ],
+  "schema": "prf-demo-manifest.v1",
+  "source_repository": "prf-evm",
+  "subject": {
+    "question": "Do reserve custody, allocator custody, beneficiary payments, and outstanding liabilities reconcile across the retained local settlement?",
+    "scope": "Local EVM proof-bound entitlement settlement; fully funded run with no modeled shortfall or realized loss."
+  },
+  "subject_revision": {
+    "git_revision": null,
+    "revision_status": "source-bundle-digest-retained; git revision not in run artifact",
+    "source_bundle_sha256": "0xa8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+  },
+  "verification": [
+    {
+      "command": "forge test --match-contract ProductionProRataAllocatorV2WithdrawalTest -vvv",
+      "exact_retained_run_reproduction": false,
+      "purpose": "Re-run the allocator withdrawal contract test suite; this does not recreate the retained local run receipts or RPC observations.",
+      "working_directory": "prf-evm repository root"
+    }
+  ]
+}

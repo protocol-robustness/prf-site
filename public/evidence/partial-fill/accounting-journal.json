@@ -1,0 +1,451 @@
+{
+  "schema": "partial-fill-observed-accounting-journal.v1",
+  "scope": "Deterministic projection of the retained seven local Foundry call-boundary observations and observed token transfers.",
+  "journal_kind": "scoped_event_projection_not_double_entry",
+  "primary_evidence": "accounting-states.json",
+  "ordering": "Fixed sequence by the retained observation order; records do not assert unobserved intermediate transactions.",
+  "records": [
+    {
+      "sequence": 0,
+      "observation_stage": "prepared",
+      "event": "opening_observation",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/0",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 80,
+        "allocator_custody": 0,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 0,
+      "activated_claim_liability": 0,
+      "remaining_activated_claim_liability": 0,
+      "allocator_state": "None",
+      "ratification_state": "None",
+      "deltas_from_prior_observation": null,
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/0"
+      ],
+      "source_funding_ref": "funding-attribution.json",
+      "source_funding_boundary": "80 local synthetic test-token units were minted to the fixture sponsor and transferred to the reserve; this records custody attribution, not beneficial ownership."
+    },
+    {
+      "sequence": 1,
+      "observation_stage": "proofAdmitted",
+      "event": "proof_admitted_no_balance_change",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/1",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 80,
+        "allocator_custody": 0,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 0,
+      "activated_claim_liability": 0,
+      "remaining_activated_claim_liability": 0,
+      "allocator_state": "None",
+      "ratification_state": "Prepared",
+      "deltas_from_prior_observation": {
+        "reserve_custody": 0,
+        "allocator_custody": 0,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "activated_claim_liability": 0,
+        "remaining_activated_claim_liability": 0
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/1"
+      ]
+    },
+    {
+      "sequence": 2,
+      "observation_stage": "funded",
+      "event": "allocator_funded",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/2",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 10,
+        "allocator_custody": 70,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 70,
+      "activated_claim_liability": 0,
+      "remaining_activated_claim_liability": 0,
+      "allocator_state": "Funded",
+      "ratification_state": "Funded",
+      "deltas_from_prior_observation": {
+        "reserve_custody": -70,
+        "allocator_custody": 70,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "activated_claim_liability": 0,
+        "remaining_activated_claim_liability": 0
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/2"
+      ],
+      "transfer_ref": "token-transfers.json#/transfers/0",
+      "observed_transfer": {
+        "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "from": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+        "to": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "amount": 70
+      }
+    },
+    {
+      "sequence": 3,
+      "observation_stage": "activated",
+      "event": "claim_liability_activated",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/3",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 10,
+        "allocator_custody": 70,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 70,
+      "activated_claim_liability": 70,
+      "remaining_activated_claim_liability": 70,
+      "allocator_state": "Activated",
+      "ratification_state": "Activated",
+      "deltas_from_prior_observation": {
+        "reserve_custody": 0,
+        "allocator_custody": 0,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "activated_claim_liability": 70,
+        "remaining_activated_claim_liability": 70
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/3"
+      ]
+    },
+    {
+      "sequence": 4,
+      "observation_stage": "afterAlice",
+      "event": "beneficiary_claim",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/4",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 10,
+        "allocator_custody": 35,
+        "alice_observed_balance": 35,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 70,
+      "activated_claim_liability": 70,
+      "remaining_activated_claim_liability": 35,
+      "allocator_state": "Claims",
+      "ratification_state": "Activated",
+      "deltas_from_prior_observation": {
+        "reserve_custody": 0,
+        "allocator_custody": -35,
+        "alice_observed_balance": 35,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 0,
+        "activated_claim_liability": 0,
+        "remaining_activated_claim_liability": -35
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/4"
+      ],
+      "transfer_ref": "token-transfers.json#/transfers/1",
+      "observed_transfer": {
+        "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x1111111111111111111111111111111111111111",
+        "amount": 35
+      }
+    },
+    {
+      "sequence": 5,
+      "observation_stage": "afterBob",
+      "event": "beneficiary_claim",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/5",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 10,
+        "allocator_custody": 14,
+        "alice_observed_balance": 35,
+        "bob_observed_balance": 21,
+        "carol_observed_balance": 0,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 70,
+      "activated_claim_liability": 70,
+      "remaining_activated_claim_liability": 14,
+      "allocator_state": "Claims",
+      "ratification_state": "Activated",
+      "deltas_from_prior_observation": {
+        "reserve_custody": 0,
+        "allocator_custody": -21,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 21,
+        "carol_observed_balance": 0,
+        "activated_claim_liability": 0,
+        "remaining_activated_claim_liability": -21
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/5"
+      ],
+      "transfer_ref": "token-transfers.json#/transfers/2",
+      "observed_transfer": {
+        "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x2222222222222222222222222222222222222222",
+        "amount": 21
+      }
+    },
+    {
+      "sequence": 6,
+      "observation_stage": "closed",
+      "event": "final_beneficiary_claim_and_allocator_closed",
+      "operation_id": "0x68bbd2f2aafa838f0de914dbf8fe89307522c979fe3b99a1ba4ec2b8e34cd37e",
+      "observation_ref": "accounting-states.json#/states/6",
+      "snapshot_boundary": "after local EVM contract call",
+      "balances": {
+        "reserve_custody": 10,
+        "allocator_custody": 0,
+        "alice_observed_balance": 35,
+        "bob_observed_balance": 21,
+        "carol_observed_balance": 14,
+        "total_observed_custody": 80
+      },
+      "funded_entitlement_amount": 70,
+      "activated_claim_liability": 70,
+      "remaining_activated_claim_liability": 0,
+      "allocator_state": "Closed",
+      "ratification_state": "Activated",
+      "deltas_from_prior_observation": {
+        "reserve_custody": 0,
+        "allocator_custody": -14,
+        "alice_observed_balance": 0,
+        "bob_observed_balance": 0,
+        "carol_observed_balance": 14,
+        "activated_claim_liability": 0,
+        "remaining_activated_claim_liability": -14
+      },
+      "evidence_refs": [
+        "qualification.json#/tests/test_QualificationWithdrawsAndClosesExactly()",
+        "accounting-states.json#/states/6"
+      ],
+      "transfer_ref": "token-transfers.json#/transfers/3",
+      "observed_transfer": {
+        "token": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 14
+      }
+    }
+  ],
+  "reconciliation": {
+    "per_observation": [
+      {
+        "observation_stage": "prepared",
+        "custody_equation": "80 reserve + 0 allocator + 0 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 0,
+        "paid_plus_remaining_liability": 0,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/0"
+      },
+      {
+        "observation_stage": "proofAdmitted",
+        "custody_equation": "80 reserve + 0 allocator + 0 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 0,
+        "paid_plus_remaining_liability": 0,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/1"
+      },
+      {
+        "observation_stage": "funded",
+        "custody_equation": "10 reserve + 70 allocator + 0 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 0,
+        "paid_plus_remaining_liability": 0,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/2"
+      },
+      {
+        "observation_stage": "activated",
+        "custody_equation": "10 reserve + 70 allocator + 0 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 70,
+        "paid_plus_remaining_liability": 70,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/3"
+      },
+      {
+        "observation_stage": "afterAlice",
+        "custody_equation": "10 reserve + 35 allocator + 35 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 70,
+        "paid_plus_remaining_liability": 70,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/4"
+      },
+      {
+        "observation_stage": "afterBob",
+        "custody_equation": "10 reserve + 14 allocator + 56 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 70,
+        "paid_plus_remaining_liability": 70,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/5"
+      },
+      {
+        "observation_stage": "closed",
+        "custody_equation": "10 reserve + 0 allocator + 70 paid = 80 total",
+        "custody_holds": true,
+        "activated_liability": 70,
+        "paid_plus_remaining_liability": 70,
+        "liability_holds": true,
+        "observation_ref": "accounting-states.json#/states/6"
+      }
+    ],
+    "request_equation": "100 requested = 70 allocated + 30 unmet request",
+    "request_equation_holds": true,
+    "funded_claim_equation": "70 activated = 70 observed paid + 0 remaining activated liability",
+    "funded_claim_equation_holds": true
+  },
+  "unresolved_restricted_custody": {
+    "amount": 10,
+    "observed_location": "reserve custody at every retained observation",
+    "proposed_beneficiary": "Carol",
+    "attribution_status": "declared in fixture policy; not independently proven as a legal or beneficial right",
+    "contract_enforcement_status": "not enforced by frozen reserve V2",
+    "release_status": "not released; no final reserve settlement observed",
+    "records": [
+      {
+        "observation_stage": "prepared",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/0",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "proofAdmitted",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/1",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "funded",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/2",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "activated",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/3",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "afterAlice",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/4",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "afterBob",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/5",
+        "policy_ref": "protected-capital-policy.json"
+      },
+      {
+        "observation_stage": "closed",
+        "amount_in_reserve_custody": 10,
+        "classification": "unresolved_restricted_custody",
+        "restriction_basis": "reserve V2 configured protected-capital floor",
+        "carol_attribution": "declared_by_fixture_policy_only",
+        "beneficial_rights_independently_proven": false,
+        "beneficiary_contract_enforced": false,
+        "release_observed": false,
+        "observation_ref": "accounting-states.json#/states/6",
+        "policy_ref": "protected-capital-policy.json"
+      }
+    ],
+    "uncertainties": [
+      "Legal/beneficial ownership, release authority, and any claim to the 10 units are not established by the observed token balances or events.",
+      "The fixture's Carol attribution is policy-declared and not committed or enforced by reserve V2."
+    ]
+  },
+  "limitations": [
+    "This projection covers only the named operation and controlled local test-token balances.",
+    "It does not establish completeness of external requests, liabilities, assets, or beneficial rights.",
+    "Unmet requests are not classified as a recognized loss or continuing liability.",
+    "Allocator closure is observed; final reserve settlement is not.",
+    "The journal is not a double-entry/company ledger and does not prove public-chain execution."
+  ],
+  "projection_digest": {
+    "algorithm": "SHA-256",
+    "value": "0640e2e2e1d85c19275c3b2a641c94fca87b640cf89a16ec04dadebcfe4649e6",
+    "encoding": "UTF-8 JSON with sorted keys and compact separators, over the journal body without projection_digest",
+    "meaning": "Integrity digest for this derived artifact only; not a PRF canonical commitment or onchain proof."
+  }
+}

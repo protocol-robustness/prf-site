@@ -1,0 +1,427 @@
+{
+  "schema": "prf-evm.protected-withdrawal-fresh-anvil-replay.v1",
+  "classification": "local forensic replay observation; not a chain-state proof",
+  "chain_id": 31337,
+  "replay_setup": {
+    "started_from_fresh_anvil": true,
+    "deployer_start_nonce": "0x4e",
+    "nonce_source": "first transaction nonce in packaged deployment broadcast",
+    "rpc": "http://127.0.0.1:18547",
+    "deployment_inputs": {
+      "protocol_genesis_root": "0x1111111111111111111111111111111111111111111111111111111111111111",
+      "authority_state_root": "0x2222222222222222222222222222222222222222222222222222222222222222",
+      "chain_instance_genesis_root": "0x3333333333333333333333333333333333333333333333333333333333333333",
+      "configuration_root": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "policy_root": "0x0909090909090909090909090909090909090909090909090909090909090909",
+      "reserve_binding_root": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "source_verifier_id": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "execution_verifier_id": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "execution_statement_schema": "0x0707070707070707070707070707070707070707070707070707070707070707",
+      "execution_public_values_schema": "0x0808080808080808080808080808080808080808080808080808080808080808",
+      "residual_recipient": "0x2222222222222222222222222222222222222222",
+      "source_program_vkey": "0x00d90efa52d17e54670a4248f001e4da443a938f12c55d0d414c125ba68087b9",
+      "source_program_elf_sha256": "0x636330de8e7af3485aba50bd3ca4b5e024cc4f977a2bf0f2c005f711e5ffacf8",
+      "operation_id": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d"
+    }
+  },
+  "artifacts": {
+    "deployment": {
+      "file": "broadcast/DeployGateEEntitlementOptionA.s.sol/31337/run-latest.json",
+      "bytes": 214312,
+      "sha256": "0debfb29867f7e45072c69deea49832444e2fca433fc9bf3065f78c06c3d76d7"
+    },
+    "funding": {
+      "file": "broadcast/RunGateEEntitlementLocal.s.sol/31337/run-latest.json",
+      "bytes": 27152,
+      "sha256": "19408ef89bebda9c1d2d80c94690d76e3174552e0ef8a88935e4650ef53b63cf"
+    },
+    "activation": {
+      "file": "broadcast/ActivateGateEEntitlementLocal.s.sol/31337/run-latest.json",
+      "bytes": 12017,
+      "sha256": "64afe563e46c2d30107091a1d2a8a0ae6edc2034f82af062dee0bf78e4fbc6bc"
+    },
+    "withdrawal": {
+      "file": "broadcast/WithdrawGateEEntitlementLocal.s.sol/31337/run-latest.json",
+      "bytes": 38902,
+      "sha256": "3322b562028b2f3b4ce12e99a0488ddcafa675c8042f0925f8afaab393d12462"
+    },
+    "manifest": {
+      "bytes": 2609,
+      "sha256": "a550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380",
+      "byte_identical_to_portable_payload": true
+    },
+    "witness": {
+      "bytes": 3674,
+      "sha256": "4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+      "byte_identical_to_portable_payload": true
+    },
+    "proof_fixture": {
+      "bytes": 2620,
+      "sha256": "54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67",
+      "byte_identical_to_portable_payload": true
+    }
+  },
+  "transaction_groups": {
+    "deployment": {
+      "count": 24,
+      "all_receipts_successful": true,
+      "transactions": [
+        {
+          "hash": "0x23b60e3fef65dcc9c9e21400ead3704733ec5f4f14cf88f6ee1dd6e75099bc8e",
+          "status": 1,
+          "block_number": 1,
+          "block_hash": "0x34f9a58c57bddc1b4a8cc8910c4dd10bb2b1b55c3530058280c4363918e6a7d4",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x40e5975cad4588d3674aca509705fb07fdb9fe033d946bd4af31891580a61ba0",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 7
+        },
+        {
+          "hash": "0xa72209e2f58f409300b46f6415571e55d2f57fd86b2f914dc50a7dcec6788fb1",
+          "status": 1,
+          "block_number": 4,
+          "block_hash": "0x51c0cddc969c8717428697de79ef8494da59a8496873beb0ae74d5e57ab734e3",
+          "transaction_index": 1
+        },
+        {
+          "hash": "0xa34d167b7801e5e6f1e963bd6a8d8b3a259f13c2771331bf761b66b4bcb2fb60",
+          "status": 1,
+          "block_number": 2,
+          "block_hash": "0x215eea039966291f6733faed72fc24c83a8084387b4fb79b4a3dc67be352b578",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x1e9304bbb55c8c26272a87271f2b2fdea5dea4bfeea185e534d830cde6aafcf9",
+          "status": 1,
+          "block_number": 3,
+          "block_hash": "0xeef84f2ab62a9f1cad9b09f30796142f98bea79c6cf60ab1000fb51fa54993cd",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x994ae65846fbe0686d38ebc83904b51c4f8ea288827479cccb13d0773815fb36",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 10
+        },
+        {
+          "hash": "0x2832e4e1dd30f1b8385b00a01f13276649ea9e61350139aee5d65d6fe2103119",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 3
+        },
+        {
+          "hash": "0x77dd9af54ea98dcec11fa53f0b4d6dac611662d25f36c43b5e100b759c96484e",
+          "status": 1,
+          "block_number": 4,
+          "block_hash": "0x51c0cddc969c8717428697de79ef8494da59a8496873beb0ae74d5e57ab734e3",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x18633eed6b6b1157c786e3980abbd36bb305b65a0124ee51b3a3424e30116d18",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 2
+        },
+        {
+          "hash": "0xc42d4dad08d5ad9131dc1a1d19495ef7865021874a8e6789cb7e4a2603a049df",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 2
+        },
+        {
+          "hash": "0x26207084e56e777b49921f15b873b3d7deca90020e8ffe940648b5979fc1f2dd",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x79f6eee4046bd8d873e0eea6612038f810be7c08abb9a378c3feb46bf878a0eb",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 5
+        },
+        {
+          "hash": "0xb2a4a0d682e3901fc068d151903717048396f87a896323e290e5162d823da59c",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 4
+        },
+        {
+          "hash": "0xb98836336fd90f9d81f3431b652c5b3978e6d026b171cedc7a6e657ade153198",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 1
+        },
+        {
+          "hash": "0x23e86bfbfa016e5b9a1ba3011eab19b6e95b4803a62807becaf31f9519b94e93",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 4
+        },
+        {
+          "hash": "0x9e03e2c4af8efa5ba75f0d3cb021f4601f69b2974fcde1de7b661df79862577c",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 6
+        },
+        {
+          "hash": "0x4902a7fde54cefa75234c7fe497e688b85529a9bca2174f493a483fdc77d9ffc",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 3
+        },
+        {
+          "hash": "0x27c84c8ef107ed03b36256c2cc4189fd08a7585c63742d4e9a80b039b615f6f7",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0xf28301036d9c405507c957f79d13e8c82336cde7f5b656628f6b075f21e13602",
+          "status": 1,
+          "block_number": 5,
+          "block_hash": "0x87e9c261cad4e9362cc8626223b57189a323d2c4ad20e7eaabb6bf24feb43835",
+          "transaction_index": 6
+        },
+        {
+          "hash": "0x3aa3e98202d75fe3658fbb016eed3f55a4076f34259032619879e3ff4646cf82",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 9
+        },
+        {
+          "hash": "0x78be1e9dfa8f73701e9b897c07bac585ee94e7277f2b7b05d687ca9dbd22952e",
+          "status": 1,
+          "block_number": 6,
+          "block_hash": "0x98caff017974bc5d648f5605a05b9c61872ac329a29e5ee61f7abb5bbbe948f9",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x044c2c1d9d5482faffe5f6fb041a0c60f537b753e0121ac1789c073e7d45be9c",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 8
+        },
+        {
+          "hash": "0x81ef6473f245912bfc0b5d0c77bbc5b6eacdf2a2cc56c63650ceecb73917084d",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 1
+        },
+        {
+          "hash": "0xa3c3882c3a36a41444f63a7a469dca5c8aba77a3901bb7f163184003b5d6d50e",
+          "status": 1,
+          "block_number": 7,
+          "block_hash": "0x403cd3f238fab67bc9a3e7e773c45a6ef59d46f9716b5f431a7602d862e1c6be",
+          "transaction_index": 5
+        }
+      ]
+    },
+    "funding": {
+      "count": 6,
+      "all_receipts_successful": true,
+      "transactions": [
+        {
+          "hash": "0x93aa41a8310422cbc4ba150443aa7ecb95bda6d2065311b373883754e67328a9",
+          "status": 1,
+          "block_number": 8,
+          "block_hash": "0x1c02124fc35e51b52603b6645cf39fe82d3e794c296aed993514a5e615e32c9b",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0xd077f3dfc9ad2705c7d1cb4e8e4d0d75cf2d5144e229e97f1afb20e15d4f366f",
+          "status": 1,
+          "block_number": 9,
+          "block_hash": "0x64ae35ce5278c238c5bbeb012d77563d6fdf8e5528f295bab3554cf177162146",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x665e0a17630e2ee146f01dd6e4dc4ed6b8bc9ccee719b543ffe1187e2e921952",
+          "status": 1,
+          "block_number": 10,
+          "block_hash": "0x7a690304eaaa7bceb70a5340d8dba712eb81339af90317d08d68c8fb479ac236",
+          "transaction_index": 1
+        },
+        {
+          "hash": "0xd8253fb80d2dc5d7cd88d88687c41be2034942b8bf48c68f452a008c53d83c43",
+          "status": 1,
+          "block_number": 10,
+          "block_hash": "0x7a690304eaaa7bceb70a5340d8dba712eb81339af90317d08d68c8fb479ac236",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x0161dda357cee833460453854e01d284633d7341f3edbe9bd33af0cf7b46c212",
+          "status": 1,
+          "block_number": 10,
+          "block_hash": "0x7a690304eaaa7bceb70a5340d8dba712eb81339af90317d08d68c8fb479ac236",
+          "transaction_index": 3
+        },
+        {
+          "hash": "0xd74d573da921f2ee4dde4b95529d1872121a6db63700f6dec698cc62ec37a8fa",
+          "status": 1,
+          "block_number": 10,
+          "block_hash": "0x7a690304eaaa7bceb70a5340d8dba712eb81339af90317d08d68c8fb479ac236",
+          "transaction_index": 2
+        }
+      ]
+    },
+    "activation": {
+      "count": 2,
+      "all_receipts_successful": true,
+      "transactions": [
+        {
+          "hash": "0x8ad3bd80c08f865ec6e92f2ebd7e12e169deec46a9752617ad22af42fc84b6bb",
+          "status": 1,
+          "block_number": 11,
+          "block_hash": "0xa9d5418f6dc26e49a128920ddb18a7f71e0f4363c0d2ec3d41e8d74fa28d4c6a",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0xf4c58dfbac7ad8f11be7d4c0f61f11919c5a68199c29eec0de0b72de4ed235a6",
+          "status": 1,
+          "block_number": 12,
+          "block_hash": "0x34868acf0df881a1eb9263db5ee9fdea30beb641be79fba224970f6eb7d54cc0",
+          "transaction_index": 0
+        }
+      ]
+    },
+    "withdrawal": {
+      "count": 9,
+      "all_receipts_successful": true,
+      "transactions": [
+        {
+          "hash": "0x63dd8b02e0bb29116b6bd44cc4fcdc81c03b8491c403ed9d7080e19fb61f2053",
+          "status": 1,
+          "block_number": 13,
+          "block_hash": "0x9d21b232d67f802a4f08eb5a7c921c7949f4423377b2091717b0e77095484430",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x320e1d94f502c8d4e95b27fee0e5188008d974992df8b1620ebf442f153f04ed",
+          "status": 1,
+          "block_number": 14,
+          "block_hash": "0xa0b6ca1e54b04ea43c92679e28b5008a327fcdc0222e0cc8b5e14b238a5503c1",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x9e8d5a767fc776064781dc8df2a8a91073ebbfce5288b54f499102dd7780ac99",
+          "status": 1,
+          "block_number": 15,
+          "block_hash": "0xca1068141f121bf42f8eb4969c5128d80d80d7d7f54704da65cfffe7abd60b24",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0x0b9f4072294d319bc2d7ae58b39b421b4f095b885360c20d2c01d70452a3207a",
+          "status": 1,
+          "block_number": 17,
+          "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+          "transaction_index": 2
+        },
+        {
+          "hash": "0x1b9659faffba002bf3b41d6abaf811a5829bc742de165475d28807ab3224279c",
+          "status": 1,
+          "block_number": 17,
+          "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+          "transaction_index": 4
+        },
+        {
+          "hash": "0x0dbcd71b62fb4d56ee41a434761576b8f313fce503fcd2efc088fe623ae2078b",
+          "status": 1,
+          "block_number": 16,
+          "block_hash": "0xc44a98088b8b7d78178acea8809a5a00638e82f4f358e09cf6a38cc8713387d7",
+          "transaction_index": 0
+        },
+        {
+          "hash": "0xfde0b10b664f4f7ba406d6e07684b28ec48fbae70594ec51b41c087384f4dd59",
+          "status": 1,
+          "block_number": 17,
+          "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+          "transaction_index": 1
+        },
+        {
+          "hash": "0xfd79ffc9436d32118af3ac924d5b0b3ecb1b35e7ac9003b98b837be7eda4680b",
+          "status": 1,
+          "block_number": 17,
+          "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+          "transaction_index": 3
+        },
+        {
+          "hash": "0x1e64ddf7126839fafc0e544ce0a33ee6b1cb9d4e932eba7a9fb81885372cf856",
+          "status": 1,
+          "block_number": 17,
+          "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+          "transaction_index": 0
+        }
+      ]
+    }
+  },
+  "identity": {
+    "program_id": "source-bound-entitlement-sp1-program.v1",
+    "proof_system": "groth16",
+    "vkey": "0x00d90efa52d17e54670a4248f001e4da443a938f12c55d0d414c125ba68087b9",
+    "elf_sha256": "0x636330de8e7af3485aba50bd3ca4b5e024cc4f977a2bf0f2c005f711e5ffacf8",
+    "operation_id": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+    "manifest_digest": "sha256:e9ab2ed1ba0494d9e457ace966b789fcae9332cc42a2dd6c62f3339eeee356f8",
+    "witness_sha256": "0x4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63",
+    "proof_sha256": "0xe05b68dbeeae20194c0664946c304ed006c42a818e371b1d6466c7a1d57d725b",
+    "public_values_length": 288
+  },
+  "foundry_fork_tests": {
+    "status": "pass",
+    "passed": 4,
+    "failed": 0,
+    "tests": [
+      "test_DeploymentWitnessReconstructsProvedLogicalTable",
+      "test_RealSuccessorProofAdmitsRatifiesFundsAndActivates",
+      "test_RealSuccessorProofAdmitsRatifiesFundsAndRefunds",
+      "test_RealSuccessorProofWithdrawsAcrossLiveRequestedRequiredModes"
+    ],
+    "note": "Executed against the fresh deployment before persistent funding; the fork test state was isolated from the persistent Anvil run."
+  },
+  "final_state": {
+    "block_number": 17,
+    "block_hash": "0x4c203c0b7c8b5bab50550c4a11c5df3ace11011c0c597ab7ad5a97436496ad5f",
+    "allocator_operation_state": 5,
+    "claimed_amount": 70,
+    "claimed_count": 3,
+    "outstanding_liability": 0,
+    "allocator_token_balance": 0,
+    "reserve_token_balance": 10,
+    "protected_capital": 10,
+    "total_reserved": 0,
+    "current_proof_mode": 0,
+    "beneficiary_balances": [
+      35,
+      21,
+      14
+    ],
+    "checks": {
+      "operation_closed": true,
+      "amount_and_count_complete": true,
+      "liability_zero": true,
+      "allocator_empty": true,
+      "reserve_retains_protected_capital": true,
+      "no_reserved_balance": true,
+      "beneficiary_payouts_35_21_14": true
+    }
+  }
+}

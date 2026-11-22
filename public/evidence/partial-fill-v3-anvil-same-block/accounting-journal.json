@@ -1,0 +1,118 @@
+{
+  "schema": "prf.partial-fill-anvil-same-block-accounting-journal.v1",
+  "entries": [
+    {
+      "entryId": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb:transfer:debit",
+      "transferId": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb:transfer",
+      "side": "debit",
+      "account": "allocator-custody",
+      "amount": 35,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 0,
+        "claimId": "claim-a",
+        "beneficiary": "0x1111111111111111111111111111111111111111",
+        "amount": 35,
+        "transactionHash": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    },
+    {
+      "entryId": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb:transfer:credit",
+      "transferId": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb:transfer",
+      "side": "credit",
+      "account": "beneficiary:0x1111111111111111111111111111111111111111",
+      "amount": 35,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 0,
+        "claimId": "claim-a",
+        "beneficiary": "0x1111111111111111111111111111111111111111",
+        "amount": 35,
+        "transactionHash": "0x3d84652640a5ff9c9398a92ea59a5b0d92a92e6db38868a566c634f6de38aacb"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    },
+    {
+      "entryId": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1:transfer:debit",
+      "transferId": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1:transfer",
+      "side": "debit",
+      "account": "allocator-custody",
+      "amount": 21,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 1,
+        "claimId": "claim-b",
+        "beneficiary": "0x2222222222222222222222222222222222222222",
+        "amount": 21,
+        "transactionHash": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    },
+    {
+      "entryId": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1:transfer:credit",
+      "transferId": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1:transfer",
+      "side": "credit",
+      "account": "beneficiary:0x2222222222222222222222222222222222222222",
+      "amount": 21,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 1,
+        "claimId": "claim-b",
+        "beneficiary": "0x2222222222222222222222222222222222222222",
+        "amount": 21,
+        "transactionHash": "0x9c83389908d22b34226853bf81170f0e2a10680153b21f852d072c0053b74fa1"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    },
+    {
+      "entryId": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2:transfer:debit",
+      "transferId": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2:transfer",
+      "side": "debit",
+      "account": "allocator-custody",
+      "amount": 14,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 2,
+        "claimId": "claim-c",
+        "beneficiary": "0x3333333333333333333333333333333333333333",
+        "amount": 14,
+        "transactionHash": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    },
+    {
+      "entryId": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2:transfer:credit",
+      "transferId": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2:transfer",
+      "side": "credit",
+      "account": "beneficiary:0x3333333333333333333333333333333333333333",
+      "amount": 14,
+      "economicIdentity": {
+        "operationId": "0x6fbe4a9888b84c0245dcc21e15835a7e7c5ede9b9fc42a77baf0600b8f46a414",
+        "chainId": 31337,
+        "asset": "0x5615deb798bb3e4dfa0139dfa1b3d433cc23b72f",
+        "entitlementIndex": 2,
+        "claimId": "claim-c",
+        "beneficiary": "0x3333333333333333333333333333333333333333",
+        "amount": 14,
+        "transactionHash": "0x991fd6a5b4ab431d36794fc4cd68481cc07a7824585af11ac41061a24cb9a5d2"
+      },
+      "source": "Anvil ERC-20 Transfer receipt log"
+    }
+  ],
+  "debits": 70,
+  "credits": 70,
+  "restrictedCapitalRemaining": 10,
+  "balanced": true,
+  "sourceScope": "Independent Anvil receipts and ERC-20 Transfer logs; no refund/finalization transaction"
+}

@@ -1,14 +1,7 @@
 import type { PublicDemo } from '../../lib/public-demo'
+import { executableNotebookHref } from '../../lib/site-links'
 import ExtLink from '../common/ExtLink'
 import styles from './proof-cta.module.css'
-
-// The executable notebooks live on the Clerk server in dev (localhost:7777)
-// and are composed into the static export at /lab/notebooks/<name> in the
-// production build (bb demo:public-lab). NODE_ENV is inlined at build time.
-const NOTEBOOK_BASE =
-  process.env.NODE_ENV === 'production'
-    ? '/lab/notebooks' // static Clerk build composes here at publication
-    : 'http://localhost:7777/notebooks' // live Clerk dev server
 
 const PREVIEW: Partial<Record<PublicDemo['demo']['id'], { src: string; alt: string }>> = {
   'liquidity-shortfall': {
@@ -19,7 +12,7 @@ const PREVIEW: Partial<Record<PublicDemo['demo']['id'], { src: string; alt: stri
 
 export default function TechnicalProofCTA({ demo }: { demo: PublicDemo }) {
   const notebook = demo.source.notebook
-  const href = `${NOTEBOOK_BASE}/${notebook}`
+  const href = executableNotebookHref(notebook)
   const preview = PREVIEW[demo.demo.id]
   const notebookLabel = `the ${demo.source.notebook.replaceAll('_', ' ')} notebook`
   return (
@@ -35,7 +28,7 @@ export default function TechnicalProofCTA({ demo }: { demo: PublicDemo }) {
         <ul className={styles.points}>
           <li>Original result preserved</li>
           <li>Result carried through to the evidence</li>
-          <li>Committed signature in every artifact</li>
+          <li>Committed result hash in the artifact</li>
           <li>Reproducible from a single command</li>
         </ul>
         <div className={styles.ctas}>

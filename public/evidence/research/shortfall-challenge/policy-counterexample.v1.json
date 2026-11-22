@@ -1,0 +1,114 @@
+{
+  "schema": "research-shortfall-counterexample-record.v1",
+  "status": "local arithmetic recomputation; Challenge 001 candidate gate blocked",
+  "recorded_date": "2026-10-11",
+  "subject": {
+    "claim": "The two declared cap-excess redistribution policies produce identical per-row allocations across the bounded shortfall domain.",
+    "scope": "One finite, test-only identifier variant of the published calibration case; this does not establish novelty, a general theorem or a live protocol vulnerability."
+  },
+  "scenario": {
+    "allocation_id": "researcher-pilot/non-calibration-test-case",
+    "available": 100,
+    "rows": [
+      {
+        "row_id": "claim/a",
+        "requested": 100,
+        "cap": 10
+      },
+      {
+        "row_id": "claim/b",
+        "requested": 100,
+        "cap": null
+      },
+      {
+        "row_id": "claim/c",
+        "requested": 100,
+        "cap": null
+      }
+    ],
+    "policy_results": [
+      {
+        "policy": "unallocated",
+        "policy_root": "sha256:14c1ae6efdb928b134d91bb6aa61ff2e4c7f7b71ad5dddb3e8b7bf84de588143",
+        "result_root": "sha256:e49ed7d3e2d3892b4ed487b614142c3ae9e50196efc49a83c3c8c82a6a295b1b",
+        "allocated_by_row": [
+          10,
+          33,
+          33
+        ],
+        "total_allocated": 76,
+        "result_hash_valid": true,
+        "invariant_violations": []
+      },
+      {
+        "policy": "redistribute-cap-excess",
+        "policy_root": "sha256:2e4c81dc89c3a0b5b15f8a110ceeb66fe1a802fb1f0322ae3e58fed4cef9aeb9",
+        "result_root": "sha256:2d61bc61c8b006dd45e49bf1da558cbae71719f2f9a949a0427dbc7d85e36b93",
+        "allocated_by_row": [
+          10,
+          45,
+          45
+        ],
+        "total_allocated": 100,
+        "result_hash_valid": true,
+        "invariant_violations": []
+      }
+    ],
+    "maximum_absolute_row_difference": 12,
+    "comparison_root": "sha256:8222e508ae052fdf8917335a6249d3b722f30096d65df6dcbed6600c34452fff",
+    "case_root": "sha256:4436c212ea6ee7042588eec67813d06b406cb115d708b80dd3999a51d791014a",
+    "relationship_to_calibration": "Same economic rows and available capital as the published calibration pair; only the allocation identifier is changed for the test. Identifier changes alone do not establish novelty."
+  },
+  "candidate_gate": {
+    "status": "blocked",
+    "reason": "challenge-001-policy-root-mismatch",
+    "candidate_expected_policy_roots": [
+      "sha256:c9b75428ebefc36181eafc248091e38003f7e9a7445720ab8063e19039c26505",
+      "sha256:9dbae4b0a79c855b422e8c156b717899840687548c70f60ae8f7b95234568890"
+    ],
+    "recomputed_policy_roots": [
+      "sha256:14c1ae6efdb928b134d91bb6aa61ff2e4c7f7b71ad5dddb3e8b7bf84de588143",
+      "sha256:2e4c81dc89c3a0b5b15f8a110ceeb66fe1a802fb1f0322ae3e58fed4cef9aeb9"
+    ],
+    "acceptance": "none",
+    "reward_eligibility": "none",
+    "payment": "none"
+  },
+  "provenance": {
+    "computation": "resolver-sim.research.shortfall-pilot/execute-comparison",
+    "attempted_candidate_validation": "resolver-sim.research.shortfall-pilot/validate-challenge-001-scope-candidate!",
+    "test_reference": "test/resolver_sim/research/shortfall_pilot_test.clj :: challenge-001-scope-candidate-is-bounded-and-non-admitting",
+    "source_revision": "not pinned; generated from the available local working copy",
+    "source_files": [
+      {
+        "path": "evidence/source/research/shortfall_pilot.clj",
+        "sha256": "8d85bd0db134c833eacec257c63f3db4e03cbba583b7b80f796bc47dccce6103"
+      },
+      {
+        "path": "evidence/source/research/allocation.clj",
+        "sha256": "6f2911218ee3829c62276a80f8ccbc9b290872c3fca8ec1884f7ba77dedfddac"
+      }
+    ],
+    "inputs": [
+      {
+        "path": "evidence/research/shortfall-challenge/test-id-variant-unallocated.v1.edn",
+        "sha256": "0bed3531caf2612646c946c989de31470ef2f2119925aad0db755dacfc9ad37e"
+      },
+      {
+        "path": "evidence/research/shortfall-challenge/test-id-variant-redistribute.v1.edn",
+        "sha256": "c2269abb44d69b5b606c6c9e545128489ae70c30a57688906b3fe00887654de5"
+      },
+      {
+        "path": "evidence/research/shortfall-challenge/challenge-001-scope-candidate.v1.edn",
+        "sha256": "d7ba9ae82ee2fb961040ab53e021a697832ac33111435651686c5b6a72780f08"
+      }
+    ]
+  },
+  "limitations": [
+    "This is a local replay of one bounded allocator case, not an accepted researcher submission.",
+    "The candidate's pinned policy roots do not match the policy roots recomputed by the current allocator; candidate validation stops at that gate.",
+    "A policy difference is not itself an invariant failure. Both result invariant sets are empty.",
+    "The candidate is not frozen, published or open for submissions; no reviewer decision, eligibility record, reward obligation or payment is represented.",
+    "The comparison input is an identifier-only variant of the published calibration economics; novelty is not established and this must not receive novelty credit on this basis."
+  ]
+}

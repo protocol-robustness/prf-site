@@ -1,0 +1,50 @@
+{
+  "schema": "prf.entitlement-table-deployment-bound-observation.v1",
+  "classification": "local deployment observation; not a production or Base/L2 qualification",
+  "date": "2026-10-11",
+  "environment": {
+    "client": "Anvil 1.7.1",
+    "chain_id": 31337,
+    "block_gas_limit": 30000000,
+    "creation_bytecode_bytes": 2431,
+    "constructor_fixed_abi_bytes": 128,
+    "per_entitlement_abi_bytes": 32,
+    "eip3860_max_initcode_bytes": 49152
+  },
+  "profile_statement": "For this exact constructor encoding, up to 1,000 entitlements is the conservative local operational qualification profile. 1,456 is the technical one-shot initcode ceiling, not a recommended supported size. No on-chain count cap is enforced.",
+  "observations": [
+    {
+      "count": 1000,
+      "input_bytes": 34559,
+      "result": "deployed",
+      "tx_hash": "0xf2648355e29106ddbfa4b294ea5df53d40579a1e5da29ad9395cd0f4596cf935",
+      "block": 1,
+      "gas_used": 8261563,
+      "receipt_status": 1
+    },
+    {
+      "count": 1456,
+      "input_bytes": 49151,
+      "result": "deployed",
+      "tx_hash": "0x1495c9698dfaa1eba655bedd94b0658ae571aa8e69076a0c804bbd0ffc0a8063",
+      "block": 2,
+      "gas_used": 11999265,
+      "receipt_status": 1
+    },
+    {
+      "count": 1457,
+      "input_bytes": 49183,
+      "result": "rejected-before-execution",
+      "rpc_error": "max initcode size exceeded"
+    }
+  ],
+  "derivation": "creation input bytes = 2,431-byte creation bytecode + 128 fixed constructor ABI bytes + 32 bytes per entitlement; verified against successful and rejected Forge script submissions",
+  "limits": [
+    "This is an Anvil/EIP-3860 observation for the current constructor and bytecode.",
+    "The 10,000-entry local-gas benchmark is not a deployable one-shot constructor under EIP-3860.",
+    "Base execution/data-availability costs and staged physical deployment are not qualified.",
+    "The count profile is operational documentation only; the contract does not enforce it."
+  ],
+  "probe": "script/EntitlementInitcodeProbe.s.sol:EntitlementInitcodeProbe (disposable probe removed after use)",
+  "command_shape": "COUNT=<n> PRIVATE_KEY=<local Anvil key> forge script script/EntitlementInitcodeProbe.s.sol:EntitlementInitcodeProbe --rpc-url <local Anvil RPC> --broadcast"
+}

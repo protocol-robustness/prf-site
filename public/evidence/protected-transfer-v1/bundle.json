@@ -1,0 +1,100 @@
+{
+  "schema": "prf-evm.protected-withdrawal-portable-bundle.v1",
+  "run_id": "gate-e-20261010-current-00d90",
+  "chain_id": 31337,
+  "operation_id": "0x809b4fbdb632eba4671e5d5f35a37ff12aa4ae28e1ec84aece40972b1138755d",
+  "verification_scope": "portable-artifact-integrity-and-fresh-local-anvil-replay",
+  "replay_status": "fresh-anvil-replay-pass; independent-operator-repeat-pending",
+  "verifier_sha256": "6fadf85c2172056fc933a5efe89c74cf8d9a986b7e903be0eb055257b121fc94",
+  "readme_sha256": "d7e81640bf0ae982ec621cdf00fe9d51b32a9a58d858eac6a739c58f376d181b",
+  "artifacts": {
+    "manifest.json": {
+      "bytes": 2609,
+      "sha256": "a550b4897d801e865120b67437776b89a4985f93ae716203ecaa1e1c46bba380"
+    },
+    "witness.json": {
+      "bytes": 3674,
+      "sha256": "4783067b57e5a1e8f6b61d6533269fde8b8c89cf5302ac97648ce8a6769ddb63"
+    },
+    "gate-e-proof-fixture.json": {
+      "bytes": 2620,
+      "sha256": "54129820a960a2edabe23167518a286baa43d2c7902ac9bd1b58884678c1cf67"
+    },
+    "deployment-broadcast.json": {
+      "bytes": 214352,
+      "sha256": "9987774346947e2f6b187e048ad8b2b47e36957536f74a27a913e39d0c504032"
+    },
+    "funding-broadcast.json": {
+      "bytes": 27164,
+      "sha256": "4e00f30fd46c621b33e40b9f8a4348fb6c327a037a11a74d895d3696d8660358"
+    },
+    "activation-broadcast.json": {
+      "bytes": 12020,
+      "sha256": "3a00547b6111f3e3077069ecabf294a0f3396f5f8a80becc913e9c1a2fc49a13"
+    },
+    "withdrawal-broadcast.json": {
+      "bytes": 38917,
+      "sha256": "e39951c7a58277713391f202267d10324fda28ea608f16396730a847a8ad947b"
+    },
+    "funding-forensic.json": {
+      "bytes": 38691,
+      "sha256": "0ea4677375311dcfe5cc97267425e1c5ecf0884750a37d577c6fc548ce3799d8"
+    },
+    "activation-forensic.json": {
+      "bytes": 17694,
+      "sha256": "587684b9217ef26cd1800e40bf858b169f057efeff8da647501379562b2f74a5"
+    },
+    "withdrawal-forensic.json": {
+      "bytes": 50258,
+      "sha256": "fd68b5467aa08f334e86faee7bcbdf2a3697570e315bd7f7a7a43b7afd9481e9"
+    },
+    "execution-dag.json": {
+      "bytes": 9900,
+      "sha256": "ee367543b1e7f27fd438571ac1fc8a66312d56b830e00a88b0838144a3c2938b"
+    },
+    "activation-execution-dag.json": {
+      "bytes": 3779,
+      "sha256": "cdcd60725723f5e42920f1ce022ccbefd4de69250b61c9c51b72a721e6e2ca71"
+    },
+    "withdrawal-execution-dag.json": {
+      "bytes": 13871,
+      "sha256": "539269cd0f35f16824a1162100d7a2f1bab1a6d8536c40e1e1c6afb989898980"
+    },
+    "source-bound-entitlement-v1.json": {
+      "bytes": 28519,
+      "sha256": "a8a9310fbc439a7d9d21d60078cfce78f714cdaafeebd8d27c2b0a80e2310848"
+    },
+    "proof-raw.json": {
+      "bytes": 1829,
+      "sha256": "585d20fc38e19d25acf24be1547225c441d2ff4944b3d8711e0e41acb6d43ea5"
+    },
+    "witness-provenance.json": {
+      "bytes": 390,
+      "sha256": "aaa2adaf3f16ae07137831b90b38c306a15dd0a7a7c48a87801c27a2ebf13c80"
+    },
+    "replay-deployment-broadcast.json": {
+      "bytes": 214312,
+      "sha256": "0debfb29867f7e45072c69deea49832444e2fca433fc9bf3065f78c06c3d76d7"
+    },
+    "replay-funding-broadcast.json": {
+      "bytes": 27152,
+      "sha256": "19408ef89bebda9c1d2d80c94690d76e3174552e0ef8a88935e4650ef53b63cf"
+    },
+    "replay-activation-broadcast.json": {
+      "bytes": 12017,
+      "sha256": "64afe563e46c2d30107091a1d2a8a0ae6edc2034f82af062dee0bf78e4fbc6bc"
+    },
+    "replay-withdrawal-broadcast.json": {
+      "bytes": 38902,
+      "sha256": "3322b562028b2f3b4ce12e99a0488ddcafa675c8042f0925f8afaab393d12462"
+    },
+    "replay-funding-forensic.json": {
+      "bytes": 38633,
+      "sha256": "7b80781f47576c74427b37b0baf63556e937feed95ddf9092be648d154baabee"
+    },
+    "fresh-anvil-replay.json": {
+      "bytes": 17488,
+      "sha256": "4677fd4ebe2156e4b3d16d352be30bbca4d086f58c32e40fedf3d35f9bfeda99"
+    }
+  }
+}

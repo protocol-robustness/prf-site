@@ -1,0 +1,11 @@
+.panel { margin-top: 1rem; padding: .9rem 1rem; border: 1px solid var(--border); border-radius: 9px; color: var(--fg); background: var(--surface); }
+.panel summary { color: var(--primary); font-weight: 700; cursor: pointer; }
+.panel summary:focus-visible, .download:focus-visible { outline: 3px solid var(--changed); outline-offset: 3px; }
+.scope { max-width: 85ch; color: var(--fg-secondary); font-size: .82rem; line-height: 1.5; }
+.records { display: grid; gap: .7rem; margin: 1rem 0; padding-left: 1.4rem; }
+.records li { padding: .75rem; border: 1px solid var(--border); background: var(--bg); }
+.recordHeading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem; }
+.recordHeading span, .records code { color: var(--fg-secondary); font-size: .74rem; }
+.records code { display: inline-block; margin-top: .35rem; color: var(--primary); }
+.records pre { max-height: 18rem; overflow: auto; margin: .45rem 0 0; color: var(--fg); font: .75rem/1.5 var(--font-mono, monospace); white-space: pre-wrap; overflow-wrap: anywhere; }
+.download { padding: .6rem .8rem; border: 1px solid var(--primary); border-radius: 6px; color: var(--bg); background: var(--primary); font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }

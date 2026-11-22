@@ -8,10 +8,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "pnpm verify:protected-transfer",
     "start": "next start",
     "check": "next build",
     "typecheck": "tsc --noEmit",
-    "verify:demos": "node scripts/verify-demos.mjs"
+    "verify:demos": "node scripts/verify-demos.mjs && node scripts/verify-research-demos.mjs && node scripts/verify-shortfall-allocation.mjs && node scripts/verify-canonical-comparison.mjs && node scripts/verify-partial-fill.mjs && node scripts/verify-partial-fill-accounting.mjs && pnpm verify:protected-transfer",
+    "verify:protected-transfer": "node scripts/verify-protected-transfer.mjs && node --test scripts/protected-transfer.test.mjs",
+    "verify:composed-pro-rata-publication": "node scripts/verify-composed-pro-rata-publication.mjs",
+    "verify:flagship": "node scripts/verify-shortfall-flagship.mjs",
+    "verify:links": "node scripts/verify-export-links.mjs",
+    "verify:shortfall-evidence": "node scripts/verify-shortfall-evidence.mjs && node --test scripts/shortfall-dossier.test.mjs",
+    "verify:shortfall-pin": "node scripts/verify-shortfall-evidence.mjs",
+    "verify:parallel-partial-fill": "node scripts/verify-parallel-partial-fill.mjs"
   },
   "dependencies": {
     "next": "15.5.23",

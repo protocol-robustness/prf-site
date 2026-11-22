@@ -1,0 +1,29 @@
+{
+  "schema": "eae.site.protected-transfer-negative-test.v1",
+  "classification": "isolated local Foundry contract unit test; not a transaction from the protected-transfer operation",
+  "repository": "prf-evm",
+  "sourceRevision": "4cfa2f96a4938d23abda609dfff9052b177ef8af",
+  "sourceUrl": "https://github.com/protocol-robustness/prf-evm/blob/4cfa2f96a4938d23abda609dfff9052b177ef8af/test/SourceBoundProRataRatificationControllerV2.t.sol#L131",
+  "testSource": {
+    "path": "test/SourceBoundProRataRatificationControllerV2.t.sol",
+    "sha256": "fdc99db1ef1b3ed99d26b0a5d67638052fd7effcf747aecf11e44e5b51bc4b8e",
+    "line": 131
+  },
+  "testName": "test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator",
+  "command": "forge test --match-test test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator -vv",
+  "result": "PASS",
+  "expectedRejection": "SourceBoundProRataRatificationControllerV2.PreparedContextMismatch",
+  "postcondition": "assurance.consumed(RECEIPT) == false",
+  "case": {
+    "kind": "prepared-allocator-versus-reserve-bound-allocator-mismatch",
+    "preparedOperationAllocator": "0x0000000000000000000000000000000000009999",
+    "reserveBoundAllocator": "0x0000000000000000000000000000000000003333",
+    "testOperation": "keccak256(\"op-successor\")"
+  },
+  "testOutput": "No files changed, compilation skipped\n\nRan 1 test for test/SourceBoundProRataRatificationControllerV2.t.sol:SourceBoundProRataRatificationControllerV2Test\n[PASS] test_SuccessorRejectsPreparedAllocatorDifferentFromFundedAllocator() (gas: 475770)\nSuite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.03ms (475.58µs CPU time)\n\nRan 1 test suite in 22.14ms (3.03ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)\n",
+  "limitations": [
+    "The test executes in Foundry's local test VM; it does not mine a transaction or produce an on-chain receipt.",
+    "It uses its own test-harness operation and is separate from the primary protected-transfer operation.",
+    "It proves the prepared allocator mismatch is rejected against the reserve-bound allocator; it is not a caller-selected destination argument test."
+  ]
+}

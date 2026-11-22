@@ -1,0 +1,20 @@
+{
+  "schema": "eae.site-publication-pin.v1",
+  "sourceRepository": "prf-evm",
+  "sourceRevision": "10f592994975bb6f51e12b6f94bd190c06bbbd27",
+  "manifestSha256": "753ce78c324bc6793366ecc5c868952baedec6bc2727fe096e9be93e03010564",
+  "validatedProjectionSha256": "3ffb48f8ffc2e95e47a853de9c3eb37609eda8fbab2020df435e336a3711a121",
+  "publishedNotebookHtmlSha256": "8b4d3696c3ec115ef44f5d97942b67d085478b00bee3b744994c4310efeccde4",
+  "qualification": {
+    "executionNetwork": "local Foundry chain ID 31337",
+    "publicChainExecution": false,
+    "minedPublicReceipts": false,
+    "externalRequestAuthentication": false,
+    "externalAuthorityAuthentication": false,
+    "componentVersions": {
+      "proofAndPublicValues": "V1",
+      "allocatorAndOperationPreparation": "V2",
+      "reserveLifecycle": "V3"
+    }
+  }
+}

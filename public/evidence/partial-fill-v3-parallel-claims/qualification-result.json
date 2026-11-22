@@ -1,0 +1,520 @@
+{
+  "schema": "prf-evm.partial-fill-v3-parallel-claims.v1",
+  "status": "PASS",
+  "sourceRevision": "1070b0c0fbb790579be9958d56385c896a0131f3",
+  "sourceTestSha256": "e722d7e00cf60c413e2662788232fa3a76ec382d465cde4391678b952643ae7c",
+  "rawLogSha256": "cecd797deaa847ad2dcd341d148b4f34b51d52cc59d158da9aab4fe60f600b37",
+  "permutationMatrix": [
+    {
+      "order": "ABC",
+      "executionIdentity": "0xf80960e4e7280917a12dd117ff0acfa7c7e01ac6fbdfd5387519864c090d7055",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ],
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ],
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0xf80960e4e7280917a12dd117ff0acfa7c7e01ac6fbdfd5387519864c090d7055",
+          "step": 1,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 0,
+          "claimedAmount": 35,
+          "outstandingLiability": 35
+        },
+        {
+          "executionIdentity": "0xf80960e4e7280917a12dd117ff0acfa7c7e01ac6fbdfd5387519864c090d7055",
+          "step": 2,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 14,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 0,
+          "claimedAmount": 56,
+          "outstandingLiability": 14
+        },
+        {
+          "executionIdentity": "0xf80960e4e7280917a12dd117ff0acfa7c7e01ac6fbdfd5387519864c090d7055",
+          "step": 3,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    },
+    {
+      "order": "ACB",
+      "executionIdentity": "0x1c15e5791f2e8ecc0b620eab545882ed4f41d2b83bd8b21a41cc7ca24592af0f",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ],
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ],
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0x1c15e5791f2e8ecc0b620eab545882ed4f41d2b83bd8b21a41cc7ca24592af0f",
+          "step": 1,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 0,
+          "claimedAmount": 35,
+          "outstandingLiability": 35
+        },
+        {
+          "executionIdentity": "0x1c15e5791f2e8ecc0b620eab545882ed4f41d2b83bd8b21a41cc7ca24592af0f",
+          "step": 2,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 21,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 14,
+          "claimedAmount": 49,
+          "outstandingLiability": 21
+        },
+        {
+          "executionIdentity": "0x1c15e5791f2e8ecc0b620eab545882ed4f41d2b83bd8b21a41cc7ca24592af0f",
+          "step": 3,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    },
+    {
+      "order": "BAC",
+      "executionIdentity": "0x78f21e76962f9462810e2724fdffd9a23af66c11b00a7a8f0d95ebe7b4ad72ac",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ],
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ],
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0x78f21e76962f9462810e2724fdffd9a23af66c11b00a7a8f0d95ebe7b4ad72ac",
+          "step": 1,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 49,
+          "aliceBalance": 0,
+          "bobBalance": 21,
+          "carolBalance": 0,
+          "claimedAmount": 21,
+          "outstandingLiability": 49
+        },
+        {
+          "executionIdentity": "0x78f21e76962f9462810e2724fdffd9a23af66c11b00a7a8f0d95ebe7b4ad72ac",
+          "step": 2,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 14,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 0,
+          "claimedAmount": 56,
+          "outstandingLiability": 14
+        },
+        {
+          "executionIdentity": "0x78f21e76962f9462810e2724fdffd9a23af66c11b00a7a8f0d95ebe7b4ad72ac",
+          "step": 3,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    },
+    {
+      "order": "BCA",
+      "executionIdentity": "0xb3d65ee7de5b54457f6a1842706e89135d91904bdefb5ddfb05933d97de2288c",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ],
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ],
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0xb3d65ee7de5b54457f6a1842706e89135d91904bdefb5ddfb05933d97de2288c",
+          "step": 1,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 49,
+          "aliceBalance": 0,
+          "bobBalance": 21,
+          "carolBalance": 0,
+          "claimedAmount": 21,
+          "outstandingLiability": 49
+        },
+        {
+          "executionIdentity": "0xb3d65ee7de5b54457f6a1842706e89135d91904bdefb5ddfb05933d97de2288c",
+          "step": 2,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 0,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 35,
+          "outstandingLiability": 35
+        },
+        {
+          "executionIdentity": "0xb3d65ee7de5b54457f6a1842706e89135d91904bdefb5ddfb05933d97de2288c",
+          "step": 3,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    },
+    {
+      "order": "CAB",
+      "executionIdentity": "0x7b3a5ba7ca98cae8543a6bff16a0268fae7ee4f55e6e8a1c6f72d8d81b705563",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ],
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ],
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0x7b3a5ba7ca98cae8543a6bff16a0268fae7ee4f55e6e8a1c6f72d8d81b705563",
+          "step": 1,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 56,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 14,
+          "claimedAmount": 14,
+          "outstandingLiability": 56
+        },
+        {
+          "executionIdentity": "0x7b3a5ba7ca98cae8543a6bff16a0268fae7ee4f55e6e8a1c6f72d8d81b705563",
+          "step": 2,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 21,
+          "aliceBalance": 35,
+          "bobBalance": 0,
+          "carolBalance": 14,
+          "claimedAmount": 49,
+          "outstandingLiability": 21
+        },
+        {
+          "executionIdentity": "0x7b3a5ba7ca98cae8543a6bff16a0268fae7ee4f55e6e8a1c6f72d8d81b705563",
+          "step": 3,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    },
+    {
+      "order": "CBA",
+      "executionIdentity": "0x96d10729c3b692b27757e67a2977ec86be79025478a757675d91fa35a41cf248",
+      "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+      "claimTransfers": [
+        [
+          "0x3333333333333333333333333333333333333333",
+          14
+        ],
+        [
+          "0x2222222222222222222222222222222222222222",
+          21
+        ],
+        [
+          "0x1111111111111111111111111111111111111111",
+          35
+        ]
+      ],
+      "restrictedRefund": {
+        "recipient": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      },
+      "intermediateStates": [
+        {
+          "executionIdentity": "0x96d10729c3b692b27757e67a2977ec86be79025478a757675d91fa35a41cf248",
+          "step": 1,
+          "claim": "C",
+          "reserveBalance": 10,
+          "allocatorBalance": 56,
+          "aliceBalance": 0,
+          "bobBalance": 0,
+          "carolBalance": 14,
+          "claimedAmount": 14,
+          "outstandingLiability": 56
+        },
+        {
+          "executionIdentity": "0x96d10729c3b692b27757e67a2977ec86be79025478a757675d91fa35a41cf248",
+          "step": 2,
+          "claim": "B",
+          "reserveBalance": 10,
+          "allocatorBalance": 35,
+          "aliceBalance": 0,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 35,
+          "outstandingLiability": 35
+        },
+        {
+          "executionIdentity": "0x96d10729c3b692b27757e67a2977ec86be79025478a757675d91fa35a41cf248",
+          "step": 3,
+          "claim": "A",
+          "reserveBalance": 10,
+          "allocatorBalance": 0,
+          "aliceBalance": 35,
+          "bobBalance": 21,
+          "carolBalance": 14,
+          "claimedAmount": 70,
+          "outstandingLiability": 0
+        }
+      ]
+    }
+  ],
+  "normalizedTerminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+  "accountingReconciliation": {
+    "initialFunding": {
+      "observed": 80,
+      "restricted": 10,
+      "available": 70,
+      "holds": true
+    },
+    "successfulOrderCount": 6,
+    "allObservedClaimTransfersFromAllocator": true,
+    "allOrdersRefund10FromReserveToRecordedCarol": true,
+    "custodyAndLiabilityCheckedAfterEveryClaim": true,
+    "adversarialFailedTransferProducedNoTransferAndPreservedState": true,
+    "adversarialIntermediateStates": [
+      {
+        "executionIdentity": "0xa418da61c9bc8633e916dc2ef71d9ef50a5b7e5cf140a67770d32433a49fde3f",
+        "step": 1,
+        "claim": "B",
+        "reserveBalance": 10,
+        "allocatorBalance": 49,
+        "aliceBalance": 0,
+        "bobBalance": 21,
+        "carolBalance": 0,
+        "claimedAmount": 21,
+        "outstandingLiability": 49
+      },
+      {
+        "executionIdentity": "0xa418da61c9bc8633e916dc2ef71d9ef50a5b7e5cf140a67770d32433a49fde3f",
+        "step": 2,
+        "claim": "C",
+        "reserveBalance": 10,
+        "allocatorBalance": 35,
+        "aliceBalance": 0,
+        "bobBalance": 21,
+        "carolBalance": 14,
+        "claimedAmount": 35,
+        "outstandingLiability": 35
+      },
+      {
+        "executionIdentity": "0xa418da61c9bc8633e916dc2ef71d9ef50a5b7e5cf140a67770d32433a49fde3f",
+        "step": 3,
+        "claim": "A",
+        "reserveBalance": 10,
+        "allocatorBalance": 0,
+        "aliceBalance": 35,
+        "bobBalance": 21,
+        "carolBalance": 14,
+        "claimedAmount": 70,
+        "outstandingLiability": 0
+      }
+    ],
+    "adversarialTransferSequence": [
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x2222222222222222222222222222222222222222",
+        "amount": 21
+      },
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 14
+      },
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x1111111111111111111111111111111111111111",
+        "amount": 35
+      },
+      {
+        "from": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      }
+    ],
+    "journalScope": "derived from Foundry getter snapshots and token Transfer events; not double-entry accounting or separately mined receipt data"
+  },
+  "adversarialSequence": {
+    "order": "failed-A-then-BCA",
+    "executionIdentity": "0xa418da61c9bc8633e916dc2ef71d9ef50a5b7e5cf140a67770d32433a49fde3f",
+    "terminalProjectionRoot": "0x60936be9340c9232ed4503c54bc9d35ca92444bd60ccedf3c7e7aa9d325b996d",
+    "successfulTransfers": [
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x2222222222222222222222222222222222222222",
+        "amount": 21
+      },
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 14
+      },
+      {
+        "from": "0x03A6a84cD762D9707A21605b548aaaB891562aAb",
+        "to": "0x1111111111111111111111111111111111111111",
+        "amount": 35
+      },
+      {
+        "from": "0xD6BbDE9174b1CdAa358d2Cf4D57D1a9F7178FBfF",
+        "to": "0x3333333333333333333333333333333333333333",
+        "amount": 10
+      }
+    ]
+  },
+  "negativeOutcomes": [
+    {
+      "case": "same-entitlement-second-caller",
+      "revert": "EntitlementAlreadyConsumed(index=0)",
+      "stateUnchanged": true
+    },
+    {
+      "case": "cross-entitlement-reentrancy",
+      "revert": "Reentrant()",
+      "stateUnchangedForTarget": true
+    },
+    {
+      "case": "unauthorized-finalization",
+      "revert": "unauthorized operator",
+      "stateUnchanged": true
+    },
+    {
+      "case": "finalize-before-first-claim",
+      "revert": "OperationNotClosed()",
+      "stateUnchanged": true
+    },
+    {
+      "case": "finalize-with-unclaimed-entitlement",
+      "revert": "OperationNotClosed()",
+      "stateUnchanged": true
+    },
+    {
+      "case": "finalize-replay",
+      "revert": "InvalidState(Finalized)",
+      "stateUnchanged": true
+    },
+    {
+      "case": "recipient-substitution",
+      "revert": "InvalidTableProof()",
+      "stateUnchanged": true
+    }
+  ],
+  "focusedTests": 11,
+  "limitations": [
+    "Foundry call histories are not separately mined transactions or same-block receipts",
+    "No Anvil claim-submission harness exists for this controlled fixture",
+    "Three-entitlement fixture on local chain ID 31337 only"
+  ]
+}

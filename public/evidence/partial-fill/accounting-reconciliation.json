@@ -1,0 +1,96 @@
+{
+  "schema": "eae-partial-fill-accounting.v1",
+  "demo": {
+    "id": "partial-fill-accounting",
+    "page": "/demos/partial-fill-accounting",
+    "title": "From Partial Fill to Accounting: Where Do the 30 Units Go?"
+  },
+  "scope": "Derived scoped event projection over seven retained local Foundry EVM observations and observed token transfers; no public-chain execution or complete economic accounting.",
+  "source_manifest": {
+    "path": "/evidence/partial-fill/manifest.json",
+    "sha256": "4c8d0e777b58bfeb1a284aec8ef386e95a8ce20d72743ee2d335676aaeab2b14"
+  },
+  "source_qualification": {
+    "path": "/evidence/partial-fill/qualification.json",
+    "sha256": "03845e830dabac025d484686f5e1624a458a2ea854e135cea6a84cd13b2f4f62"
+  },
+  "source_transfers": {
+    "path": "/evidence/partial-fill/token-transfers.json",
+    "sha256": "a4738b3a9d8d4ad7f2ea624aa4453033a5a44ebca2e042fb6b26f4d731b91dcb"
+  },
+  "request_outcome": {
+    "requested": 100,
+    "allocated": 70,
+    "unmet": 30,
+    "equation": "100 = 70 allocated + 30 unmet request"
+  },
+  "funded_liability": {
+    "activated": 70,
+    "paid": 70,
+    "remaining": 0,
+    "equation": "70 activated = 70 paid + 0 remaining"
+  },
+  "custody": {
+    "fixture_deposit": 80,
+    "protected_reserve": 10,
+    "allocator_final": 0,
+    "beneficiary_payments": 70,
+    "equation": "80 deposited = 10 protected + 70 paid + 0 allocator"
+  },
+  "unmet_request_disposition": "Unmet request only; no deferred entitlement, funded liability, recognized loss, cancellation right or future obligation is created by this fixture.",
+  "qualification_boundary": "Initiator-specified source; local test token and local Foundry EVM observations, not public-chain receipts or cryptographic state proofs.",
+  "unmet_request_decomposition": {
+    "totalUnmet": 30,
+    "notDepositedAgainstRequests": 20,
+    "depositedButProtected": 10,
+    "equation": "30 unmet = 20 not deposited against requests + 10 deposited but protected",
+    "assumption": "The fixture’s 80-unit deposit is the complete source capital for these requests; its configured 10-unit protected floor is excluded from allocation. This does not qualify the floor’s beneficial owner, purpose or release/refund authority."
+  },
+  "intermediate_states": {
+    "path": "/evidence/partial-fill/accounting-states.json",
+    "sha256": "ada5b81e28b98e1ba59365e340b14e3ac5d649fa5f0c56594a200828d2128fd1",
+    "stages": [
+      "prepared",
+      "proofAdmitted",
+      "funded",
+      "activated",
+      "afterAlice",
+      "afterBob",
+      "closed"
+    ],
+    "note": "Seven retained call-boundary observations remain primary; they end at allocator closure, and final reserve settlement is not observed."
+  },
+  "protected_capital_policy": {
+    "path": "/evidence/partial-fill/protected-capital-policy.json",
+    "sha256": "b740431cdd04b14b6e6177306fae834953bfba0a3d701f695a1cdab6ee93975a",
+    "policy_root": "0xf00f30bf804737a8810322c3fb4f9c079537566877bb6a07d51f3b7ad73fcbf7",
+    "enforcement": "Carol attribution is declared by fixture policy; rights are neither independently proven nor contract-enforced by reserve V2."
+  },
+  "funding_attribution": {
+    "path": "/evidence/partial-fill/funding-attribution.json",
+    "sha256": "067a21533135689dd09c8051111a10bdfbe6b71444e1f42368301b2dbb0660d7",
+    "sponsor_transfer": 80,
+    "protected_for_carol_by_policy": 10,
+    "scope": "local synthetic test token"
+  },
+  "journal_projection": {
+    "status": "derived scoped event projection; not complete economic accounting or a double-entry ledger",
+    "path": "/evidence/partial-fill/accounting-journal.json",
+    "sha256": "a87428b39f4ff73858a28cfcc98d2566f434832717eb1aa3401505327d5724e3",
+    "projection_digest": "0640e2e2e1d85c19275c3b2a641c94fca87b640cf89a16ec04dadebcfe4649e6",
+    "record_count": 7,
+    "primary_evidence": "/evidence/partial-fill/accounting-states.json",
+    "scope": "Seven retained observations and observed transfer events; allocator closure only."
+  },
+  "unresolved_restricted_custody": {
+    "amount": 10,
+    "observed_location": "reserve custody at all seven retained observations",
+    "classification": "unresolved restricted custody",
+    "proposed_beneficiary": "Carol",
+    "attribution_status": "declared by fixture policy only; not independently proven as a legal or beneficial right",
+    "contract_enforcement": "not bound or enforced by frozen reserve V2",
+    "release_status": "not released; final reserve settlement not observed",
+    "policy_path": "/evidence/partial-fill/protected-capital-policy.json",
+    "funding_path": "/evidence/partial-fill/funding-attribution.json"
+  }
+}

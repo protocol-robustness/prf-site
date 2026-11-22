@@ -13,6 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout pinned PRF EVM evidence source
+        uses: actions/checkout@v4
+        with:
+          repository: protocol-robustness/prf-evm
+          ref: 10f592994975bb6f51e12b6f94bd190c06bbbd27
+          path: prf-evm
+          persist-credentials: false
+          submodules: false
+
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
@@ -29,5 +38,18 @@ jobs:
       - name: Verify demo artifacts
         run: pnpm verify:demos
 
+      - name: Verify shortfall flagship publication
+        run: pnpm verify:flagship
+
+      - name: Gate composed pro-rata publication evidence
+        run: pnpm verify:composed-pro-rata-publication
+        env:
+          PRF_EVM_ROOT: prf-evm
+
       - name: Build static export
         run: pnpm build
+
+      - name: Verify exported links and flagship anchors
+        run: |
+          pnpm verify:flagship --export
+          pnpm verify:links

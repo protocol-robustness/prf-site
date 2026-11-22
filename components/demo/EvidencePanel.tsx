@@ -13,7 +13,7 @@ export default function EvidencePanel({ demo }: { demo: PublicDemo }) {
       <div className={styles.heading}>Evidence</div>
 
       <div className={styles.block}>
-        <div className={styles.blockLabel}>Committed signature</div>
+        <div className={styles.blockLabel}>Committed result hash</div>
         <code className={styles.hash}>{evidence['committed-hash']}</code>
       </div>
 
@@ -22,7 +22,7 @@ export default function EvidencePanel({ demo }: { demo: PublicDemo }) {
         <ul className={styles.lines}>
           {evidence.lines.map(([label, value]) => (
             <li key={label}>
-              <span className={styles.lineLabel}>{label}</span>
+              <span className={styles.lineLabel}>{label === 'signatures' ? 'position-bound hashes' : label}</span>
               <code className={styles.lineValue}>{value}</code>
             </li>
           ))}

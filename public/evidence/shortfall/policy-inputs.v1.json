@@ -1,0 +1,37 @@
+{
+  "schema": "prf-shortfall-policy-inputs.v1",
+  "source": {
+    "repository": "prf-main",
+    "path": "src/resolver_sim/demos/liquidity_shortfall/scenario.clj",
+    "sha256": "080aba7d55f7769c6c459ba20f6d18b84b6fff070a5bb8e71c8b8ac0d2266642",
+    "source_revision": "not retained; identified by file hash"
+  },
+  "policy": {
+    "allocation": "pro-rata by request weight",
+    "rounding": "largest-remainder",
+    "tie_break": "canonical-row-id ascending",
+    "caps": "none declared",
+    "residual": "unallocated"
+  },
+  "canonical_request": {
+    "schema_version": "pro-rata-allocation-request.v1",
+    "mechanism_version": 1,
+    "allocation_id": "demo/liquidity-shortfall",
+    "rounding_policy": "largest-remainder",
+    "tie_break_policy": "canonical-row-id",
+    "redistribution_policy": "unallocated"
+  },
+  "input": {
+    "available": 70,
+    "requested_total": 100,
+    "rows": [
+      { "id": "alice", "requested": 50, "weight": 50, "cap": null },
+      { "id": "bob", "requested": 30, "weight": 30, "cap": null },
+      { "id": "cara", "requested": 20, "weight": 20, "cap": null }
+    ]
+  },
+  "binding": {
+    "request_hash": "311cb21f13a29eef9a822ebc6f2b8ac12492af5f721660e2c351190518d40e61",
+    "allocation_hash": "447bd6c537b9a74c966a82ded18d88165d61625842df19c55a5642f8bcecbefe"
+  }
+}

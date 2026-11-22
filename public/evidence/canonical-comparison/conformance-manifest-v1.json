@@ -1,0 +1,12 @@
+{
+  "schema": "prf-clean-conformance-manifest.v1",
+  "contract": "prf-clean-portable.v1",
+  "caseOrdering": "manifest-order",
+  "cases": [
+    {"id": "canonical-null", "fixture": "canonical-v1", "caseId": "null"},
+    {"id": "canonical-map-order", "fixture": "canonical-v1", "caseId": "map-ba"},
+    {"id": "canonical-unicode", "fixture": "canonical-v1", "caseId": "map-unicode"},
+    {"id": "pro-rata-primary", "fixture": "pro-rata-v1", "caseId": "primary"},
+    {"id": "pro-rata-multi-round", "fixture": "pro-rata-v1", "caseId": "multi-round"}
+  ]
+}
